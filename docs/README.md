@@ -1,8 +1,10 @@
 # Pix
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
 
-[heroku]: http://www.herokuapp.com
+  **URL:** https://projectpix.herokuapp.com/
+
+[heroku]: https://projectpix.herokuapp.com/
 
 ## Pix is ...
 
@@ -13,7 +15,7 @@ A web application inspired by Instagram built using Ruby on Rails and React/Redu
 - [ ] Images
 - [ ] Comments & Likes
 - [ ] Following & Photo feed
-- [ ] Infinite Scroll
+- [ ] Infinite Scroll/Pagination
 - [ ] Production README [sample](docs/production_readme.md)
 
 ## Design Docs
@@ -87,7 +89,7 @@ A web application inspired by Instagram built using Ruby on Rails and React/Redu
 - [ ] Style search
 - [ ]
 
-### Phase 5: Styling & Inifite Scroll (2 days, W2 Th 6pm)
+### Phase 5: Styling & Infinite/Pagination Scroll (2 days, W2 Th 6pm)
 
 **objective:** Allow rich text editing of notes.
 
@@ -100,13 +102,11 @@ A web application inspired by Instagram built using Ruby on Rails and React/Redu
 
 **objective:** Add infinite scroll to Notes Index
 
-- [ ] Paginate Notes Index API to send 20 results at a time
-- [ ] Append next set of results when user scrolls and is near bottom
+- [ ] Paginate `Images` API to send 10 results at a time
+- [ ] Append next set of results when user scrolls `Streams` and is near bottom
 - [ ] Style scroll components and transitions
 - [ ] Ensure seed data demonstrates infinite scroll
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] `Trends` Stream
+- [ ] `Direct messaging`
