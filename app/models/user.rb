@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
     self.session_token = User.generate_session_token
   end
 
+  def self.find_by_credential(email,pw)
+    user = User.find_by_emal(email)
+    if user
+      return user if user.is_password?(pw)
+    end
+    raise "email/pw combination not found"
+  end
+
 end
