@@ -8,3 +8,7 @@
 
 a = User.create(email: "calvinhlee23@gmail.com", user_name: "hello_calvin",
                 password: "password")
+
+b = User.create(email: "dylanjang92@gmail.com", user_name: "hello_friend",
+                password: "eatdick")
+t

@@ -2,7 +2,8 @@ class Api::UsersController < ApplicationController
   def create
     user = User.new(user_param)
     if user.save
-      render api_user_url(user)
+      login(user)
+      redirect_to api_user_url(user)
     else
       render user.errors.full_messages
     end
@@ -10,6 +11,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    render :show
   end
 
   private
