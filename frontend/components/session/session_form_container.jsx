@@ -5,11 +5,11 @@ import {login, logout, signup} from '../../actions/session_actions';
 const mapStateToProps = (state) => ({
   isLoggedIn: Boolean(state.session.currentUser),
   errors: state.session.errors,
-  state: state
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (user) => dispatch(login(user))
+  login_user: (userData) => dispatch(login(userData))
 });
 
 

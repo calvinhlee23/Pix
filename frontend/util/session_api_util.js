@@ -1,22 +1,20 @@
 // data: {user: {email: , password: public (default true):, username}}
-export const signup = (data) => (success, error) => {
+export const signup = (data, success, error) => {
   $.ajax({
     method: "POST",
     url: "/api/users",
     data: data,
-    dataType: "json",
     success,
     error
   });
 };
 
 // data: {user: {email, password}}
-export const login = (data)=> (success, error) => {
+export const login = (data, success, error) => {
   $.ajax({
     method: "POST",
     url: "/api/sessions",
-    data: data,
-    dataType: "json",
+    data,
     success,
     error
   });

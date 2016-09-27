@@ -1,11 +1,9 @@
 class Api::SessionsController < ApplicationController
   def create
-    p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    p params = session_param
     user = User.find_by_credential(params[:email], params[:password])
     if user
       login(user)
-      render json: "hello #{get_current_user.user_name}"
+      redirect_to api_user_url(user)
     else
       render json: user.error.full_messages
     end
@@ -13,9 +11,6 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    p '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
-    p 'from DESROY OF SESSIONS CONTROLLER'
-    p "#{get_current_user.user_name}"
     if logged_in?
       user = get_current_user
       logout

@@ -20,11 +20,6 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
-  componentDidMount() {
-    console.log("it's mounted!");
-    this.redirectIfLoggedIn();
-  }
-
   redirectIfLoggedIn() {
     if (this.props.isLoggedIn) {
       hashHistory.push("/");
@@ -33,12 +28,9 @@ class SessionForm extends React.Component {
 
   submit(event) {
     event.preventDefault();
-    this.props.login({
-      user:
-        {
+    this.props.login_user({
           email: this.state.email,
           password: this.state.password
-        }
     });
   }
 
