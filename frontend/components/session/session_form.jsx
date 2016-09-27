@@ -28,7 +28,6 @@ class SessionForm extends React.Component {
   redirectIfLoggedIn() {
     if (this.props.isLoggedIn) {
       hashHistory.push("/");
-      console.log(`you are now logged in. \n ${this.props.isLoggedIn}`);
     }
   }
 
