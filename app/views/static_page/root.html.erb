@@ -1,6 +1,9 @@
 <h1>PIX</h1>
 
 <body>
+   <script type="text/javascript">
+    window.currentUser = <%= @user.html_safe %>
+   </script>
   <main id = "root">
     this is static_page root <br>
     this will later be filled with components

@@ -7,3 +7,6 @@ const Root = ({store}) => (
     <AppRouter/>
   </Provider>
 );
+
+
+export default Root;
