@@ -21,6 +21,10 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  componentWillMount() {
+    this.redirectIfLoggedIn();
+  }
+
   redirectIfLoggedIn() {
     if (this.props.isLoggedIn) {
       hashHistory.push("/");
@@ -42,6 +46,7 @@ class SessionForm extends React.Component {
     if (this.state.password.length < 7) {
       this.resetPassword();
       alert("Password must be at least 7 characters long");
+      return false;
     }
     else if (this.state.password !== this.state.password_conf) {
       this.resetPassword();
