@@ -11,7 +11,7 @@ export const login = (user) => ({
   user
 });
 
-export const singup = (user) => ({
+export const signup = (user) => ({
   type: SessionConstants.SIGN_UP,
   user
 });

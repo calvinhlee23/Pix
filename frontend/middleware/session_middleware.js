@@ -3,8 +3,6 @@ import {SessionConstants, receiveCurrentUser, receiveErrors} from '../actions/se
 
 const SessionMiddleware = ({getState, dispatch}) => (next) => (action) => {
   var success, error;
-  console.log('hello from middle');
-  console.log(action.type);
   switch (action.type) {
     case SessionConstants.LOG_OUT:
       success = next(action);
