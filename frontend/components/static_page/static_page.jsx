@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-
+import UploadButton from './upload_button';
 class StaticPage extends React.Component {
   constructor(props) {
     super(props);
@@ -30,17 +30,21 @@ class StaticPage extends React.Component {
     window.location.refresh();
   }
 
+  // create an util_api, actions, middleware accordingly
+  postImage(cloud_url) {
+    this.props.postImage(cloud_url);
+  }
   fetchUser() {
     return this.props.currentUser;
   }
 
   render() {
-    console.log(this.props.currentUser);
     if (this.props.currentUser) {
       return (
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
+          <UploadButton postImage = {this.postImage}/>
         </span>
       );
     } else {
