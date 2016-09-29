@@ -6,4 +6,17 @@ class Image < ActiveRecord::Base
     class_name: "User",
     foreign_key: :id
   )
+
+  has_many(
+    :likes,
+    class_name: "Like",
+    foreign_key: :image_id
+  )
+
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :image_id
+  )
+  
 end
