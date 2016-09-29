@@ -2,7 +2,7 @@ class Api::ImagesController < ApplicationController
   def create
     img = Image.new(image_params)
     if img.save
-      render api_image_url(img)
+      redirect_to api_image_url(img)
     else
       render img.error.full_messages
     end
