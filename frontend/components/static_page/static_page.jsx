@@ -26,9 +26,6 @@ class StaticPage extends React.Component {
     this.forceUpdate();
   }
 
-  componentWillReceiveProps() {
-    window.location.refresh();
-  }
 
   // create an util_api, actions, middleware accordingly
   postImage(cloud_url) {
