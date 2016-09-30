@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import MenuBar from './menu_bar';
-
+import Stream from '../stream/stream';
 class StaticPage extends React.Component {
   constructor(props) {
     super(props);
@@ -37,17 +36,13 @@ class StaticPage extends React.Component {
     return this.props.currentUser;
   }
 
-  toStream(stream) {
-    event.preventDefault();
-    return () => hashHistory.push(stream);
-  }
   render() {
     if (this.props.currentUser) {
       return (
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
-          <MenuBar postImage = {this.postImage.bind(this)}/>
+          <Stream postImage = {this.props.postImage.bind(this)}/>
         </span>
       );
     } else {
