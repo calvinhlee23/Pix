@@ -11,7 +11,11 @@ const AppRouter = () => (
       <Route path = "signup" component = {SessionFormContainer}/>
       <Route path = "login" component = {SessionFormContainer}/>
       <Route path = "logout" component = {SessionFormContainer}/>
+      <Route path = "myStream" component = {null}/>
+      <Route path = "followingStream" component = {null}/>
+      <Route path = "publicStream" component = {null}/>
     </Route>
+
   </Router>
 );
 

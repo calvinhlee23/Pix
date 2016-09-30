@@ -34,17 +34,27 @@ class StaticPage extends React.Component {
   postImage(cloud_url) {
     this.props.postImage(cloud_url);
   }
+
   fetchUser() {
     return this.props.currentUser;
   }
 
+  toStream(stream) {
+    event.preventDefault();
+    return () => hashHistory.push(stream);
+  }
   render() {
     if (this.props.currentUser) {
       return (
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
-          <UploadButton id = "upload-button" postImage = {this.postImage.bind(this)}/>
+          <ul id = "menu-bar">
+            <li onClick = {this.toStream("/myStream")}>My Stream</li>
+            <li onClick = {this.toStream("/followingStream")}>Following Stream</li>
+            <li onClick = {this.toStream("/publicStream")}>Public Stream</li>
+            <li><UploadButton id = "upload-button" postImage = {this.postImage.bind(this)}/></li>
+          </ul>
         </span>
       );
     } else {
