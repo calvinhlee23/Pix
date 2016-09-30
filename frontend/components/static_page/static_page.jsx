@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import UploadButton from './upload_button';
+import MenuBar from './menu_bar';
+
 class StaticPage extends React.Component {
   constructor(props) {
     super(props);
@@ -46,16 +47,7 @@ class StaticPage extends React.Component {
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
-          <ul id = "menu-bar">
-            <li id = "following-stream-menu"
-            onClick = {this.toStream("/followingStream")}>Following Stream</li>
-            <li id = "public-stream-menu"
-              onClick = {this.toStream("/publicStream")}>Public Stream</li>
-            <li id = "my-stream-menu"
-              onClick = {this.toStream("/myStream")}>My Stream</li>
-            <li><UploadButton id = "upload-button"
-                postImage = {this.postImage.bind(this)}/></li>
-          </ul>
+          <MenuBar postImage = {this.postImage.bind(this)}/>
         </span>
       );
     } else {
