@@ -1,5 +1,7 @@
 import React from 'react';
 import UploadButton from './upload_button';
+import Frame from './frame';
+
 class Stream extends React.Component {
   constructor (props) {
     super(props);
@@ -11,9 +13,6 @@ class Stream extends React.Component {
     console.log('hello friend!');
   }
 
-  componentWillReceiveProps() {
-    this.forceUpdate();
-  }
   render() {
     return (
       <div>
@@ -31,8 +30,10 @@ class Stream extends React.Component {
 
       {/* in each li, <FRAME/> will be inserted with img componenet  */}
           IMGES
-          <ul className = "frames">
-            <li>{`${this.props.images}`}</li>
+          <ul className = "Stream">
+            {this.props.images.map((img, idx) => {
+              return <Frame image = {img} key = {idx}/>
+            })}
           </ul>
 
       </div>
