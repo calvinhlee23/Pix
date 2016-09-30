@@ -19,13 +19,7 @@ class StaticPage extends React.Component {
   toLogOut() {
     event.preventDefault();
     this.props.logout();
-    window.location.reload();
   }
-
-  componentDidMount() {
-    this.forceUpdate();
-  }
-
 
   // create an util_api, actions, middleware accordingly
   postImage(cloud_url) {
@@ -42,9 +36,7 @@ class StaticPage extends React.Component {
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
-          <Stream {...this.props}
-            postImage = {this.props.postImage}/>
-            {console.log(this.props.images)}
+          <Stream {...this.props}/>
         </span>
       );
     } else {

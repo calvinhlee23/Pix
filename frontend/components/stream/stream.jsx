@@ -8,9 +8,11 @@ class Stream extends React.Component {
     window.props = props;
   }
 
-  toStream () {
+  ownRequestImages(imageType) {
     event.preventDefault();
-    console.log('hello friend!');
+    return () => {
+      this.props.requestImages(imageType);
+    };
   }
 
   render() {
@@ -19,11 +21,11 @@ class Stream extends React.Component {
       <ul id = "menu-bar">
         this is menu-bar. Each menu can be clicked. it will be styled later
         <li id = "following-stream-menu"
-        onClick = {this.toStream}>Following Stream</li>
+        onClick = {this.ownRequestImages("followingImages")}>Following Stream</li>
         <li id = "public-stream-menu"
-          onClick = {this.toStream}>Public Stream</li>
+          onClick = {this.ownRequestImages("publicImages")}>Public Stream</li>
         <li id = "my-stream-menu"
-          onClick = {this.toStream}>My Stream</li>
+          onClick = {this.ownRequestImages("myImages")}>My Stream</li>
         <li id = "upload-button"><UploadButton id = "upload-button"
             postImage = {this.props.postImage.bind(this)}/></li>
       </ul>
