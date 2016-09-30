@@ -47,10 +47,14 @@ class StaticPage extends React.Component {
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
           <ul id = "menu-bar">
-            <li onClick = {this.toStream("/myStream")}>My Stream</li>
-            <li onClick = {this.toStream("/followingStream")}>Following Stream</li>
-            <li onClick = {this.toStream("/publicStream")}>Public Stream</li>
-            <li><UploadButton id = "upload-button" postImage = {this.postImage.bind(this)}/></li>
+            <li id = "following-stream-menu"
+            onClick = {this.toStream("/followingStream")}>Following Stream</li>
+            <li id = "public-stream-menu"
+              onClick = {this.toStream("/publicStream")}>Public Stream</li>
+            <li id = "my-stream-menu"
+              onClick = {this.toStream("/myStream")}>My Stream</li>
+            <li><UploadButton id = "upload-button"
+                postImage = {this.postImage.bind(this)}/></li>
           </ul>
         </span>
       );
