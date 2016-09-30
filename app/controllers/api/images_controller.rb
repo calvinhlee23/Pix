@@ -12,16 +12,17 @@ class Api::ImagesController < ApplicationController
   end
 
   def show
-    if params[:id] === "myImages"
-      p "HELLLLOOOO RIGHT METHOD!!!!!"
+    id = params[:id]
+    if id == "myImages"
       @images = Image.where(user_id: get_current_user.id);
-      p @images
-      render partial: "requestedImages"
+    elsif id == "followingImages"
+      @images = []
+    elsif id == "publicImages"
+      @images = Image.all
     else
-      @img = Image.find_by_id(params[:id])
-      render :show
+      @images = [Image.find_by_id(params[:id])]
     end
-
+    render partial: "requestedImages"
   end
 
 
