@@ -7,3 +7,12 @@ export const postImage = (imgData, success) => {
     success
   });
 };
+
+export const requestImages = (url, success, error) => {
+  $.ajax({
+    method: "GET",
+    url: url,
+    success,
+    error
+  });
+};

@@ -3,14 +3,16 @@ import UploadButton from './upload_button';
 class Stream extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      img_links: []
-    };
+    window.props = props;
   }
 
   toStream () {
     event.preventDefault();
     console.log('hello friend!');
+  }
+
+  componentWillReceiveProps() {
+    this.forceUpdate();
   }
   render() {
     return (
@@ -27,13 +29,11 @@ class Stream extends React.Component {
             postImage = {this.props.postImage.bind(this)}/></li>
       </ul>
 
-
-        <ul id = "imgs">
+      {/* in each li, <FRAME/> will be inserted with img componenet  */}
           IMGES
-          {this.state.img_links.map((img, index) => {
-            return <li img_links = {img} key = {index}/>;
-          })}
-        </ul>
+          <ul className = "frames">
+            <li>{`${this.props.images}`}</li>
+          </ul>
 
       </div>
     );

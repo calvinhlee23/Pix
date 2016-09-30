@@ -1,16 +1,24 @@
-import {ImageConstants, receiveAnImage} from '../actions/image_actions';
+import {ImageConstants, receiveAnImage, receiveImages} from '../actions/image_actions';
 import * as API from '../util/image_api_util';
 
 const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
-  var success;
+  var success, error;
   switch (action.type) {
     case ImageConstants.POST_IMAGE:
-        success = (cloud_url) => dispatch(receiveAnImage(cloud_url));
-        var user_id = window.currentUser.id;
+        success = (image) => dispatch(receiveAnImage(image));
         var cloud_url = action.cloud_url;
-        const toSend = {image: {user_id: user_id, cloud_url: cloud_url}};
+        const toSend = {image: {cloud_url: cloud_url}};
         API.postImage(toSend, success);
       break;
+    case ImageConstants.REQUEST_IMAGES:
+      success = (data) => {
+        dispatch(receiveImages(data));
+      };
+      error = () => {
+        window.alert("Oops, something went wrong!");
+      };
+      var url = `/api/images/${action.imageType}`;
+      API.requestImages(url, success, error);
     default:
       next(action);
   }

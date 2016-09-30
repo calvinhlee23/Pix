@@ -1,5 +1,6 @@
 import * as API from '../util/session_api_util';
-import {SessionConstants, receiveCurrentUser, receiveErrors} from '../actions/session_actions';
+import {SessionConstants, receiveCurrentUser,
+        receiveErrors} from '../actions/session_actions';
 
 const SessionMiddleware = ({getState, dispatch}) => (next) => (action) => {
   var success, error;

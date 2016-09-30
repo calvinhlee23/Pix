@@ -42,7 +42,9 @@ class StaticPage extends React.Component {
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
-          <Stream postImage = {this.props.postImage.bind(this)}/>
+          <Stream {...this.props}
+            postImage = {this.props.postImage}/>
+            {console.log(this.props.images)}
         </span>
       );
     } else {

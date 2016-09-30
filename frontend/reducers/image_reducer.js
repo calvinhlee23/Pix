@@ -1,15 +1,20 @@
 import {ImageConstants} from '../actions/image_actions';
+import merge from 'lodash/merge';
 
 const defaultState = {
-  cloud_urls: []
+  images: []
 };
 
 const ImageReducer = (state = defaultState , action ) =>  {
   var success, error;
-
+  var newState;
   switch (action.type) {
     case ImageConstants.RECEIVE_AN_IMAGE:
-      return state.cloud_urls.push(action.cloud_url);
+      newState = {images: [action.image]};
+      return merge({}, newState, newState);
+    case ImageConstants.RECEIVE_IMAGES:
+      newState = {images: [action.images]};
+      return merge({}, newState, newState);
     default:
       return state;
   }
