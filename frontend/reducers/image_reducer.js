@@ -10,7 +10,7 @@ const ImageReducer = (state = defaultState , action ) =>  {
   var newState;
   switch (action.type) {
     case ImageConstants.RECEIVE_AN_IMAGE:
-      newState = {images: [action.image]};
+      newState = {images: action.image};
       return merge({}, newState, newState);
     case ImageConstants.RECEIVE_IMAGES:
       newState = {images: action.images};

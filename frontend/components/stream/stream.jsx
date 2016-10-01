@@ -34,7 +34,7 @@ class Stream extends React.Component {
           IMGES
           <ul className = "Stream">
             {this.props.images.map((img) => {
-              return <Frame image = {img}/>;
+              return <Frame image = {img} key = {img.id}/>;
             })}
           </ul>
 

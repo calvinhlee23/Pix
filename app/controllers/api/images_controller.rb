@@ -3,11 +3,11 @@ class Api::ImagesController < ApplicationController
     param = image_params
     param[:user_id] = get_current_user.id
 
-    img = Image.new(param)
-    if img.save
-      redirect_to api_image_url(img)
+    @img = Image.new(param)
+    if @img.save
+      redirect_to api_image_url(@img)
     else
-      render img.errors.full_messages
+      render @img.errors.full_messages
     end
   end
 
