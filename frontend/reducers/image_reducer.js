@@ -14,7 +14,6 @@ const ImageReducer = (state = defaultState , action ) =>  {
       return merge({}, newState, newState);
     case ImageConstants.RECEIVE_IMAGES:
       newState = {images: action.images};
-      console.log(newState);
       return merge({}, newState, newState);
     default:
       return state;

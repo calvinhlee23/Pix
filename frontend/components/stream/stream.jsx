@@ -18,7 +18,7 @@ class Stream extends React.Component {
   render() {
     return (
       <div>
-      <ul id = "menu-bar">
+      <ul className = "menu-bar">
         this is menu-bar. Each menu can be clicked. it will be styled later
         <li id = "following-stream-menu"
         onClick = {this.ownRequestImages("followingImages")}>Following Stream</li>
@@ -33,8 +33,8 @@ class Stream extends React.Component {
       {/* in each li, <FRAME/> will be inserted with img componenet  */}
           IMGES
           <ul className = "Stream">
-            {this.props.images.map((img, idx) => {
-              return <Frame image = {img} key = {idx}/>;
+            {this.props.images.map((img) => {
+              return <Frame image = {img}/>;
             })}
           </ul>
 
