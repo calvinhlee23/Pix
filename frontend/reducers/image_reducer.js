@@ -13,7 +13,6 @@ const ImageReducer = (state = defaultState , action ) =>  {
       newState = {images: [action.image]};
       return merge({}, newState, newState);
     case ImageConstants.RECEIVE_IMAGES:
-      console.log("IM IN the RIGHT REDUCER");
       newState = {images: action.images};
       console.log(newState);
       return merge({}, newState, newState);

@@ -11,7 +11,6 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
         API.postImage(toSend, success);
       break;
     case ImageConstants.REQUEST_IMAGES:
-      console.log("HERE I AM RIGHT MIDDLE");
       success = (data) => {
         dispatch(receiveImages(data));
       };
