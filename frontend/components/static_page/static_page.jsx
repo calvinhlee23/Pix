@@ -19,6 +19,7 @@ class StaticPage extends React.Component {
   toLogOut() {
     event.preventDefault();
     this.props.logout();
+    window.location.reload();
   }
 
   // create an util_api, actions, middleware accordingly
