@@ -18,7 +18,6 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
         window.alert("Oops, something went wrong!");
       };
       var url = `/api/images/${action.imageType}`;
-      console.log(url);
       API.requestImages(url, success, error);
     default:
       next(action);
