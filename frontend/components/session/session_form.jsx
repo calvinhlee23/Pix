@@ -44,12 +44,12 @@ class SessionForm extends React.Component {
 
   passwordCheck() {
     if (this.state.password.length < 7) {
-      this.resetPassword();
+      this.clearPassword();
       alert("Password must be at least 7 characters long");
       return false;
     }
     else if (this.state.password !== this.state.password_conf) {
-      this.resetPassword();
+      this.clearPassword();
       alert("Password & Password Confirmation do not match");
       return false;
     } else {
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
     }
   }
 
-  resetPassword () {
+  clearPassword () {
     this.setState({password: ""});
     this.setState({password_conf: ""});
   }

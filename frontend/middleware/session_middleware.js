@@ -28,7 +28,10 @@ const SessionMiddleware = ({getState, dispatch}) => (next) => (action) => {
         dispatch(receiveCurrentUser(data));
         window.location.reload();
         };
-      error = (data) => dispatch(receiveErrors(data));
+      error = (data) => {
+        window.alert("Email/Password Combination not found!");
+        dispatch(receiveErrors(data));
+      };
       API.login(action.user, success, error);
       return next(action);
 

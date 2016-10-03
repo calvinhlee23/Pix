@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many(
-    :images,
+    :images, dependent: :destroy,
     class_name: "Image",
     foreign_key: :user_id
   )

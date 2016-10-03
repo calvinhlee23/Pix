@@ -8,13 +8,13 @@ class Image < ActiveRecord::Base
   )
 
   has_many(
-    :likes,
+    :likes, dependent: :destory
     class_name: "Like",
     foreign_key: :image_id
   )
 
   has_many(
-    :comments,
+    :comments, dependent: :destory
     class_name: "Comment",
     foreign_key: :image_id
   )
