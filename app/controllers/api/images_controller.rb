@@ -22,7 +22,7 @@ class Api::ImagesController < ApplicationController
                   SELECT DISTINCT images.*
                   FROM images INNER JOIN users
                   ON images.user_id = users.id
-                  WHERE users.public = true AND images.user_id = users.id
+                  WHERE users.public = true
                 ")
     else
       @images = [Image.find_by_id(params[:id])]
