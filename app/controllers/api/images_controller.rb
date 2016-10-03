@@ -19,10 +19,10 @@ class Api::ImagesController < ApplicationController
       @images = get_current_user.followers_images
     elsif id == "publicImages"
       @images = Image.find_by_sql("
-                  SELECT DISTINCT *
+                  SELECT DISTINCT images.*
                   FROM images INNER JOIN users
                   ON images.user_id = users.id
-                  WHERE users.public = true
+                  WHERE users.public = true AND images.user_id = users.id
                 ")
     else
       @images = [Image.find_by_id(params[:id])]
