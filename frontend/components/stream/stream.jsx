@@ -33,8 +33,8 @@ class Stream extends React.Component {
       {/* in each li, <FRAME/> will be inserted with img componenet  */}
           IMGES
           <ul className = "Stream">
-            {this.props.images.map((img) => {
-              return <Frame image = {img} key = {img.id}/>;
+            {this.props.images.map((img, indx) => {
+              return <Frame image = {img} key = {indx}/>;
             })}
           </ul>
 

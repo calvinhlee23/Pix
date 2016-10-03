@@ -14,7 +14,7 @@ class Image < ActiveRecord::Base
   )
 
   has_many(
-  :comments, dependent: :destroy,
+    :comments, dependent: :destroy,
     class_name: "Comment",
     foreign_key: :image_id
   )

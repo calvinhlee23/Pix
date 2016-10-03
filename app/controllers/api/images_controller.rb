@@ -18,14 +18,17 @@ class Api::ImagesController < ApplicationController
     elsif id == "followingImages"
       @images = get_current_user.followers_images
     elsif id == "publicImages"
-      @images = Image.all
+      @images = Image.find_by_sql("
+                  SELECT DISTINCT *
+                  FROM images INNER JOIN users
+                  ON images.user_id = users.id
+                  WHERE users.public = true
+                ")
     else
       @images = [Image.find_by_id(params[:id])]
     end
     render partial: "requestedImages"
   end
-
-
 
   def destroy
     if self.user == get_current_user
