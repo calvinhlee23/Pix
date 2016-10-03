@@ -9,6 +9,39 @@ class User < ActiveRecord::Base
     foreign_key: :user_id
   )
 
+  has_many(
+    :follows, dependent: :destroy,
+    class_name: "Follow",
+    foreign_key: :user_id
+  )
+
+  has_many(
+    :following_users,
+    through: :follows,
+    source: :following
+  )
+
+
+  def followers
+    User.find_by_sql("
+     SELECT *
+     FROM users INNER JOIN follows
+     ON users.id = follows.following
+     WHERE users.id = #{self.id}
+    ")
+  end
+
+  def followers_images
+    followers = self.followers
+    followers_images = []
+
+    followers.each do |follower|
+      followers_images.push(follower.images)
+    end
+
+    followers_images.flatten!
+  end
+
   def password=(pw)
     self.password_digest = BCrypt::Password.create(pw)
   end

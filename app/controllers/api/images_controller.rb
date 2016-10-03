@@ -16,7 +16,7 @@ class Api::ImagesController < ApplicationController
     if id == "myImages"
       @images = Image.where(user_id: get_current_user.id);
     elsif id == "followingImages"
-      @images = []
+      @images = get_current_user.followers_images
     elsif id == "publicImages"
       @images = Image.all
     else
