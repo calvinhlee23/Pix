@@ -14,5 +14,8 @@ b = User.create(email: "dylanjang92@gmail.com", user_name: "hello_friend",
 
 
 img1 = Image.create(user_id: 2, cloud_url: "dummy.com")
-comment1 = Comment.create(author_id: 1, image_id: img1.id, body: "hello this is the first comment")
+comment1 = Comment.create(
+  author_name: User.first.user_name,
+  author_id: 1, image_id: img1.id,
+  body: "hello this is the first comment")
 like1 = Like.create(author_id: 2, image_id: img1.id)
