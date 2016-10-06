@@ -27,7 +27,12 @@ class Api::ImagesController < ApplicationController
     else
       @images = [Image.find_by_id(params[:id])]
     end
-    render partial: "requestedImages"
+
+    unless @images.nil? || @images.empty?
+      render partial: "requestedImages"
+    else
+      render json: {}.to_json
+    end
   end
 
   def destroy

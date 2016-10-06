@@ -7,6 +7,7 @@ class Frame extends React.Component {
     this.state = {
       commentBody: "",
     };
+    console.log(this.props.image);
   }
 
   submitComment (event) {
