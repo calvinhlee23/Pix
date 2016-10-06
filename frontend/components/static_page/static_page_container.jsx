@@ -6,7 +6,7 @@ import {postImage, requestImages} from '../../actions/image_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  images: state.image.images
+  images: state.images
 });
 
 const mapDispatchToProps = (dispatch) => ({

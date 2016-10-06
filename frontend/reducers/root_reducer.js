@@ -4,7 +4,7 @@ import ImageReducer from './image_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
-  image: ImageReducer
+  images: ImageReducer
 });
 
 export default RootReducer;

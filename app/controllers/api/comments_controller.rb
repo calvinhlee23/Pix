@@ -2,6 +2,8 @@ class Api::CommentsController < ApplicationController
   def create
     param = comment_params
     param[:author_id] = get_current_user.id
+    param[:author_name] = get_current_user.user_name
+
     comment = Comment.new(param)
     if comment.save
       redirect_to api_comment_url(comment)
