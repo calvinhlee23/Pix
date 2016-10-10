@@ -13,7 +13,7 @@ class Frame extends React.Component {
     if (event.key === "Enter") {
       // postCommment: (imageId, comment)
       this.props.postComment(this.props.image.id, this.state.commentBody);
-      event.currentTarget.value = "";
+      this.setState({commentBody: ""});
     }
   }
 
@@ -26,6 +26,7 @@ class Frame extends React.Component {
   componentWIllReceiveProps() {
     this.props.forceUpdate();
   }
+
   render() {
     return(
       <li key = {this.props.image.id} className = "frame">
