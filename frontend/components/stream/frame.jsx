@@ -7,24 +7,16 @@ class Frame extends React.Component {
     this.state = {
       commentBody: "",
     };
-    console.log(this.props.image);
   }
 
   submitComment (event) {
     if (event.key === "Enter") {
-      $.ajax({
-        url: "api/comments",
-        method: "POST",
-        data: {comment: {body: this.state.commentBody,
-                         image_id: this.props.image.id}},
-        success: (() => {
-          this.forceUpdate();
-        }).bind(this)
-      });
-
+      // postCommment: (imageId, comment)
+      this.props.postComment(this.props.image.id, this.state.commentBody);
       event.currentTarget.value = "";
     }
   }
+
 
   write(event) {
     var body = event.currentTarget.value;

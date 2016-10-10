@@ -8,7 +8,7 @@ class Comment extends React.Component {
 
   render() {
     return (
-      <li className = "comment" key = {this.props.comment.id}>
+      <li className = "comment" key = {this.props.key}>
       <a className = "comment-username">
         {this.props.comment.author_name}</a>
       <main>{this.props.comment.body}</main>

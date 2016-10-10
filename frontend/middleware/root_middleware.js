@@ -4,7 +4,7 @@ import ImageMiddleware from './image_middleware';
 
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
-  ImageMiddleware
+  ImageMiddleware,
 );
 
 export default RootMiddleware;

@@ -21,7 +21,8 @@ class Stream extends React.Component {
       <ul className = "menu-bar">
         this is menu-bar. Each menu can be clicked. it will be styled later
         <li id = "following-stream-menu"
-        onClick = {this.ownRequestImages("followingImages")}>Following Stream</li>
+        onClick = {this.ownRequestImages("followingImages")}>
+        Following Stream</li>
         <li id = "public-stream-menu"
           onClick = {this.ownRequestImages("publicImages")}>Public Stream</li>
         <li id = "my-stream-menu"
@@ -34,7 +35,9 @@ class Stream extends React.Component {
           IMGES
           <ul className = "Stream">
             {Object.keys(this.props.images).map((imgId) => {
-              return <Frame image = {this.props.images[imgId]} key = {imgId}/>;
+              return <Frame image = {this.props.images[imgId]}
+                      postComment = {this.props.postComment}
+                      key = {imgId}/>;
             })}
           </ul>
 

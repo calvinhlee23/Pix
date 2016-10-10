@@ -13,7 +13,7 @@ b = User.create(email: "dylanjang92@gmail.com", user_name: "hello_friend",
                 password: "eatdick")
 
 
-img1 = Image.create(user_id: 2, cloud_url: "dummy.com")
+img1 = Image.create(user_id: 2, cloud_url: "http://www.dummy.com")
 comment1 = Comment.create(
   author_name: User.first.user_name,
   author_id: 1, image_id: img1.id,

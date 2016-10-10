@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {logout} from '../../actions/session_actions';
 
 import {postImage, requestImages} from '../../actions/image_actions';
+import {requestComments, postComment} from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
@@ -12,7 +13,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   postImage: (cloud_url) => dispatch(postImage(cloud_url)),
-  requestImages: (imageType) => dispatch(requestImages(imageType))
+  requestImages: (imageType) => dispatch(requestImages(imageType)),
+  // these are "fake" dispatches
+  postComment: (imageId, comment) => dispatch(postComment(imageId, comment))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StaticPage);
