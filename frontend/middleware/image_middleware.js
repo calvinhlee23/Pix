@@ -26,7 +26,6 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
       break;
 
     case CommentConstants.POST_COMMENT:
-      console.log("you are in middleware for comment");
       success = (data) => dispatch(receiveAComment(data));
       COMMENT_API.postAComment(success, action);
       return next(action);
