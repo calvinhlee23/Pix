@@ -29,17 +29,9 @@ class StaticPage extends React.Component {
     this.props.postImage(cloud_url);
   }
 
+
   render() {
     if (this.props.currentUser) {
-      // browswer: /?user=abc
-      // query: {"user":"abc"}
-      if (this.props.location.query.user) {
-        return(
-          <div>
-          {JSON.stringify(this.props.location.query)}
-          </div>
-        );
-      }
       return (
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>

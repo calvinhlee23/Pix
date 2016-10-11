@@ -2,7 +2,8 @@ export const ImageConstants = {
   RECEIVE_AN_IMAGE: "RECEIVE_AN_IMAGE",
   POST_IMAGE: "POST_AN_IMAGE",
   REQUEST_IMAGES: "REQUEST_IMAGES",
-  RECEIVE_IMAGES: "RECEIVE_IMAGES"
+  RECEIVE_IMAGES: "RECEIVE_IMAGES",
+  REQUEST_USER_IMAGES: "REQUEST_USER_IMAGES"
 };
 
 // for store
@@ -18,9 +19,10 @@ export const postImage = (cloud_url) => ({
 });
 
 // for API
-export const requestImages = (imageType) => ({
+export const requestImages = (imageType, userName) => ({
   type: ImageConstants.REQUEST_IMAGES,
-  imageType
+  imageType,
+  userName
 });
 
 export const receiveImages = (images) => ({

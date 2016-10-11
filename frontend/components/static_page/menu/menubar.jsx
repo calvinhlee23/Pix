@@ -1,6 +1,7 @@
 import React from 'react';
 import UploadButton from './upload_button';
 import UserSearch from '../search/user_search';
+import {hashHistory } from 'react-router';
 
 class MenuBar extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class MenuBar extends React.Component {
   ownRequestImages(imageType) {
     event.preventDefault();
     return () => {
+      hashHistory.push("/");
       this.props.requestImages(imageType);
     };
   }

@@ -23,9 +23,6 @@ class Frame extends React.Component {
     this.setState({commentBody: body});
   }
 
-  componentWIllReceiveProps() {
-    this.props.forceUpdate();
-  }
 
   render() {
     return(

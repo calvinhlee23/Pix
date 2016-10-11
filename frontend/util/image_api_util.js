@@ -16,3 +16,13 @@ export const requestImages = (url, success, error) => {
     error
   });
 };
+
+export const requestUserImages = (url, userName, success, error) => {
+  $.ajax({
+    method: "GET",
+    url: url,
+    data: {userName: userName},
+    success,
+    error
+  });
+};

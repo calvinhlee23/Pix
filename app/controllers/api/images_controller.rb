@@ -24,6 +24,13 @@ class Api::ImagesController < ApplicationController
                   ON images.user_id = users.id
                   WHERE users.public = true
                 ")
+    elsif id == "userImages"
+      targetUser = User.find_by_user_name(params[:userName])
+      if targetUser
+        @images = targetUser.images if (targetUser.is_public? || targetUser.is_friends_with?(get_current_user))
+      else
+        render targetUser.errors.full_messages
+      end
     else
       @images = [Image.find_by_id(params[:id])]
     end
@@ -46,6 +53,6 @@ class Api::ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:cloud_url, :user_id);
+    params.require(:image).permit(:cloud_url, :user_id, :userName);
   end
 end

@@ -21,6 +21,13 @@ class User < ActiveRecord::Base
     source: :following
   )
 
+  def is_public?
+    self.public
+  end
+
+  def is_friends_with?(user)
+    self.followers.include?(user)
+  end
 
   def followers
     User.find_by_sql("

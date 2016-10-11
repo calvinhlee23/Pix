@@ -13,8 +13,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   postImage: (cloud_url) => dispatch(postImage(cloud_url)),
-  requestImages: (imageType) => dispatch(requestImages(imageType)),
-  // these are "fake" dispatches
+  requestImages: (imageType, userName) => dispatch(requestImages(imageType, userName)),
   postComment: (imageId, comment) => dispatch(postComment(imageId, comment))
 });
 

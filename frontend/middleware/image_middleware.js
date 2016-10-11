@@ -22,13 +22,24 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
         window.alert("Oops, something went wrong!");
       };
       var url = `/api/images/${action.imageType}`;
-      IMAGE_API.requestImages(url, success, error);
-      break;
+
+      if (action.imageType === "userImages") {
+        error = () => {
+          window.alert("User does not exist!");
+        };
+        url = `/api/images/${action.imageType}`;
+        IMAGE_API.requestUserImages(url, action.userName, success, error);
+
+      } else {
+        IMAGE_API.requestImages(url, success, error);
+      }
+      return next(action);
 
     case CommentConstants.POST_COMMENT:
       success = (data) => dispatch(receiveAComment(data));
       COMMENT_API.postAComment(success, action);
       return next(action);
+
     default:
       next(action);
   }
