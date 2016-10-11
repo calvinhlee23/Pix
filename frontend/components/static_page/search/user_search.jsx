@@ -3,7 +3,10 @@ import React from 'react';
 class UserSearch extends React.Component{
   render() {
     return(
-      <input type = "text" className = "search-field"/>
+      <div>
+        <label>Search User: </label>
+        <input type = "text" className = "search-field"/>
+      </div>
     );
   }
 }
