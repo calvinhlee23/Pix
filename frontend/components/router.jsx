@@ -10,7 +10,7 @@ const AppRouter = () => (
     <IndexRoute component = {StaticPageContainer}/>
       <Route path = "signup" component = {SessionFormContainer}/>
       <Route path = "login" component = {SessionFormContainer}/>
-      <Route path = "logout" component = {SessionFormContainer}/>
+      <Route path = "user/:userName" component = {SessionFormContainer}/>
     </Route>
 
   </Router>

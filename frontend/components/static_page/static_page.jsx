@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import Stream from '../stream/stream';
+import MenuBar from './menu/menubar';
+
 class StaticPage extends React.Component {
   constructor(props) {
     super(props);
@@ -29,10 +31,20 @@ class StaticPage extends React.Component {
 
   render() {
     if (this.props.currentUser) {
+      // browswer: /?user=abc
+      // query: {"user":"abc"}
+      if (this.props.location.query.user) {
+        return(
+          <div>
+          {JSON.stringify(this.props.location.query)}
+          </div>
+        );
+      }
       return (
         <span id = "logged-in-greetings">
           <h1>Hello, {this.props.currentUser.user_name}</h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
+          <MenuBar {...this.props}/>
           <Stream {...this.props}/>
         </span>
       );

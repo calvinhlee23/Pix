@@ -1,6 +1,5 @@
 import React from 'react';
 import Frame from './frame';
-import MenuBar from './menubar';
 
 class Stream extends React.Component {
   constructor (props) {
@@ -10,7 +9,6 @@ class Stream extends React.Component {
   render() {
     return (
       <div className = "stream">
-      <MenuBar {...this.props}/>
       {/* in each li, <FRAME/> will be inserted with img componenet  */}
           IMGES
           <ul className = "stream-frame">
