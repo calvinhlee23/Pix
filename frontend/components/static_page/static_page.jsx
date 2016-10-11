@@ -27,10 +27,6 @@ class StaticPage extends React.Component {
     this.props.postImage(cloud_url);
   }
 
-  fetchUser() {
-    return this.props.currentUser;
-  }
-
   render() {
     if (this.props.currentUser) {
       return (
