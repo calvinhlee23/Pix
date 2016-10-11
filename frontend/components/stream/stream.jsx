@@ -12,15 +12,12 @@ class Stream extends React.Component {
                                this.props.location.query.user);
     }
   }
-
   ifLookingAtUser() {
-    if (this.props.location.query.user) {
       return (
         // browswer: /?user=abc
         // query: {"user":"abc"}
         <h2>{`${this.props.location.query.user}'s Stream`}</h2>
       );
-    }
   }
   render() {
     return (

@@ -25,7 +25,7 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
       if (action.imageType === "userImages") {
         error = () => {
-          window.alert("User does not exist!");
+          dispatch(receiveImages({}));
         };
         url = `/api/images/${action.imageType}`;
         IMAGE_API.requestUserImages(url, action.userName, success, error);
