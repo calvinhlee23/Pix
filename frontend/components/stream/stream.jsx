@@ -10,14 +10,20 @@ class Stream extends React.Component {
     if (this.props.location.query.user) {
       this.props.requestImages("userImages",
                                this.props.location.query.user);
+      // come up with reqeustUser
     }
   }
+  
   ifLookingAtUser() {
-      return (
-        // browswer: /?user=abc
-        // query: {"user":"abc"}
-        <h2>{`${this.props.location.query.user}'s Stream`}</h2>
-      );
+      if (this.props.location.query.user) {
+
+        return (
+          // browswer: /?user=abc
+          // query: {"user":"abc"}
+          <h2>{`${this.props.location.query.user}'s Stream`}</h2>
+          // replace above with <UserProfile {...this.props}/>
+        );
+    }
   }
   render() {
     return (
