@@ -10,8 +10,18 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
-    render :show
+    id = params[:id]
+    if id.to_i == 0 && id.is_a?(String)
+      @user = User.find_by_user_name(id)
+      if @user
+        render partial: "target_user_show"
+      else
+        raise "User Does Not Exist - Users Controller"
+      end
+    else
+      @user = User.find_by_id(id)
+      render :show
+    end
   end
 
   private
