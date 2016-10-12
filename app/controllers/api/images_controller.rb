@@ -29,7 +29,7 @@ class Api::ImagesController < ApplicationController
       if targetUser
         @images = targetUser.images if (targetUser.is_public? || targetUser.is_friends_with?(get_current_user))
       else
-        render targetUser.errors.full_messages
+        raise "targetUser not found"
       end
     else
       @images = [Image.find_by_id(params[:id])]

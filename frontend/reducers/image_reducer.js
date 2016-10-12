@@ -2,8 +2,7 @@ import {ImageConstants} from '../actions/image_actions';
 import merge from 'lodash/merge';
 import {CommentConstants} from '../actions/comment_actions';
 
-
-const ImageReducer = (state = {} , action ) =>  {
+const ImageReducer = (state = {}, action) =>  {
   var success, error;
   var newState;
   switch (action.type) {
