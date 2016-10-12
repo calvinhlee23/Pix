@@ -1,5 +1,6 @@
 import React from  'react';
 import CommentSection from './comment/comment_section';
+import {Link} from "react-router";
 
 class Frame extends React.Component {
   constructor (props) {
@@ -25,9 +26,13 @@ class Frame extends React.Component {
 
 
   render() {
+    var userName = this.props.image.user.user_name;
     return(
       <li key = {this.props.image.id} className = "frame">
-        <h1 className = "frame-userName">{this.props.image.user.user_name}</h1>
+      <h2 className = "frame-userName">
+      <Link to = {{pathname: "/",
+        query: {user: `${userName}` }}}>{userName}</Link>
+      </h2>
         <img src = {this.props.image.cloud_url} className = "frame-Image"/>
         <div>{this.props.image.created_at}</div>
         <section className = "frame-commentSection">
