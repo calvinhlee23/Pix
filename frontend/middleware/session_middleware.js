@@ -39,25 +39,6 @@ const SessionMiddleware = ({getState, dispatch}) => (next) => (action) => {
       SESSION_API.login(action.user, success, error);
       return next(action);
 
-    case FollowConstants.FOLLOW:
-      success = (data) => {
-        dispatch(processFollow(action.type, data));
-      };
-      console.log("FROM MIDDLE:");
-      console.log(action.type);
-      console.log(action);
-      error = (data) => dispatch(receiveErrors(data));
-      FOLLOW_API.followRequest(action.type, action.userName, success, error);
-    case FollowConstants.UNFOLLOW:
-      success = (user) => {
-        dispatch(processFollow(action.type, user));
-      };
-      error = (data) => dispatch(receiveErrors(data));
-      console.log("FROM MIDDLE:");
-      console.log(action.type);
-      console.log(action);
-      FOLLOW_API.followRequest(action.type, action.userName, success, error);
-      return next(action);
     default:
       return next(action);
 

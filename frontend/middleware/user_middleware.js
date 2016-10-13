@@ -1,5 +1,7 @@
 import {UserConstants, receiveTargetUser} from '../actions/user_actions';
 import * as USER_API from '../util/user_api_util';
+import {FollowConstants} from '../actions/follow_actions';
+import * as FOLLOW_API from '../util/follow_api_util';
 
 const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
   var success, error;
@@ -9,6 +11,26 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
       success = (data) => {dispatch(receiveTargetUser(data));};
       error = () => {dispatch(receiveTargetUser({}));};
       USER_API.requestTargetUser(action.userName, success, error);
+      return next(action);
+
+    case FollowConstants.FOLLOW:
+      success = (data) => {
+          dispatch(receiveTargetUser(data));
+      };
+      console.log("FROM MIDDLE:");
+      console.log(action.type);
+      console.log(action);
+      FOLLOW_API.followRequest(action.type, action.userName, success);
+      return next(action);
+
+    case FollowConstants.UNFOLLOW:
+      success = (data) => {
+        dispatch(receiveTargetUser(data));
+      };
+      console.log("FROM MIDDLE:");
+      console.log(action.type);
+      console.log(action);
+      FOLLOW_API.followRequest(action.type, action.userName, success);
       return next(action);
     default:
       return next(action);

@@ -13,7 +13,8 @@ class Api::FollowsController < ApplicationController
         follow.following_user_id = target_user.id
     p 'BEFORE SAVINGGGGGGGGGGGGGGGGGGGGGGGG'
         if follow.save
-          redirect_to api_user_url(target_user)
+          @user = target_user
+          render partial: "target_user_show"
         else
           raise follow.errors.full_messages
         end
@@ -27,7 +28,8 @@ class Api::FollowsController < ApplicationController
     p '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
     if target_user
       Follow.delete(get_current_user.id, target_user.id)
-      render json: JSON.parse(target_user.to_json)
+      @user = target_user
+      render partial: "target_user_show"
     else
       raise "targetUser Not Found - FollowsController"
     end
