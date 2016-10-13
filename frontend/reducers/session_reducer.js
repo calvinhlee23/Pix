@@ -1,4 +1,6 @@
 import {SessionConstants, receiveCurrentUser, receiveErrors} from '../actions/session_actions';
+import {FollowConstants} from '../actions/follow_actions';
+
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -15,6 +17,19 @@ const SessionReducer = (state = defaultState, action) => {
     case SessionConstants.RECEIVE_ERRORS:
       newState = {errors: action.errors};
       return merge({}, newState, state);
+    case FollowConstants.FOLLOW:
+      console.log("CORRECT REDUCER TO FOLLOW:");
+      console.log(action);
+      newState = merge({}, state);
+      newState.currentUser.following.push(action.userName);
+      return newState;
+    case FollowConstants.UNFOLLOW:
+      console.log("CORRECT REDUCER TO UNFOLLOW:");
+      console.log(action);
+      newState = merge({}, state);
+      var index = state.currentUser.following.indexOf(action.userName);
+      newState.currentUser.following.splice(index, index);
+      return newState;
     default:
       return state;
   }

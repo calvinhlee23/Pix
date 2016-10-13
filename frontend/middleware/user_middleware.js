@@ -6,7 +6,6 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
   switch (action.type) {
     case UserConstants.REQUEST_TARGET_USER:
-      console.log('correct middleware');
       success = (data) => {dispatch(receiveTargetUser(data));};
       error = () => {dispatch(receiveTargetUser({}));};
       USER_API.requestTargetUser(action.userName, success, error);

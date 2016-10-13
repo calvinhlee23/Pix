@@ -6,6 +6,7 @@ import MenuBar from './menu/menubar';
 class StaticPage extends React.Component {
   constructor(props) {
     super(props);
+    window.props = this.props;
   }
 
   toLogIn () {

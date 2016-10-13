@@ -1,6 +1,6 @@
 class Follow < ActiveRecord::Base
-  validates :user_id, :following, presence: true
-  validates :user_id, uniqueness: {scope: :following}
+  validates :user_id, :following_user_id, presence: true
+  validates :user_id, uniqueness: {scope: :following_user_id}
 
 
   belongs_to(
@@ -13,6 +13,15 @@ class Follow < ActiveRecord::Base
    :following,
    class_name: "User",
    foreign_key: :id,
-   primary_key: :following
+   primary_key: :following_user_id
   )
+
+  def self.delete(owner_id, target_id)
+    target_follow = Follow.where(user_id: owner_id).where(following_user_id: target_id)
+    if target_follow
+      target_follow.first.destroy
+    else
+      raise "target follow cannot be found - Follow.rb"
+    end
+  end
 end

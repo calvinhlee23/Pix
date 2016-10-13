@@ -1,4 +1,5 @@
 import React from 'react';
+import {FollowConstants} from '../../actions/follow_actions';
 
 class UserProfile extends React.Component{
   constructor(props) {
@@ -6,6 +7,12 @@ class UserProfile extends React.Component{
   }
 
   componentDidMount() {
+    var userName = this.props.location.query.user;
+    this.props.requestTargetUser(userName);
+    this.props.requestImages("userImages", userName);
+  }
+
+  componenetWillReceiveProps() {
     var userName = this.props.location.query.user;
     this.props.requestTargetUser(userName);
     this.props.requestImages("userImages", userName);
@@ -26,14 +33,47 @@ class UserProfile extends React.Component{
         );
       }
   }
+
+  followRequest(type, userName) {
+    return () => {
+      event.preventDefault();
+      this.props.requestFollow(type, userName)
+    };
+  }
+
+  generateFollowButton() {
+    var myFollowingUsers = this.props.currentUser.following;
+    var targetUserName = this.props.targetUser.user_name;
+    if (this.props.targetUser.public) {
+      if (myFollowingUsers.indexOf(targetUserName) >= 0) {
+        // unfollow button
+        return (
+          <button className = "follow-button"
+            onClick = {this.followRequest(FollowConstants.UNFOLLOW,
+            targetUserName)}>Unfollow</button>
+        );
+      } else {
+        // follow button
+        return (
+          <button className = "follow-button"
+            onClick = {this.followRequest(FollowConstants.FOLLOW,
+            targetUserName)}>Follow</button>
+        );
+      }
+    }
+  }
+
   render() {
     return (
       // browswer: /?user=abc
       // query: {"user":"abc"} when rendered
-      <section className = "user-profile">
-        {this.generateProfileName()}
-        {this.props.streamGenerator()}
-      </section>
+      <div>
+        <section className = "user-profile">
+          {this.generateProfileName()}
+          {this.generateFollowButton()}
+        </section>
+      {this.props.streamGenerator()}
+      </div>
     );
   }
 }

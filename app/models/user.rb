@@ -30,12 +30,8 @@ class User < ActiveRecord::Base
   end
 
   def followers
-    User.find_by_sql("
-     SELECT *
-     FROM users INNER JOIN follows
-     ON users.id = follows.following
-     WHERE users.id = #{self.id}
-    ")
+    follows = Follow.where(following_user_id: self.id)
+    followers = follows.map{|f| f.user}
   end
 
   def followers_images
