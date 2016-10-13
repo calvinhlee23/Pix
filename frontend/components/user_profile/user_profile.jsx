@@ -37,7 +37,7 @@ class UserProfile extends React.Component{
   followRequest(type, userName) {
     return () => {
       event.preventDefault();
-      this.props.requestFollow(type, userName)
+      this.props.requestFollow(type, userName);
     };
   }
 

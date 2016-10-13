@@ -26,6 +26,7 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
     case FollowConstants.UNFOLLOW:
       success = (data) => {
         dispatch(receiveTargetUser(data));
+        window.location.reload();
       };
       console.log("FROM MIDDLE:");
       console.log(action.type);
