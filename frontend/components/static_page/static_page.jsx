@@ -10,17 +10,14 @@ class StaticPage extends React.Component {
   }
 
   toLogIn () {
-    event.preventDefault();
     hashHistory.push("/login");
   }
 
   toSignUp () {
-    event.preventDefault();
     hashHistory.push("/signup");
   }
 
   toLogOut() {
-    event.preventDefault();
     this.props.logout();
     window.location.reload();
   }
