@@ -18,7 +18,7 @@ class Loader extends React.Component {
   render() {
     if (this.state.time < 3) {
       return(
-        <Loading type='spin' color='dark-grey' className = "loader"/>
+        <div className = "loading"/>
       );
     } else {
       return(
