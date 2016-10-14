@@ -1,9 +1,9 @@
 import React from 'react';
-import {FollowConstants} from '../../actions/follow_actions';
-
+import FollowButton from './follow_button';
 class UserProfile extends React.Component{
   constructor(props) {
     super(props);
+    window.props = this.props;
   }
 
   componentDidMount() {
@@ -18,7 +18,7 @@ class UserProfile extends React.Component{
     this.props.requestImages("userImages", userName);
   }
 
-  generateProfileName() {
+  generateProfile() {
     var userName = this.props.targetUser.user_name;
       if (userName) {
         return (
@@ -34,46 +34,14 @@ class UserProfile extends React.Component{
       }
   }
 
-  followRequest(type, userName) {
-    return () => {
-      event.preventDefault();
-      this.props.requestFollow(type, userName);
-    };
-  }
-
-  generateFollowButton() {
-    var myFollowingUsers = this.props.currentUser.following;
-    var targetUserName = this.props.targetUser.user_name;
-    if (targetUserName === this.props.currentUser.user_name) {
-      return;
-    }
-    if (this.props.targetUser.public) {
-      if (myFollowingUsers.indexOf(targetUserName) >= 0) {
-        // unfollow button
-        return (
-          <button className = "follow-button"
-            onClick = {this.followRequest(FollowConstants.UNFOLLOW,
-            targetUserName)}>Unfollow</button>
-        );
-      } else {
-        // follow button
-        return (
-          <button className = "follow-button"
-            onClick = {this.followRequest(FollowConstants.FOLLOW,
-            targetUserName)}>Follow</button>
-        );
-      }
-    }
-  }
-
   render() {
     return (
       // browswer: /?user=abc
       // query: {"user":"abc"} when rendered
       <div>
         <section className = "user-profile">
-          {this.generateProfileName()}
-          {this.generateFollowButton()}
+          {this.generateProfile()}
+          <FollowButton {...this.props}/>
         </section>
       {this.props.streamGenerator()}
       </div>
