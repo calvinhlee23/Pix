@@ -21,9 +21,14 @@ class UserProfile extends React.Component{
           <UserBio {...this.props}/>
         );
       } else {
-        return (
-          <h2>User Name: ({this.props.location.query.user}), Does Not Exist</h2>
-        );
+        // waits for 1.5 sec to load user
+        window.setTimeout(() => {
+          return (
+            <h2>User Name: ({this.props.location.query.user}),
+            Does Not Exist</h2>
+          );
+        }, 1500);
+
       }
   }
 

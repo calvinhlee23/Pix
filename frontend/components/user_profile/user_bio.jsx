@@ -20,7 +20,6 @@ class UserBio extends React.Component {
           Followers: {this.targetUser.followers.length}</label>
         <label className = "following">
           Following: {this.targetUser.following_users.length}</label>
-        <FollowButton {...this.props}/>
       </div>
     );
   }

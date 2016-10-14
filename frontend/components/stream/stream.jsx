@@ -17,7 +17,6 @@ class Stream extends React.Component {
   streamGenerator() {
     return (
       <div className = "stream">
-        Stream:
         <ul className = "stream-frame">
         {Object.keys(this.props.images).map((imgId) => {
           return <Frame image = {this.props.images[imgId]}
