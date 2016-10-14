@@ -8,7 +8,20 @@ import FollowButton from './follow_button';
 class UserBio extends React.Component {
   constructor(props) {
     super(props);
-    this.targetUser = this.props.targetUser;
+    this.state = {
+      followers: 0,
+      following: 0
+    };
+  }
+
+  componentDidMount() {
+    this.setState({followers: this.props.targetUser.followers.length});
+    this.setState({following: this.props.targetUser.following_users.length});
+  }
+
+  componentDidUpdate() {
+    this.setState({followers: this.props.targetUser.followers.length});
+    this.setState({following: this.props.targetUser.following_users.length});
   }
 
   render() {
@@ -17,9 +30,9 @@ class UserBio extends React.Component {
       <div className = "user-bio">
         <h2>{`About ${userName}:`}</h2>
         <label className = "followers">
-          Followers: {this.targetUser.followers.length}</label>
+          Followers: {this.state.followers}</label>
         <label className = "following">
-          Following: {this.targetUser.following_users.length}</label>
+          Following: {this.state.following}</label>
       </div>
     );
   }

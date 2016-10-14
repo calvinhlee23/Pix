@@ -27,14 +27,20 @@ class StaticPage extends React.Component {
     this.props.postImage(cloud_url);
   }
 
-
+  redirectToTarget(userName) {
+    return () => {
+      this.props.requestTargetUser(userName);
+    };
+  }
   render() {
     if (this.props.currentUser) {
       var userName = this.props.currentUser.user_name;
       return (
         <span id = "logged-in-greetings">
           <h1>Hello, <Link to = {{pathname: "/",
-            query: {user: `${userName}` }}}>{userName}</Link></h1>
+            query: {user: `${userName}` }}}
+            onClick = {this.redirectToTarget(userName).bind(this)}>
+            {userName}</Link></h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
           <MenuBar {...this.props}/>
           <Stream {...this.props}/>
