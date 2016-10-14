@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import Stream from '../stream/stream';
-import MenuBar from './menu/menubar';
+import MenuBar from '../menu/menubar';
 
 class StaticPage extends React.Component {
   constructor(props) {
     super(props);
-    window.props = this.props;
   }
 
   toLogIn () {
@@ -37,10 +36,6 @@ class StaticPage extends React.Component {
       var userName = this.props.currentUser.user_name;
       return (
         <span id = "logged-in-greetings">
-          <h1>Hello, <Link to = {{pathname: "/",
-            query: {user: `${userName}` }}}
-            onClick = {this.redirectToTarget(userName).bind(this)}>
-            {userName}</Link></h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
           <MenuBar {...this.props}/>
           <Stream {...this.props}/>

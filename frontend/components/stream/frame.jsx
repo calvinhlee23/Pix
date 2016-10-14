@@ -30,8 +30,7 @@ class Frame extends React.Component {
     return(
       <li key = {this.props.image.id} className = "frame">
       <h2 className = "frame-userName">
-      <Link to = {{pathname: "/",
-        query: {user: `${userName}` }}}>{userName}</Link>
+      <Link to = {{pathname: `/user/${userName}`}}>{userName}</Link>
       </h2>
         <img src = {this.props.image.cloud_url} className = "frame-Image"/>
         <div>{this.props.image.created_at}</div>

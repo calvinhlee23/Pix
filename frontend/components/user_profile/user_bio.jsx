@@ -19,11 +19,6 @@ class UserBio extends React.Component {
     this.setState({following: this.props.targetUser.following_users.length});
   }
 
-  componentDidUpdate() {
-    this.setState({followers: this.props.targetUser.followers.length});
-    this.setState({following: this.props.targetUser.following_users.length});
-  }
-
   render() {
     var userName = this.props.targetUser.user_name;
     return (

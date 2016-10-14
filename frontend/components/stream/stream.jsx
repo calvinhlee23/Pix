@@ -9,8 +9,8 @@ class Stream extends React.Component {
 
   ifLookingAtUser() {
       return (
-        <UserProfile {...this.props}
-          streamGenerator = {this.streamGenerator.bind(this)}/>
+        <UserProfile {...this.props}/>
+
       );
   }
 

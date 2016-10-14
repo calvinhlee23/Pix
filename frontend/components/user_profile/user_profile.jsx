@@ -2,38 +2,43 @@ import React from 'react';
 import FollowButton from './follow_button';
 import UserBio from './user_bio';
 import Loader from '../../util/loader';
+import Stream from '../stream/stream';
+import MenuBar from '../menu/menubar';
 
 class UserProfile extends React.Component{
   constructor(props) {
     super(props);
-    window.props = this.props;
   }
 
   componentDidMount() {
-    var userName = this.props.location.query.user;
-    this.props.requestTargetUser(userName);
-    this.props.requestImages("userImages", userName);
+    var path = this.props.location.pathname.split("/");
+    if (path[1] === "user") {
+      var userName = path[2];
+      this.props.requestTargetUser(userName);
+      this.props.requestImages("userImages", userName);
+    }
   }
 
+
   generateProfile() {
-    var userName = this.props.targetUser.user_name;
-      if (userName) {
-        return (
-          <UserBio {...this.props}/>
-        );
-      } else {
-        // waits for 1.5 sec to load user
-        return(<Loader/>);
-      }
+    if (this.props.targetUser.user_name) {
+      return(<UserBio {...this.props}/>);
+    } else {
+      return(<Loader/>);
+    }
   }
 
   render() {
     return (
       // browswer: /?user=abc
       // query: {"user":"abc"} when rendered
+      <div>
         <section className = "user-profile">
+          <MenuBar {...this.props}/>
           {this.generateProfile()}
+          <Stream {...this.props}/>
         </section>
+        </div>
     );
   }
 }

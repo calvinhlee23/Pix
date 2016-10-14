@@ -5,7 +5,6 @@ import * as FOLLOW_API from '../util/follow_api_util';
 
 const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
   var success, error;
-
   switch (action.type) {
     case UserConstants.REQUEST_TARGET_USER:
       success = (data) => {dispatch(receiveTargetUser(data));};

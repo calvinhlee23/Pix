@@ -1,6 +1,6 @@
 import React from 'react';
 import UploadButton from './upload_button';
-import UserSearch from '../search/user_search';
+import UserSearch from './search/user_search';
 import {hashHistory } from 'react-router';
 
 class MenuBar extends React.Component {
