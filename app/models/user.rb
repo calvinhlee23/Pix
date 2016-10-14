@@ -34,15 +34,15 @@ class User < ActiveRecord::Base
     followers = follows.map{|f| f.user}
   end
 
-  def followers_images
-    followers = self.followers
-    followers_images = []
+  def following_users_images
+    following_users = self.following_users
+    following_users_images = []
 
-    followers.each do |follower|
-      followers_images.push(follower.images)
+    following_users.each do |fo|
+      following_users_images.push(fo.images)
     end
 
-    followers_images.flatten!
+    following_users_images.flatten!
   end
 
   def password=(pw)

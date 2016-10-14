@@ -16,10 +16,8 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
     case FollowConstants.FOLLOW:
       success = (data) => {
           dispatch(receiveTargetUser(data));
+          window.location.reload();
       };
-      console.log("FROM MIDDLE:");
-      console.log(action.type);
-      console.log(action);
       FOLLOW_API.followRequest(action.type, action.userName, success);
       return next(action);
 
@@ -28,9 +26,6 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
         dispatch(receiveTargetUser(data));
         window.location.reload();
       };
-      console.log("FROM MIDDLE:");
-      console.log(action.type);
-      console.log(action);
       FOLLOW_API.followRequest(action.type, action.userName, success);
       return next(action);
     default:

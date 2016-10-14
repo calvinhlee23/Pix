@@ -1,5 +1,5 @@
 import React from 'react';
-
+import FollowButton from './follow_button';
 // props look as below:
 // targetUser: {
 // id:, public, email, user_name, following_users[], followers[]
@@ -8,7 +8,6 @@ import React from 'react';
 class UserBio extends React.Component {
   constructor(props) {
     super(props);
-
     this.targetUser = this.props.targetUser;
   }
 
@@ -21,6 +20,7 @@ class UserBio extends React.Component {
           Followers: {this.targetUser.followers.length}</label>
         <label className = "following">
           Following: {this.targetUser.following_users.length}</label>
+        <FollowButton {...this.props}/>
       </div>
     );
   }

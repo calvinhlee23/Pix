@@ -14,17 +14,11 @@ class UserProfile extends React.Component{
     this.props.requestImages("userImages", userName);
   }
 
-  componenetWillReceiveProps() {
-    var userName = this.props.location.query.user;
-    this.props.requestTargetUser(userName);
-    this.props.requestImages("userImages", userName);
-  }
-
   generateProfile() {
     var userName = this.props.targetUser.user_name;
       if (userName) {
         return (
-          <UserBio targetUser = {this.props.targetUser}/>
+          <UserBio {...this.props}/>
         );
       } else {
         return (
@@ -40,7 +34,6 @@ class UserProfile extends React.Component{
       <div>
         <section className = "user-profile">
           {this.generateProfile()}
-          <FollowButton {...this.props}/>
         </section>
       {this.props.streamGenerator()}
       </div>
