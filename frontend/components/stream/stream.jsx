@@ -30,7 +30,13 @@ class Stream extends React.Component {
 
   render() {
     if (this.props.location.query.user) {
-      return (this.ifLookingAtUser());
+      return (
+        <div>
+          <UserProfile {...this.props}/>
+          {this.streamGenerator()}
+        </div>
+      );
+
     } else {
       return(this.streamGenerator());
     }

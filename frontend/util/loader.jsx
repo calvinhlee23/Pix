@@ -7,12 +7,13 @@ class Loader extends React.Component {
     this.state = {
       time: 0
     };
+    window.count = window.setInterval(() => {
+      this.setState({time: this.state.time += 1 });
+    }, 1000);
   }
 
-  componentDidMount() {
-    window.setInterval(() => {
-      this.setState({time: this.state.time +=1 });
-    }, 1000);
+  componentWillUnmount() {
+    window.clearInterval(window.count);
   }
 
   render() {

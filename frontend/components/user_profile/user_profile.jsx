@@ -31,12 +31,9 @@ class UserProfile extends React.Component{
     return (
       // browswer: /?user=abc
       // query: {"user":"abc"} when rendered
-      <div>
         <section className = "user-profile">
           {this.generateProfile()}
         </section>
-      {this.props.streamGenerator()}
-      </div>
     );
   }
 }
