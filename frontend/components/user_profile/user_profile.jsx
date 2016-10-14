@@ -1,6 +1,7 @@
 import React from 'react';
 import FollowButton from './follow_button';
 import UserBio from './user_bio';
+import Loader from '../../util/loader';
 
 class UserProfile extends React.Component{
   constructor(props) {
@@ -22,13 +23,7 @@ class UserProfile extends React.Component{
         );
       } else {
         // waits for 1.5 sec to load user
-        window.setTimeout(() => {
-          return (
-            <h2>User Name: ({this.props.location.query.user}),
-            Does Not Exist</h2>
-          );
-        }, 1500);
-
+        return(<Loader/>);
       }
   }
 
