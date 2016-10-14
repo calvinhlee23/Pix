@@ -30,9 +30,11 @@ class StaticPage extends React.Component {
 
   render() {
     if (this.props.currentUser) {
+      var userName = this.props.currentUser.user_name;
       return (
         <span id = "logged-in-greetings">
-          <h1>Hello, {this.props.currentUser.user_name}</h1>
+          <h1>Hello, <Link to = {{pathname: "/",
+            query: {user: `${userName}` }}}>{userName}</Link></h1>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button>
           <MenuBar {...this.props}/>
           <Stream {...this.props}/>
