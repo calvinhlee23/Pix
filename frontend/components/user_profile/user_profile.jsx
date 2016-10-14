@@ -44,6 +44,9 @@ class UserProfile extends React.Component{
   generateFollowButton() {
     var myFollowingUsers = this.props.currentUser.following;
     var targetUserName = this.props.targetUser.user_name;
+    if (targetUserName === this.props.currentUser.user_name) {
+      return;
+    }
     if (this.props.targetUser.public) {
       if (myFollowingUsers.indexOf(targetUserName) >= 0) {
         // unfollow button
