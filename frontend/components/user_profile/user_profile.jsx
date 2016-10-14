@@ -1,5 +1,7 @@
 import React from 'react';
 import FollowButton from './follow_button';
+import UserBio from './user_bio';
+
 class UserProfile extends React.Component{
   constructor(props) {
     super(props);
@@ -22,10 +24,7 @@ class UserProfile extends React.Component{
     var userName = this.props.targetUser.user_name;
       if (userName) {
         return (
-          <div>
-          <h2>{`${userName}'s Stream`}</h2>
-          {JSON.stringify(this.props.targetUser)}
-          </div>
+          <UserBio targetUser = {this.props.targetUser}/>
         );
       } else {
         return (
