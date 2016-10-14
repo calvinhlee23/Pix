@@ -8,8 +8,8 @@ class Loader extends React.Component {
       time: 0
     };
     window.count = window.setInterval(() => {
-      this.setState({time: this.state.time += 1 });
-    }, 1000);
+      this.setState({time: this.state.time += .5 });
+    }, 500);
   }
 
   componentWillUnmount() {
@@ -17,14 +17,14 @@ class Loader extends React.Component {
   }
 
   render() {
-    if (this.state.time < 3) {
+    if (this.state.time < 3 && this.state.time >=.5) {
       return(
         <div className = "loading"/>
       );
+    } else if (this.state.time >= 3) {
+      return (<div>User Does Not Exist</div>);
     } else {
-      return(
-        <div>User Does Not Exist</div>
-      );
+      return (<div/>);
     }
   }
 }
