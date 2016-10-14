@@ -8,21 +8,26 @@ import MenuBar from '../menu/menubar';
 class UserProfile extends React.Component{
   constructor(props) {
     super(props);
+    window.props = this.props;
   }
 
   componentDidMount() {
+    console.log('hihihi');
     var path = this.props.location.pathname.split("/");
     if (path[1] === "user") {
       var userName = path[2];
       this.props.requestTargetUser(userName);
-      this.props.requestImages("userImages", userName);
     }
   }
 
-
   generateProfile() {
     if (this.props.targetUser.user_name) {
-      return(<UserBio {...this.props}/>);
+      return(
+        <div>
+          <UserBio {...this.props}/>
+          <FollowButton {...this.props}/>
+        </div>
+      );
     } else {
       return(<Loader/>);
     }

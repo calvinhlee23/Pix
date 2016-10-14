@@ -1,20 +1,31 @@
 import React from 'react';
 import Frame from './frame';
-import UserProfile from '../user_profile/user_profile';
 
 class Stream extends React.Component {
   constructor (props) {
     super(props);
+    this.state = {
+      path: null
+    };
   }
 
-  ifLookingAtUser() {
-      return (
-        <UserProfile {...this.props}/>
-
-      );
+  componentDidMount() {
+    var path = this.props.location.pathname.split("/");
+    if (path[1] === "user") {
+      this.setState({path: path});
+      var userName = path[2];
+      this.props.requestImages("userImages", userName);
+    }
   }
 
-  streamGenerator() {
+  generateStream() {
+    if (this.props.targetUser.user_name) {
+      return(<UserBio {...this.props}/>);
+    } else {
+      return(<Loader/>);
+    }
+  }
+  render() {
     return (
       <div className = "stream">
         <ul className = "stream-frame">
@@ -26,20 +37,6 @@ class Stream extends React.Component {
         </ul>
       </div>
     );
-  }
-
-  render() {
-    if (this.props.location.query.user) {
-      return (
-        <div>
-          <UserProfile {...this.props}/>
-          {this.streamGenerator()}
-        </div>
-      );
-
-    } else {
-      return(this.streamGenerator());
-    }
   }
 }
 
