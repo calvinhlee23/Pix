@@ -9,14 +9,6 @@ class Stream extends React.Component {
     };
   }
 
-  componentWillReceiveProps() {
-    var path = this.props.location.pathname.split("/");
-    if (path[1] === "user") {
-      this.setState({path: path});
-      var userName = path[2];
-      this.props.requestImages("userImages", userName);
-    }
-  }
   componentDidMount() {
     var path = this.props.location.pathname.split("/");
     if (path[1] === "user") {
