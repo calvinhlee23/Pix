@@ -12,7 +12,15 @@ class UserProfile extends React.Component{
   }
 
   componentDidMount() {
-    console.log('hihihi');
+    var path = this.props.location.pathname.split("/");
+    if (path[1] === "user") {
+      var userName = path[2];
+      this.props.requestTargetUser(userName);
+      this.props.requestImages("userImages", userName);
+    }
+  }
+
+  componentDidUpdate() {
     var path = this.props.location.pathname.split("/");
     if (path[1] === "user") {
       var userName = path[2];

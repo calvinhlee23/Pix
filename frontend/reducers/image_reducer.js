@@ -8,10 +8,12 @@ const ImageReducer = (state = {}, action) =>  {
   switch (action.type) {
     case ImageConstants.RECEIVE_AN_IMAGE:
     // only renders the uploaded image
-      return action.image;
+      newState = action.image
+      return newState;
     case ImageConstants.RECEIVE_IMAGES:
     // the old is state is discarded
-      return action.images;
+      newState = action.images;
+      return newState;
     case CommentConstants.RECEIVE_A_COMMENT:
       newState = merge({}, state);
       var targetImage = newState[action.comment.image_id];
