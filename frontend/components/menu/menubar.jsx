@@ -16,11 +16,18 @@ class MenuBar extends React.Component {
     };
   }
 
+  toLogOut() {
+    this.props.logout();
+    window.location.reload();
+  }
+
   render() {
     return(
       <div className = "menu-bar">
         <ul className = "stream-menu">
           this is menu-bar. Each menu can be clicked. it will be styled later
+          <li id = "log-out">
+          <button onClick = {this.toLogOut.bind(this)}>Logout</button></li>
           <li id = "following-stream-menu"
           onClick = {this.ownRequestImages("followingImages")}>
           Following Stream</li>

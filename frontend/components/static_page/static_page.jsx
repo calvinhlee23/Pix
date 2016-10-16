@@ -36,7 +36,6 @@ class StaticPage extends React.Component {
       var userName = this.props.currentUser.user_name;
       return (
         <span id = "logged-in-greetings">
-          <button onClick = {this.toLogOut.bind(this)}>Logout</button>
           <MenuBar {...this.props}/>
           <Stream {...this.props}/>
         </span>
