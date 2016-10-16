@@ -4,9 +4,6 @@ import Frame from './frame';
 class Stream extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      path: null
-    };
   }
 
   componentDidMount() {
@@ -21,8 +18,6 @@ class Stream extends React.Component {
   generateStream() {
     if (this.props.targetUser.user_name) {
       return(<UserBio {...this.props}/>);
-    } else {
-      return(<Loader/>);
     }
   }
   render() {

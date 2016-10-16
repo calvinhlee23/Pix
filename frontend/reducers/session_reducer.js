@@ -18,21 +18,13 @@ const SessionReducer = (state = defaultState, action) => {
       newState = {errors: action.errors};
       return merge({}, newState, state);
     case FollowConstants.FOLLOW:
-      console.log("CORRECT REDUCER TO FOLLOW:");
-      console.log(action);
       newState = merge({}, state);
       newState.currentUser.following.push(action.userName);
-      console.log('about to get returned! after follow:');
-      console.log(newState);
       return newState;
     case FollowConstants.UNFOLLOW:
-      console.log("CORRECT REDUCER TO UNFOLLOW:");
-      console.log(action);
       newState = merge({}, state);
       var index = state.currentUser.following.indexOf(action.userName);
       newState.currentUser.following.splice(index, index);
-      console.log('about to get returned!:');
-      console.log(newState);
       return newState;
     default:
       return state;

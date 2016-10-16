@@ -14,7 +14,7 @@ class UserBio extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
     this.setState({followers: this.props.targetUser.followers.length});
     this.setState({following: this.props.targetUser.following_users.length});
   }
