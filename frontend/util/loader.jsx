@@ -22,7 +22,7 @@ class Loader extends React.Component {
         <div className = "loading"/>
       );
     } else if (this.state.time >= 3) {
-      return (<div>User Does Not Exist</div>);
+      return (<div>Page Not Found</div>);
     } else {
       return (<div/>);
     }
