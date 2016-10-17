@@ -11,7 +11,7 @@ class MenuBar extends React.Component {
   ownRequestImages(imageType) {
     event.preventDefault();
     return () => {
-      hashHistory.push("/");
+      hashHistory.push(`/${imageType}`);
       this.props.requestImages(imageType);
     };
   }
