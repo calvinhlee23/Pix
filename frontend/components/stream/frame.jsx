@@ -24,6 +24,32 @@ class Frame extends React.Component {
     this.setState({commentBody: body});
   }
 
+  timeSince(date) {
+      var seconds = Math.floor((new Date() - date) / 1000);
+
+      var interval = Math.floor(seconds / 31536000);
+
+      if (interval > 1) {
+          return interval + " years";
+      }
+      interval = Math.floor(seconds / 2592000);
+      if (interval > 1) {
+          return interval + " months";
+      }
+      interval = Math.floor(seconds / 86400);
+      if (interval > 1) {
+          return interval + " days";
+      }
+      interval = Math.floor(seconds / 3600);
+      if (interval > 1) {
+          return interval + " hours";
+      }
+      interval = Math.floor(seconds / 60);
+      if (interval > 1) {
+          return interval + " minutes";
+      }
+      return Math.floor(seconds) + " seconds";
+  }
 
   render() {
     var userName = this.props.image.user.user_name;
@@ -36,7 +62,13 @@ class Frame extends React.Component {
         <DeleteButton image = {this.props.image}
                       deleteThis = {this.props.deleteThis}
                       currentUser = {this.props.currentUser}/>
-        <div>{this.props.image.created_at}</div>
+
+        <div className = "time-ago">
+          {this.timeSince(Date.parse(this.props.image.created_at))} ago</div>
+
+        <div className = "like">{this.props.image.likes} likes</div>
+
+        <button className = "like-button">Like</button>
         <section className = "frame-commentSection">
           <CommentSection comments = {this.props.image.comments}
                           deleteThis = {this.props.deleteThis}
