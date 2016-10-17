@@ -20,11 +20,24 @@ componentDidMount() {
     }
   });
 }
+
+handleClick () {
+  event.preventDefault();
+  if (this.state.likeAbility === "Like") {
+    this.setState({likeNum: this.state.likeNum +=1 });
+    this.setState({likeAbility: "Unlike"});
+  } else {
+    this.setState({likeNum: this.state.likeNum -= 1 });
+    this.setState({likeAbility: "Like"});
+  }
+}
 render() {
   return(
       <div className = "like">
-        <div className = "like-num">{this.state.likeNum} likes</div>
-        <button className = "like-button">{this.state.likeAbility}</button>
+        <div className = "like-num" >{this.state.likeNum} likes</div>
+        <button className = "like-button"
+          onClick = {this.handleClick.bind(this)}>
+          {this.state.likeAbility}</button>
       </div>
     );
   }
