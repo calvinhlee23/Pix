@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <html>
 <head>
   <title>Pix</title>
@@ -11,7 +12,9 @@
       cloud_name: "<%= ENV['CLOUD_NAME']%>",
       upload_preset: "<%= ENV['UPLOAD_PRESET']%>"
     };
+
   </script>
+  <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
   <%= csrf_meta_tags %>
 </head>
 <body>

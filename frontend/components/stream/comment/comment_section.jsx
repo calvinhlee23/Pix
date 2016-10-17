@@ -11,7 +11,9 @@ class CommentSection extends React.Component{
     return(
         <ul className = "commentList">
           {this.props.comments.map((cm) => {
-            return <Comment comment = {cm} key = {cm.id}/>;
+            return <Comment comment = {cm}
+                            key = {cm.id}
+                            deleteThis = {this.props.deleteThis}/>;
           })}
         </ul>
     );

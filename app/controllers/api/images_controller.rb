@@ -43,8 +43,11 @@ class Api::ImagesController < ApplicationController
   end
 
   def destroy
-    if self.user == get_current_user
-
+    id = params[:id]
+    img = Image.find_by_id(id);
+    if img.user == get_current_user
+      img.destroy
+      render json: id.to_json
     else
       raise "Youre not permitted to delete this photo"
     end

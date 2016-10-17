@@ -1,5 +1,5 @@
 import React from 'react';
-import {DeleteConstants} from '../../actions/delete';
+import {DeleteConstants} from '../../actions/delete_actions';
 
 class DeleteButton extends React.Component{
   constructor(props) {
@@ -24,17 +24,17 @@ class DeleteButton extends React.Component{
   deleteThis() {
     event.preventDefault();
     return () => {
-      var confirm = window.confirm("Press a button!");
+      var confirm = window.confirm("You are about to DELETE this item");
       if (confirm === true) {
         console.log(this.state.toDelete);
-          // this.props.deleteThis(this.state.type, this.state.toDelete);
+        this.props.deleteThis(this.state.type, this.state.toDelete);
       }
     };
   }
 
   render() {
     return(
-      <button className = "delete"
+      <button className = "delete" id = {this.state.type}
       onClick = {this.deleteThis(this.state.toDelete).bind(this)}>
       Delete</button>);
   }

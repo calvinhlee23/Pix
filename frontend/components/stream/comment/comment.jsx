@@ -12,7 +12,7 @@ class Comment extends React.Component {
       <a className = "comment-username">
         {this.props.comment.author_name}</a>
       <main>{this.props.comment.body}</main>
-      <DeleteButton comment = {this.props.comment}/>
+      <DeleteButton {...this.props}/>
       </li>
     );
   }

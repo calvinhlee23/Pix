@@ -16,6 +16,16 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
   end
 
+  def destroy
+    id = params[:id]
+    comment = Comment.find_by_id(id)
+    if comment.author == get_current_user
+      comment.destroy
+      render json: comment.to_json
+    else
+      raise "youre not authorized to delete this comment"
+    end
+  end
   private
 
   def comment_params

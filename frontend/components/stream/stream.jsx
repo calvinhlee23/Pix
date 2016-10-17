@@ -27,6 +27,7 @@ class Stream extends React.Component {
         {Object.keys(this.props.images).map((imgId) => {
           return <Frame image = {this.props.images[imgId]}
           postComment = {this.props.postComment}
+          deleteThis = {this.props.deleteThis}
           key = {imgId}/>;
         })}
         </ul>
