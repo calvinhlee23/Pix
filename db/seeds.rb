@@ -19,3 +19,4 @@ comment1 = Comment.create(
   author_id: 1, image_id: img1.id,
   body: "hello this is the first comment")
 like1 = Like.create(author_id: 2, image_id: img1.id)
+like2 = Like.create(author_id: 1, image_id: img1.id)

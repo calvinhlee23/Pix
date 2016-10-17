@@ -74,7 +74,7 @@ class Frame extends React.Component {
 
 
         <Like {...this.props}/>
-        
+
         <section className = "frame-commentSection">
           <CommentSection comments = {this.props.image.comments}
                           deleteThis = {this.props.deleteThis}
