@@ -28,6 +28,7 @@ class Stream extends React.Component {
           return <Frame image = {this.props.images[imgId]}
           postComment = {this.props.postComment}
           deleteThis = {this.props.deleteThis}
+          currentUser = {this.props.currentUser}
           key = {imgId}/>;
         })}
         </ul>

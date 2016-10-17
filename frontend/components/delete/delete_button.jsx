@@ -7,17 +7,22 @@ class DeleteButton extends React.Component{
     //  toDelete: image or comment
     this.state = {
       type: null,
-      toDelete: null
+      toDelete: null,
+      renderable: false
     };
   }
 
   componentWillMount() {
-    if (this.props.image) {
+    if (this.props.image &&
+      (this.props.currentUser.id === this.props.image.user.id)) {
       this.setState({type: DeleteConstants.DELETE_IMAGE});
       this.setState({toDelete: this.props.image});
-    } else if (this.props.comment) {
+      this.setState({renderable: true});
+    } else if (this.props.comment &&
+    (this.props.currentUser.id === this.props.comment.author_id)) {
       this.setState({type: DeleteConstants.DELETE_COMMENT});
       this.setState({toDelete: this.props.comment});
+      this.setState({renderable: true});
     }
   }
 
@@ -33,11 +38,15 @@ class DeleteButton extends React.Component{
   }
 
   render() {
-    return(
-      <button className = "delete" id = {this.state.type}
-      onClick = {this.deleteThis(this.state.toDelete).bind(this)}>
-      Delete</button>);
-  }
+    if (this.state.renderable) {
+      return(
+        <button className = "delete" id = {this.state.type}
+        onClick = {this.deleteThis(this.state.toDelete).bind(this)}>
+        Delete</button>);
+      } else {
+        return <div/>;
+      }
+    }
 }
 
 

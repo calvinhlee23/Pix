@@ -34,11 +34,13 @@ class Frame extends React.Component {
       </h2>
         <img src = {this.props.image.cloud_url} className = "frame-Image"/>
         <DeleteButton image = {this.props.image}
-                      deleteThis = {this.props.deleteThis}/>
+                      deleteThis = {this.props.deleteThis}
+                      currentUser = {this.props.currentUser}/>
         <div>{this.props.image.created_at}</div>
         <section className = "frame-commentSection">
           <CommentSection comments = {this.props.image.comments}
-                          deleteThis = {this.props.deleteThis}/>
+                          deleteThis = {this.props.deleteThis}
+                          currentUser = {this.props.currentUser}/>
           <input type = "text" className = "commentSubmit"
             onChange = {this.write.bind(this)}
             onKeyDown = {this.submitComment.bind(this)}
