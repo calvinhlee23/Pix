@@ -2,13 +2,19 @@ import React from  'react';
 import CommentSection from './comment/comment_section';
 import {Link} from "react-router";
 import DeleteButton from '../delete/delete_button';
+import Like from './like/like';
+
 class Frame extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       commentBody: "",
+      likeNum: 0,
+      likeAbility: "Like"
     };
   }
+
+
 
   submitComment (event) {
     if (event.key === "Enter") {
@@ -66,9 +72,9 @@ class Frame extends React.Component {
         <div className = "time-ago">
           {this.timeSince(Date.parse(this.props.image.created_at))} ago</div>
 
-        <div className = "like">{this.props.image.likes} likes</div>
 
-        <button className = "like-button">Like</button>
+        <Like {...this.props}/>
+        
         <section className = "frame-commentSection">
           <CommentSection comments = {this.props.image.comments}
                           deleteThis = {this.props.deleteThis}
