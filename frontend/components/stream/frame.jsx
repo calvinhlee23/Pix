@@ -1,7 +1,7 @@
 import React from  'react';
 import CommentSection from './comment/comment_section';
 import {Link} from "react-router";
-
+import DeleteButton from '../delete/delete_button';
 class Frame extends React.Component {
   constructor (props) {
     super(props);
@@ -33,6 +33,7 @@ class Frame extends React.Component {
       <Link to = {{pathname: `/user/${userName}`}}>{userName}</Link>
       </h2>
         <img src = {this.props.image.cloud_url} className = "frame-Image"/>
+        <DeleteButton image = {this.props.image}/>
         <div>{this.props.image.created_at}</div>
         <section className = "frame-commentSection">
           <CommentSection comments = {this.props.image.comments}/>

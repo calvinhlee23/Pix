@@ -1,4 +1,5 @@
-import {SessionConstants, receiveCurrentUser, receiveErrors} from '../actions/session_actions';
+import {SessionConstants, receiveCurrentUser,
+        receiveErrors} from '../actions/session_actions';
 import {FollowConstants} from '../actions/follow_actions';
 
 import merge from 'lodash/merge';
