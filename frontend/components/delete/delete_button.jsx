@@ -19,19 +19,18 @@ class DeleteButton extends React.Component{
       this.setState({toDelete: this.props.image});
       this.setState({renderable: true});
     } else if (this.props.comment &&
-    (this.props.currentUser.id === this.props.comment.author_id)) {
+    (this.props.currentUser.user_name === this.props.comment.author_name)) {
       this.setState({type: DeleteConstants.DELETE_COMMENT});
       this.setState({toDelete: this.props.comment});
       this.setState({renderable: true});
     }
   }
-
+  
   deleteThis() {
     event.preventDefault();
     return () => {
       var confirm = window.confirm("You are about to DELETE this item");
       if (confirm === true) {
-        console.log(this.state.toDelete);
         this.props.deleteThis(this.state.type, this.state.toDelete);
       }
     };

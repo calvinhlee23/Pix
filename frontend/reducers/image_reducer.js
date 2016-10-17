@@ -32,10 +32,11 @@ const ImageReducer = (state = {}, action) =>  {
       comments.forEach ((cmt, ind) => {
         if (cmt.id === action.comment.id) {
           index = ind;
-          return;
+          comments = comments.splice(index, index);
+          // below ensures that newState is mutated
+          newState[action.comment.image_id].comments = comments;
         }
       });
-      comments = comments.splice(index, index);
       return newState;
     default:
       return state;

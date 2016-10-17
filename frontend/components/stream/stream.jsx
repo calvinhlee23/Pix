@@ -24,6 +24,7 @@ class Stream extends React.Component {
       return(<UserBio {...this.props}/>);
     }
   }
+
   render() {
     return (
       <div className = "stream">
