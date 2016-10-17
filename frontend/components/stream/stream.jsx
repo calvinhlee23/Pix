@@ -12,6 +12,10 @@ class Stream extends React.Component {
       this.setState({path: path});
       var userName = path[2];
       this.props.requestImages("userImages", userName);
+    } else if (path[1] === "followingImages" ||
+               path[1] === "myImages" ||
+               path[1] === "publicImages") {
+      this.props.requestImages(path[1]);
     }
   }
 
