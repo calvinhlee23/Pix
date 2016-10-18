@@ -24,11 +24,9 @@ componentDidMount() {
 handleClick () {
   event.preventDefault();
   if (this.state.likeAbility === "Like") {
-    this.setState({likeNum: this.state.likeNum +=1 });
-    this.setState({likeAbility: "Unlike"});
+    this.props.processLike(this.state.likeAbility, this.props.image.id);
   } else {
-    this.setState({likeNum: this.state.likeNum -= 1 });
-    this.setState({likeAbility: "Like"});
+    this.props.processLike(this.state.likeAbility, this.props.image.id);
   }
 }
 render() {

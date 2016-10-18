@@ -1,10 +1,12 @@
 import {ImageConstants, receiveAnImage, receiveImages} from '../actions/image_actions';
 import {CommentConstants, receiveAComment} from '../actions/comment_actions';
 import {DeleteConstants, removeComment, removeImage} from '../actions/delete_actions';
+import {LikeConstants, receiveLike} from '../actions/like_actions';
 
 import * as IMAGE_API from '../util/image_api_util';
 import * as COMMENT_API from '../util/comment_api_util';
 import * as DELETE_API from '../util/delete_api_util';
+import * as LIKE_API from '../util/like_api_util';
 
 const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
   var success, error;
@@ -53,6 +55,22 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
       success = (cmt) => dispatch(removeComment(cmt));
       error = () => window.alert("Something went wrong while deleting comment");
       DELETE_API.deleteComment(action.toDelete, success, error);
+      return next(action);
+
+    case LikeConstants.PROCESS_LIKE:
+      console.log('like middle');
+      console.log(action);
+      success = (like) => dispatch(receiveLike(action.likeAbility, like));
+      error = () => window.alert("Something went wrong while liking");
+      if (action.likeAbility === LikeConstants.LIKE) {
+        console.log("like middle like");
+        LIKE_API.like(action.imageId, success, error);
+        return next(action);
+      } else {
+        console.log("like middle unlike");
+        LIKE_API.unlike(action.imageId, success, error);
+        return next(action);
+      }
     default:
       next(action);
   }
