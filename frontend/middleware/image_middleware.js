@@ -58,16 +58,12 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
       return next(action);
 
     case LikeConstants.PROCESS_LIKE:
-      console.log('like middle');
-      console.log(action);
       success = (like) => dispatch(receiveLike(action.likeAbility, like));
       error = () => window.alert("Something went wrong while liking");
       if (action.likeAbility === LikeConstants.LIKE) {
-        console.log("like middle like");
         LIKE_API.like(action.imageId, success, error);
         return next(action);
       } else {
-        console.log("like middle unlike");
         LIKE_API.unlike(action.imageId, success, error);
         return next(action);
       }
