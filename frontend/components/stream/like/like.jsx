@@ -9,7 +9,7 @@ class Like extends React.Component {
     };
   }
 
-componentDidMount() {
+componentWillMount() {
   // likes => [{author_id: x},....]
   var likes = this.props.image.likes;
   this.setState({likeNum: likes.length});
@@ -23,10 +23,15 @@ componentDidMount() {
 
 handleClick () {
   event.preventDefault();
+  var likes = this.props.image.likes;
   if (this.state.likeAbility === "Like") {
     this.props.processLike(this.state.likeAbility, this.props.image.id);
+    this.setState({likeNum: likes.length +=1});
+    this.setState({likeAbility: "Unlike"});
   } else {
     this.props.processLike(this.state.likeAbility, this.props.image.id);
+    this.setState({likeNum: likes.length -=1});
+    this.setState({likeAbility: "Like"});
   }
 }
 render() {
