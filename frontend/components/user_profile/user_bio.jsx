@@ -15,7 +15,11 @@ class UserBio extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentWillReceiveProps() {
+    this.setState({userName: this.props.targetUser.user_name});
+  }
+
+  componentDidMount() {
     this.setState({userName: this.props.targetUser.user_name});
   }
 
