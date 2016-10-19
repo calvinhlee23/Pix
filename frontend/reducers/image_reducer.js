@@ -31,13 +31,13 @@ const ImageReducer = (state = {}, action) =>  {
       var comments = targetImage.comments;
       comments.forEach ((cmt, ind) => {
         if (cmt.id === action.comment.id) {
-          comments = comments.splice(ind, ind);
+          comments.splice(ind, ind);
           // below ensures that newState is mutated
           newState[action.comment.image_id].comments = comments;
-          return newState;
+          return;
         }
       });
-      break;
+      return newState;
     case LikeConstants.RECEIVE_LIKE:
       newState = merge({}, state);
       targetImage = newState[action.like.image_id];
@@ -50,9 +50,9 @@ const ImageReducer = (state = {}, action) =>  {
       } else {
         likes.forEach ((like, ind) => {
           if (like.author_id === action.like.author_id) {
-            likes = likes.splice(ind, ind);
+            likes.splice(ind, ind);
             newState[action.like.image_id].likes = likes;
-            return newState;
+            return;
           }
         });
       }
