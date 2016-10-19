@@ -1,5 +1,4 @@
 import React from 'react';
-import FollowButton from './follow_button';
 import UserBio from './user_bio';
 import Loader from '../../util/loader';
 import Stream from '../stream/stream';
@@ -9,15 +8,23 @@ class UserProfile extends React.Component{
   constructor(props) {
     super(props);
     window.props = this.props;
+    this.state = {
+      loaded: false
+    };
   }
 
   componentDidMount() {
-    var path = this.props.location.pathname.split("/");
-    if (path[1] === "user") {
-      var userName = path[2];
-      this.props.requestTargetUser(userName);
-      this.props.requestImages("userImages", userName);
+      var path = this.props.location.pathname.split("/");
+      if (path[1] === "user") {
+        var userName = path[2];
+        this.props.requestTargetUser(userName);
+        this.props.requestImages("userImages", userName);
     }
+  }
+
+  componentDidUpdate() {
+    console.log('hihihi');
+    console.log(this.props.location.pathname.split("/"));
   }
 
   generateProfile() {
@@ -25,7 +32,6 @@ class UserProfile extends React.Component{
       return(
         <div>
           <UserBio {...this.props}/>
-          <FollowButton {...this.props}/>
         </div>
       );
     } else {

@@ -15,7 +15,6 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
     case FollowConstants.FOLLOW:
       success = (data) => {
           dispatch(receiveTargetUser(data));
-          window.location.reload();
       };
       FOLLOW_API.followRequest(action.type, action.userName, success);
       return next(action);
@@ -23,7 +22,6 @@ const UserMiddleware = ({getState, dispatch}) => (next) => (action) => {
     case FollowConstants.UNFOLLOW:
       success = (data) => {
         dispatch(receiveTargetUser(data));
-        window.location.reload();
       };
       FOLLOW_API.followRequest(action.type, action.userName, success);
       return next(action);
