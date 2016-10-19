@@ -1,16 +1,11 @@
 import React from 'react';
 import UserBio from './user_bio';
-import Loader from '../../util/loader';
 import Stream from '../stream/stream';
 import MenuBar from '../menu/menubar';
 
 class UserProfile extends React.Component{
   constructor(props) {
     super(props);
-    window.props = this.props;
-    this.state = {
-      loaded: false
-    };
   }
 
   componentDidMount() {
@@ -22,11 +17,6 @@ class UserProfile extends React.Component{
     }
   }
 
-  componentDidUpdate() {
-    console.log('hihihi');
-    console.log(this.props.location.pathname.split("/"));
-  }
-
   generateProfile() {
     if (this.props.targetUser.user_name) {
       return(
@@ -34,8 +24,6 @@ class UserProfile extends React.Component{
           <UserBio {...this.props}/>
         </div>
       );
-    } else {
-      return(<Loader/>);
     }
   }
 

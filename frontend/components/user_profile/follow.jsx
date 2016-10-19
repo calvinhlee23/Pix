@@ -49,7 +49,7 @@ class Follow extends React.Component{
     if (this.state.button) {
       var targetUserName = this.props.targetUser.user_name;
       return (
-        <div className = "user-bio">
+        <div className = "follow">
         <label className = "followers">
         Followers: {this.state.followers}</label>
         <label className = "following">
@@ -61,7 +61,7 @@ class Follow extends React.Component{
       );
     } else {
       return(
-        <div className = "user-bio">
+        <div className = "follow">
         <label className = "followers">
         Followers: {this.state.followers}</label>
         <label className = "following">
