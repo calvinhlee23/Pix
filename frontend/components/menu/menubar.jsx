@@ -17,8 +17,7 @@ class MenuBar extends React.Component {
   }
 
   toLogOut() {
-    this.props.logout();
-    window.location.reload();
+    hashHistory.push('/logout');
   }
 
   render() {

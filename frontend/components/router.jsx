@@ -13,6 +13,7 @@ const AppRouter = () => (
     <IndexRoute component = {StaticPageContainer}/>
       <Route path = "signup" component = {SessionFormContainer}/>
       <Route path = "login" component = {SessionFormContainer}/>
+      <Route path = "logout" component = {SessionFormContainer}/>
 
       <Route path = "followingImages" component = {StaticPageContainer}/>
       <Route path = "publicImages" component = {StaticPageContainer}/>

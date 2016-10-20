@@ -12,7 +12,6 @@ const SessionMiddleware = ({getState, dispatch}) => (next) => (action) => {
     case SessionConstants.LOG_OUT:
       success = () => {
         next(action);
-        window.location.reload();
         };
       error = (data) => dispatch(receiveErrors(data));
       SESSION_API.logout(success, error);

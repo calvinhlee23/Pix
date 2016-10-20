@@ -18,11 +18,22 @@ class SessionForm extends React.Component {
   }
 
   componentDidUpdate() {
-    this.redirectIfLoggedIn();
+    if (this.props.formType === "logout") {
+      this.props.processForm();
+      hashHistory.push("/")
+    } else {
+      this.redirectIfLoggedIn();
+    }
   }
 
   componentWillMount() {
-    this.redirectIfLoggedIn();
+    if (this.props.formType === "logout") {
+      this.props.processForm();
+      hashHistory.push("/");
+      window.location.reload();
+    } else {
+      this.redirectIfLoggedIn();
+    }
   }
 
   redirectIfLoggedIn() {
