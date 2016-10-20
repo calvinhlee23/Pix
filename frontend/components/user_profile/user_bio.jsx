@@ -1,6 +1,7 @@
 import React from 'react';
 import Follow from './follow';
 import Loader from '../../util/loader';
+import Stream from '../stream/stream';
 
 // props look as below:
 // targetUser: {
@@ -16,10 +17,6 @@ class UserBio extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.setState({userName: this.props.targetUser.user_name});
-  }
-
-  componentDidMount() {
     this.setState({userName: this.props.targetUser.user_name});
   }
 
