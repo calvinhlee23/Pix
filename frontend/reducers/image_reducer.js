@@ -46,10 +46,11 @@ const ImageReducer = (state = {}, action) =>  {
         var newLike = {author_id: action.like.author_id};
         likes.push(newLike);
         newState[action.like.image_id].likes = likes;
-        return newState;
       } else {
         likes.forEach ((like, ind) => {
-          if (like.author_id === action.like.author_id) {
+          if (like !== undefined &&
+              like.author_id === action.like.author_id) {
+
             likes.splice(ind, ind);
             newState[action.like.image_id].likes = likes;
             return;

@@ -19,6 +19,7 @@ class Api::LikesController < ApplicationController
     p like
     if like
       like.destroy
+      p JSON.parse(like.to_json)
       render json: JSON.parse(like.to_json)
     else
       raise "COULD NOT FIND SUCH A LIKE"
