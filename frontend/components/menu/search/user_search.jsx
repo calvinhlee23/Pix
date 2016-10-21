@@ -1,22 +1,23 @@
 import React from 'react';
 import UserSearchItem from './user_search_item';
-import Loader from '../../../util/loader';
 import {UserSearchAPI} from '../../../util/user_search_api_util';
+import Loader from '../../../util/loader';
 
 class UserSearch extends React.Component{
   constructor (props) {
     super(props);
     this.state = {
       query: "",
-      foundUsers: [],
+      foundUsers: ["no user found"],
       isSearchDone: true
     };
   }
 
   handleInputChange(event) {
+    event.preventDefault();
     this.setState({isSearchDone: false});
     this.setState({query: event.currentTarget.value});
-    this.setState({foundUsers: []});
+    this.setState({foundUsers: ["no user found"]});
     // waits for the query state to update
     window.setTimeout(() => {
       if (this.state.query.length > 0) {
@@ -28,15 +29,17 @@ class UserSearch extends React.Component{
 
   requestUsers(query) {
     var success = ((users) => {
-      this.setState({isSearchDone: true});
-      this.setState({foundUsers: users});
+      if (users.length > 0 ) {
+        this.setState({isSearchDone: true});
+        this.setState({foundUsers: users});
+      }
     }).bind(this);
     UserSearchAPI(query, success);
   }
 
   render() {
-    if (this.state.isSearchDone &&
-        this.state.foundUsers.length > 0) {
+    if (this.state.isSearchDone) {
+      console.log('im here');
       return(
         <div className = "search">
         <label>Search User:
@@ -52,28 +55,17 @@ class UserSearch extends React.Component{
           </ul>
         </div>
       );
-    } else if (this.state.query.length > 0) {
-      return(
-        <div className = "search">
-        <label>Search User:
-        <input type = "text"
-        className = "search-field"
-        value = {this.state.query}
-        onChange = {this.handleInputChange.bind(this)}/>
-        </label>
-        <ul className = "search-result">
-        <Loader search = {true}/>
-        </ul>
-        </div>
-      );
     } else {
       return (
+        <div className = "search">
         <label>Search User:
-        <input type = "text"
-        className = "search-field"
-        value = {this.state.query}
-        onChange = {this.handleInputChange.bind(this)}/>
+          <input type = "text"
+          className = "search-field"
+          value = {this.state.query}
+          onChange = {this.handleInputChange.bind(this)}/>
         </label>
+        <Loader search = {true}/>
+        </div>
       );
     }
   }
