@@ -1,0 +1,24 @@
+.search {
+  position: fixed;
+  right: 10px;
+  width: 25%;
+  margin-top: 20px;
+  background: aqua;
+}
+
+.search input {
+  width: 98.1%;
+}
+
+.search label {
+  display: block;
+  clear: both;
+}
+
+.search-result {
+  display: block;
+  justify-content: flex-end;
+  background: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+}

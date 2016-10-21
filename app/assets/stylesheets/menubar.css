@@ -40,9 +40,7 @@
 }
 
 .search input {
-  display: flex;
-  justify-content: center;
-  width: 98.3%;
+  width: 80%;
 }
 
 .search label {
@@ -56,4 +54,8 @@
   background: blue;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.search-loader {
+  float: right;
 }

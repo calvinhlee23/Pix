@@ -1,7 +1,6 @@
 import React from 'react';
 import UserSearchItem from './user_search_item';
 import {UserSearchAPI} from '../../../util/user_search_api_util';
-import Loader from '../../../util/loader';
 
 class UserSearch extends React.Component{
   constructor (props) {
@@ -22,7 +21,7 @@ class UserSearch extends React.Component{
       if (this.state.query.length > 0) {
           this.requestUsers(this.state.query);
       }
-    }, 500);
+    }, );
   }
 
   requestUsers(query) {
@@ -57,12 +56,11 @@ class UserSearch extends React.Component{
     } else {
       return (
         <div className = "search">
-        <label className = "search-field">Search User:
-          <input type = "text"
-          value = {this.state.query}
-          onChange = {this.handleInputChange.bind(this)}/>
-        </label>
-        <Loader search = {true}/>
+          <label className = "search-field">Search User:
+            <input type = "text"
+            value = {this.state.query}
+            onChange = {this.handleInputChange.bind(this)}/>
+          </label>
         </div>
       );
     }
