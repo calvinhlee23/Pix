@@ -1,0 +1,56 @@
+.menu-bar {
+  display: block;
+  width: 100%;
+  background: yellow;
+}
+
+.menu-bar #user {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: brown;
+}
+
+.stream-menu {
+  text-align: center;
+  position: fixed;
+  width: 27%;
+}
+
+.stream-menu li {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: gold;
+}
+
+.stream-menu li:hover {
+  background: blue;
+}
+
+.search {
+  position: fixed;
+  right: 10px;
+  width: 25%;
+  background: blue;
+}
+
+.search input {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.search label {
+  display: block;
+  clear: both;
+}
+
+.search-result {
+  display: block;
+  justify-content: flex-end;
+  background: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -19,7 +19,7 @@ class UploadButton extends React.Component {
 
   render() {
     return (
-      <button onClick = {this.upload.bind(this)}>Add to Stream</button>
+      <div onClick = {this.upload.bind(this)}>Add to Stream</div>
     );
   }
 }

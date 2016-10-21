@@ -56,9 +56,8 @@ class UserSearch extends React.Component{
     } else {
       return (
         <div className = "search">
-        <label>Search User:
+        <label className = "search-field">Search User:
           <input type = "text"
-          className = "search-field"
           value = {this.state.query}
           onChange = {this.handleInputChange.bind(this)}/>
         </label>

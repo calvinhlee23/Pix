@@ -1,0 +1,11 @@
+.stream {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.frame {
+  display: block;
+  background: green;
+  margin: 20px;
+}
