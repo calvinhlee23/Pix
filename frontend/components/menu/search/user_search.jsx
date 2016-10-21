@@ -20,7 +20,7 @@ class UserSearch extends React.Component{
     // waits for the query state to update
     window.setTimeout(() => {
       if (this.state.query.length > 0) {
-        console.log(this.state.query);
+          console.log(this.state.query);
           this.requestUsers(this.state.query);
       }
     }, 1000);
@@ -35,7 +35,8 @@ class UserSearch extends React.Component{
   }
 
   render() {
-    if (this.state.isSearchDone) {
+    if (this.state.isSearchDone &&
+        this.state.foundUsers.length > 0) {
       return(
         <div className = "search">
         <label>Search User:
@@ -51,19 +52,28 @@ class UserSearch extends React.Component{
           </ul>
         </div>
       );
-    } else {
+    } else if (this.state.query.length > 0) {
       return(
         <div className = "search">
         <label>Search User:
-          <input type = "text"
-          className = "search-field"
-          value = {this.state.query}
-          onChange = {this.handleInputChange.bind(this)}/>
+        <input type = "text"
+        className = "search-field"
+        value = {this.state.query}
+        onChange = {this.handleInputChange.bind(this)}/>
         </label>
         <ul className = "search-result">
-          <Loader search = {true}/>
+        <Loader search = {true}/>
         </ul>
         </div>
+      );
+    } else {
+      return (
+        <label>Search User:
+        <input type = "text"
+        className = "search-field"
+        value = {this.state.query}
+        onChange = {this.handleInputChange.bind(this)}/>
+        </label>
       );
     }
   }
