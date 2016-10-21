@@ -22,7 +22,11 @@ class Loader extends React.Component {
         <div className = "loading"/>
       );
     } else if (this.state.time >= 3) {
-      return (<div>Page Not Found</div>);
+      if (this.props.search) {
+        return(<div>No Match Found</div>);
+      } else {
+        return (<div>Page Not Found</div>);
+      }
     } else {
       return (<div/>);
     }
