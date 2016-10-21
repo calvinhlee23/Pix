@@ -21,7 +21,6 @@ class UserSearch extends React.Component{
     // waits for the query state to update
     window.setTimeout(() => {
       if (this.state.query.length > 0) {
-          console.log(this.state.query);
           this.requestUsers(this.state.query);
       }
     }, 1000);
@@ -39,7 +38,6 @@ class UserSearch extends React.Component{
 
   render() {
     if (this.state.isSearchDone) {
-      console.log('im here');
       return(
         <div className = "search">
         <label>Search User:

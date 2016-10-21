@@ -6,10 +6,6 @@ class UserSearchItem extends React.Component{
     super(props);
   }
 
-  componentDidMount() {
-    console.log('from UserSearchItem');
-    console.log(this.props.user);
-  }
   render() {
     if (this.props.user === "no user found") {
       return (<div/>);
