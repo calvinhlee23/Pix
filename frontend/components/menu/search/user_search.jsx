@@ -1,23 +1,41 @@
 import React from 'react';
 import UserSearchItem from './user_search_item';
 import Loader from '../../../util/loader';
+import {UserSearchAPI} from '../../../util/user_search_api_util';
 
 class UserSearch extends React.Component{
   constructor (props) {
     super(props);
     this.state = {
       query: "",
-      foundUserNames: [],
-      searchDone: false
+      foundUsers: [],
+      isSearchDone: true
     };
   }
 
-  handleInputChange() {
+  handleInputChange(event) {
+    this.setState({isSearchDone: false});
+    this.setState({query: event.currentTarget.value});
+    this.setState({foundUsers: []});
+    // waits for the query state to update
+    window.setTimeout(() => {
+      if (this.state.query.length > 0) {
+        console.log(this.state.query);
+          this.requestUsers(this.state.query);
+      }
+    }, 1000);
+  }
 
+  requestUsers(query) {
+    var success = ((users) => {
+      this.setState({isSearchDone: true});
+      this.setState({foundUsers: users});
+    }).bind(this);
+    UserSearchAPI(query, success);
   }
 
   render() {
-    if (this.state.searchDone) {
+    if (this.state.isSearchDone) {
       return(
         <div className = "search">
         <label>Search User:
@@ -27,9 +45,8 @@ class UserSearch extends React.Component{
           onChange = {this.handleInputChange.bind(this)}/>
         </label>
         <ul className = "search-result">
-        {this.state.foundUserNames.map((userName, indx) => {
-          return (<UserSearchItem key = {indx}
-            userName = {userName}/>);
+        {this.state.foundUsers.map((user, indx) => {
+          return (<UserSearchItem key = {indx} user = {user}/>);
           })}
           </ul>
         </div>

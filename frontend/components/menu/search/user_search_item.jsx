@@ -6,7 +6,7 @@ class UserSearchItem extends React.Component{
   }
 
   render() {
-    return(<li> </li>);
+    return(<li key = {this.props.user.id}>{this.props.user.user_name}</li>);
   }
 }
 

@@ -24,8 +24,18 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    userNameQuery = user_search_params
+    searchResults = User.find_users_search(userNameQuery);
+    render json: searchResults.to_json
+  end
+
   private
   def user_param
     params.permit(:email,:user_name, :password)
+  end
+
+  def user_search_params
+    params.require(:user_query)
   end
 end

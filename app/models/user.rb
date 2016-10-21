@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   validates :email, :user_name, presence: true, uniqueness: true
   validates :password_digest, :session_token, presence: true
-  after_initialize :ensure_session_token
 
   has_many(
     :images, dependent: :destroy,
@@ -20,6 +19,29 @@ class User < ActiveRecord::Base
     through: :follows,
     source: :following
   )
+
+  def self.generate_session_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.find_by_credential(email,pw)
+    user = User.find_by_email(email)
+    if user
+      return user if user.is_password?(pw)
+    end
+    raise "email/pw combination not found"
+  end
+
+  def self.find_users_search(userNameQuery)
+    userNameQuery = "%#{userNameQuery}%"
+    query = <<-SQL, userNameQuery
+      SELECT users.*
+      FROM users
+      WHERE users.user_name LIKE ?
+      LIMIT 4;
+    SQL
+    User.find_by_sql(query);
+  end
 
   def is_public?
     self.public
@@ -54,9 +76,6 @@ class User < ActiveRecord::Base
     confirm.is_password?(pw)
   end
 
-  def self.generate_session_token
-    SecureRandom.urlsafe_base64
-  end
 
   def ensure_session_token
     self.session_token ||= User.generate_session_token
@@ -67,12 +86,5 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def self.find_by_credential(email,pw)
-    user = User.find_by_email(email)
-    if user
-      return user if user.is_password?(pw)
-    end
-    raise "email/pw combination not found"
-  end
 
 end
