@@ -8,8 +8,8 @@ class Loader extends React.Component {
       time: 0
     };
     window.count = window.setInterval(() => {
-      this.setState({time: this.state.time += .5 });
-    }, 500);
+      this.setState({time: this.state.time += .200});
+    }, 200);
   }
 
   componentWillUnmount() {
@@ -23,8 +23,7 @@ class Loader extends React.Component {
       );
     } else if (this.state.time >= 3) {
       if (this.props.search) {
-        console.log('hi');
-        return(<div>No Match Found</div>);
+        return(<div/>);
       } else {
         return (<div>Page Not Found</div>);
       }

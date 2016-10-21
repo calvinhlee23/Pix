@@ -8,7 +8,7 @@ class UserSearchItem extends React.Component{
 
   render() {
     if (this.props.user === "no user found") {
-      return (<div/>);
+      return (<div>No Match Found</div>);
     } else {
       return(<li key = {this.props.user.id}  className = "user-search-item">
         <Link to = {{pathname: `/user/${this.props.user.user_name}`}}

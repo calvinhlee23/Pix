@@ -8,7 +8,7 @@ class UserSearch extends React.Component{
     super(props);
     this.state = {
       query: "",
-      foundUsers: ["no user found"],
+      foundUsers: [],
       isSearchDone: true
     };
   }
@@ -17,21 +17,22 @@ class UserSearch extends React.Component{
     event.preventDefault();
     this.setState({isSearchDone: false});
     this.setState({query: event.currentTarget.value});
-    this.setState({foundUsers: ["no user found"]});
     // waits for the query state to update
     window.setTimeout(() => {
       if (this.state.query.length > 0) {
           this.requestUsers(this.state.query);
       }
-    }, 1000);
+    }, 500);
   }
 
   requestUsers(query) {
     var success = ((users) => {
-      if (users.length > 0 ) {
         this.setState({isSearchDone: true});
-        this.setState({foundUsers: users});
-      }
+        if (users.length >0 ) {
+          this.setState({foundUsers: users});
+        } else {
+          this.setState({foundUsers: ["no user found"]})
+        }
     }).bind(this);
     UserSearchAPI(query, success);
   }
