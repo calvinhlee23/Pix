@@ -29,12 +29,17 @@ const ImageReducer = (state = {}, action) =>  {
       newState = merge({}, state);
       targetImage = newState[action.comment.image_id];
       var comments = targetImage.comments;
+      var newComments = merge([], comments);
       comments.forEach ((cmt, ind) => {
         if (cmt.id === action.comment.id) {
-          comments.splice(ind, ind);
+          if (ind === 0) {
+            newComments.shift();
+          } else {
+            newComments.splice(ind, ind);
+          }
           // below ensures that newState is mutated
-          newState[action.comment.image_id].comments = comments;
-          return;
+          newState[action.comment.image_id].comments = newComments;
+          return newState;
         }
       });
       return newState;

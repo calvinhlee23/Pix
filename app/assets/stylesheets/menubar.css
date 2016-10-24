@@ -2,6 +2,7 @@
   display: block;
   width: 100%;
   background: yellow;
+  margin-bottom: 20px;
 }
 
 .menu-bar #user {
@@ -19,16 +20,9 @@
   align-items: baseline;
 }
 
-aside.stream-menu-wrapper {
-  float: left;
-  position: relative;
-  height: 100%;
-  background: blue;
-}
 
 .stream-menu {
   text-align: center;
-  margin-top: 20px;
   position: fixed;
   width: 280px;
   display: block;

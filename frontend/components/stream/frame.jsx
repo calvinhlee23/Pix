@@ -47,12 +47,13 @@ class Frame extends React.Component {
       <h2 className = "frame-userName">
       <Link to = {{pathname: `/user/${userName}`}}>{userName}</Link>
       </h2>
-      <div className = "img-create-descript">
-      <div className = "time-ago" id = "info">
-      {this.props.image.created_at} ago</div>
+      <div className = "delete-wrapper">
       <DeleteButton image = {this.props.image}
       deleteThis = {this.props.deleteThis}
       currentUser = {this.props.currentUser}/>
+      </div>
+      <div className = "img-create-descript" id = "info">
+      {this.props.image.created_at} ago
       </div>
         <div className = "img-wrapper">
         <img src = {this.props.image.cloud_url}

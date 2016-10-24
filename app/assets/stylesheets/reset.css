@@ -5,7 +5,7 @@ html, body, ul, ol, li, form, fieldset, legend, button
 }
 html, body { max-width: 100%; overflow-x: hidden; }
 
-h1, h2, h3, h4, h5, h6, p { margin-top: 0; }
+h1, h2, h3, h4, h5, h6, p, div { margin: 0; }
 
 fieldset,img { border: 0; }
 
@@ -16,6 +16,7 @@ li { list-style: none; }
 sup { vertical-align: text-top; }
 
 sub { vertical-align: text-bottom; }
+
 
 table
 {

@@ -10,10 +10,12 @@ class Comment extends React.Component {
     var authorName = this.props.comment.author_name;
     return (
       <li className = "comment" key = {this.props.comment.id}>
-      <Link to = {{pathname: `/user/${authorName}`}}>
-        {authorName}</Link>
-      <main>{this.props.comment.body}</main>
+      <Link to = {{pathname: `/user/${authorName}`}}
+        className = "comment-author">
+        {authorName}:</Link>
+      <main>{this.props.comment.body}
       <DeleteButton {...this.props}/>
+      </main>
       </li>
     );
   }
