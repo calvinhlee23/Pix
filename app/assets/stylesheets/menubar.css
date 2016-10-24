@@ -2,21 +2,30 @@
   display: block;
   width: 100%;
   background: yellow;
+
 }
 
 .menu-bar #user {
   display: flex;
   justify-content: flex-start;
+  align-items: baseline;
   margin-left: 10px;
   margin-right: 10px;
   background: brown;
+}
+
+.menu-bar h2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 .stream-menu {
   text-align: center;
   margin-top: 20px;
   position: fixed;
-  width: 27%;
+  width: 280px;
+  display: block;
 }
 
 .stream-menu li {
@@ -29,33 +38,4 @@
 .stream-menu li:hover {
   background: blue;
   cursor: pointer;
-}
-
-.search {
-  position: fixed;
-  right: 10px;
-  width: 25%;
-  margin-top: 20px;
-  background: aqua;
-}
-
-.search input {
-  width: 80%;
-}
-
-.search label {
-  display: block;
-  clear: both;
-}
-
-.search-result {
-  display: block;
-  justify-content: flex-end;
-  background: blue;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.search-loader {
-  float: right;
 }

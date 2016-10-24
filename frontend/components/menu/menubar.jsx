@@ -36,8 +36,8 @@ class MenuBar extends React.Component {
           onClick = {this.ownRequestImages("myImages")}>My Stream</li>
           <li id = "upload-button"><UploadButton id = "upload-button"
           postImage = {this.props.postImage.bind(this)}/></li>
+          <li><UserSearch className = "user-search"/></li>
         </ul>
-        <UserSearch className = "user-search"/>
       </div>
     );
   }

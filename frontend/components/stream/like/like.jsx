@@ -36,11 +36,11 @@ handleClick () {
 }
 render() {
   return(
-      <div className = "like">
+      <div className = "like" id = "info">
         <div className = "like-num" >{this.state.likeNum} likes</div>
-        <button className = "like-button"
-          onClick = {this.handleClick.bind(this)}>
-          {this.state.likeAbility}</button>
+          <button className = "like-button"
+            onClick = {this.handleClick.bind(this)}>
+            {this.state.likeAbility}</button>
       </div>
     );
   }

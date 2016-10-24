@@ -1,11 +1,46 @@
 .stream {
-  width: 50%;
-  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   text-align: center;
+  margin-left: 300px;
 }
 
 .frame {
-  display: block;
-  background: green;
-  margin: 20px;
+  float: left;
+  width: 500px;
+  border: 1.5px solid #ccc;
+  margin: 5px;
+  margin-top: 20px;
+  background-color: antiquewhite;
+}
+
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrapper img {
+  width: 500px;
+  height: 500px;
+}
+
+.img-create-descript {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+
+.like {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+.user-bio {
+  margin-top: 20px;
+  margin-left: 20%;
 }

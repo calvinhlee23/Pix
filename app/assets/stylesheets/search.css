@@ -1,13 +1,9 @@
 .search {
-  position: fixed;
-  right: 10px;
-  width: 25%;
-  margin-top: 20px;
   background: aqua;
 }
 
 .search input {
-  width: 98.1%;
+  width: 98.3%;
 }
 
 .search label {

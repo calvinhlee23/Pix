@@ -1,6 +1,6 @@
 import React from  'react';
 import CommentSection from './comment/comment_section';
-import {Link} from "react-router";
+import {Link, hashHistory} from "react-router";
 import DeleteButton from '../delete/delete_button';
 import Like from './like/like';
 
@@ -30,6 +30,16 @@ class Frame extends React.Component {
     this.setState({commentBody: body});
   }
 
+  handlImageClick(image) {
+    event.preventDefault();
+  }
+
+  generateCommentSection() {
+    if (this.props.location.split("/")) {
+
+    }
+  }
+
   render() {
     var userName = this.props.image.user.user_name;
     return(
@@ -37,13 +47,18 @@ class Frame extends React.Component {
       <h2 className = "frame-userName">
       <Link to = {{pathname: `/user/${userName}`}}>{userName}</Link>
       </h2>
-        <img src = {this.props.image.cloud_url} className = "frame-Image"/>
-        <DeleteButton image = {this.props.image}
-                      deleteThis = {this.props.deleteThis}
-                      currentUser = {this.props.currentUser}/>
-
-        <div className = "time-ago">{this.props.image.created_at} ago</div>
-
+      <div className = "img-create-descript">
+      <div className = "time-ago" id = "info">
+      {this.props.image.created_at} ago</div>
+      <DeleteButton image = {this.props.image}
+      deleteThis = {this.props.deleteThis}
+      currentUser = {this.props.currentUser}/>
+      </div>
+        <div className = "img-wrapper">
+        <img src = {this.props.image.cloud_url}
+              className = "frame-Image"
+              onClick = {this.handlImageClick.bind(this)}/>
+        </div>
 
         <Like {...this.props}/>
 
