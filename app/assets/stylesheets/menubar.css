@@ -2,7 +2,6 @@
   display: block;
   width: 100%;
   background: yellow;
-
 }
 
 .menu-bar #user {
@@ -18,6 +17,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
+}
+
+aside.stream-menu-wrapper {
+  float: left;
+  position: relative;
+  height: 100%;
+  background: blue;
 }
 
 .stream-menu {

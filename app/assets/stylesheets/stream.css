@@ -8,7 +8,7 @@
 
 .frame {
   float: left;
-  width: 500px;
+  width: 450px;
   border: 1.5px solid #ccc;
   margin: 5px;
   margin-top: 20px;
@@ -22,8 +22,8 @@
 }
 
 .img-wrapper img {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
 }
 
 .img-create-descript {
