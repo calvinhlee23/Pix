@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates :email, :user_name, presence: true, uniqueness: true
   validates :password_digest, :session_token, presence: true
-
+  after_initialize :ensure_session_token
   has_many(
     :images, dependent: :destroy,
     class_name: "Image",
