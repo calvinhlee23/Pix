@@ -1,9 +1,10 @@
-.search {
-  background: aqua;
+.search label{
+  font-weight: normal;
+  width: 260px;
+  margin-left: 10px;
 }
-
 .search input {
-  width: 100%;
+  width: 260px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -16,14 +17,26 @@
 }
 
 .search label {
+  border-top: none;
+  border-bottom: none;
+  border: 1px solid #ccc;
   display: block;
   clear: both;
+  margin-bottom: 0;
 }
 
 .search-result {
   display: block;
   justify-content: flex-end;
-  background: blue;
   margin-left: 10px;
   margin-right: 10px;
+  border:none;
+}
+
+ul.search-result {
+  border: none;
+}
+
+.user-search-item:hover {
+  text-decoration: none;
 }

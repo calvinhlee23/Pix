@@ -1,7 +1,6 @@
 .menu-bar {
   display: block;
   width: 100%;
-  background: yellow;
   margin-bottom: 20px;
 }
 
@@ -11,7 +10,7 @@
   align-items: baseline;
   margin-left: 10px;
   margin-right: 10px;
-  background: brown;
+  border: 1px solid #ccc;
 }
 
 .menu-bar h2 {
@@ -21,21 +20,34 @@
 }
 
 
-.stream-menu {
+.stream-menu-wrapper {
   text-align: center;
   position: fixed;
   width: 280px;
   display: block;
+  margin-bottom: 0;
 }
 
+
+.stream-menu ul {
+  margin-bottom: 0;
+}
 .stream-menu li {
   display: block;
+  border: 1px solid #ccc;
+  border-bottom: none;
   margin-left: 10px;
   margin-right: 10px;
-  background: gold;
+  margin-bottom: 0;
+}
+.stream-menu li:last-child{
+  border-top: none;
+  border: 1px solid #ccc;
 }
 
+
 .stream-menu li:hover {
-  background: blue;
   cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
 }

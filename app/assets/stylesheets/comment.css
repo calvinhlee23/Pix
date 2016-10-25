@@ -19,6 +19,11 @@
   margin-right: 10px;
 }
 
+#DELETE_COMMENT:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .comment main {
   display: flex;
   word-wrap: break-word;

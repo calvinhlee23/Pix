@@ -6,6 +6,10 @@
   margin-left: 300px;
 }
 
+#DELETE_IMAGE:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
 .frame {
   width: 450px;
   min-height: 630px;
@@ -51,36 +55,4 @@
   width: 210px;
   margin-right: 5px;
   margin-left: 225px:
-}
-
-.like {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  vertical-align: baseline;
-  border-bottom: 1px solid #ccc;
-  width: 450px;
-  height: 25px;
-}
-
-.like-num {
-  margin-left: 5px;
-  vertical-align: baseline;
-}
-
-.like-button {
-  vertical-align: baseline;
-  width: 50px;
-  bottom: 2px;
-  margin-right: 2px;
-  height: 21px;
-}
-
-.like-button:hover {
-  cursor: pointer;
-  font-weight: bold;
-}
-.user-bio {
-  margin-top: 20px;
-  margin-left: 20%;
 }
