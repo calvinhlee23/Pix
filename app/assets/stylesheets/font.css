@@ -6,6 +6,7 @@ h1, h2, body, .stream-menu, .frame-userName {
 .frame-userName {
   font-size: 30px;
 }
+
 .menu-bar {
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
@@ -19,7 +20,14 @@ body {
 .stream-menu {
   font-family: 'Open Sans', sans-serif;
 }
+
 /*any links with name*/
+a.comment-author:hover {
+  text-decoration: none;
+}
+a.comment-author {
+  font-size: 15px;
+}
 a {
    float: left;
    text-align: left;
@@ -32,10 +40,12 @@ a {
 }
 
 /*frame author name*/
+h2 a:hover {
+  text-decoration: none;
+}
 h2 a {
   float: left;
   text-align: left;
-  color: black;
   width: 225px;
   text-decoration: none;
   margin-left: 5px;
