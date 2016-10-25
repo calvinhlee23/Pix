@@ -1,0 +1,41 @@
+.frame-commentSection {
+  min-height: 100px;
+}
+
+.comment-author-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.comment-author {
+  margin-left: 5px;
+  width: 30px;
+  text-align: left;
+}
+
+#DELETE_COMMENT{
+  width: 10px;
+  margin-right: 10px;
+}
+
+.comment main {
+  display: flex;
+  word-wrap: break-word;
+  width: 430px;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.commentSubmit {
+  width: 100%;
+  height: 28px;
+  border: none;
+  border-left: 3px solid #9ACD32;
+  border-top: 1px solid #ccc;
+  background-position: 5px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAQAAAA6heU+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfgChgXEBRM/KUqAAABaklEQVQoz33SMUjUARTH8c/9zyKNQj3LMyuuCCMVl0A6aygIbGgKLrGlCyQQx0BwampqKd2awiEyIrhIyJqsqKuha/CgqCiNS8SgBBPuHK5BTwP1/13e8L4P3uP9IioEWqV0O6TasoIXxrxVqrQjqzWmX1pR1pQ/arRIajLupq/+I+Gx765pXhukTq+c95Lr2h7jck7YSELGlI7Kbjd80Wlzmk3K2AWdvhmwNWcUXITbchpDxG0eeGR74KxX5kLEZU+1OxA4KA/aDDmK44YkcNKgfeCjHfZTcglcVzaIW8qu4q6yHtBh2vkqRbvBQ0UZjJr1DHfkvQQ7Rfwlb0Q4V3x2JPDcqdCrSfrhZ+CeWqlQ8ZO4xqhZDfpkFbYUF1w2v/LrJz5s+uu9Yqhy35solrzWZUDUjMU1qc4Fw9Ka/FKjtxKrev3SSrLyfqvWokvchHnnxERMr+cvcExKt8OrCZ805p2SuNMaTPwDiSpeYsqHB9oAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMTAtMjRUMjM6MTY6MjAtMDQ6MDDmyJaaAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTEwLTI0VDIzOjE2OjIwLTA0OjAwl5UuJgAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}

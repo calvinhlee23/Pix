@@ -1,0 +1,32 @@
+
+.like {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  vertical-align: baseline;
+  border-bottom: 1px solid #ccc;
+  width: 450px;
+  height: 25px;
+}
+
+.like-num {
+  margin-left: 5px;
+  vertical-align: baseline;
+}
+
+.like-button {
+  vertical-align: baseline;
+  width: 50px;
+  bottom: 2px;
+  margin-right: 2px;
+  height: 21px;
+}
+
+.like-button:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.user-bio {
+  margin-top: 20px;
+  margin-left: 20%;
+}

@@ -8,11 +8,22 @@
 
 .frame {
   width: 450px;
-  min-height: 640px;
+  min-height: 630px;
+  background: white;
   float: left;
   vertical-align: baseline;
   border: 1px solid #ccc;
   margin: 5px;
+  margin-top: 0;
+}
+
+.frame-userName {
+  float: left;
+  text-align: left;
+  width: 220px;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-bottom: 0;
   margin-top: 0;
 }
 
@@ -45,40 +56,31 @@
 .like {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  vertical-align: baseline;
   border-bottom: 1px solid #ccc;
   width: 450px;
+  height: 25px;
 }
 
 .like-num {
   margin-left: 5px;
+  vertical-align: baseline;
+}
+
+.like-button {
+  vertical-align: baseline;
+  width: 50px;
+  bottom: 2px;
+  margin-right: 2px;
+  height: 21px;
+}
+
+.like-button:hover {
+  cursor: pointer;
+  font-weight: bold;
 }
 .user-bio {
   margin-top: 20px;
   margin-left: 20%;
-}
-
-.comment-author-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-}
-
-.comment-author {
-  margin-left: 5px;
-}
-
-#DELETE_COMMENT{
-  float: left;
-  margin-left: 5px;
-  width: 10px;
-  margin-right: 5px;
-}
-
-.comment main {
-  display: flex;
-  word-wrap: break-word;
-  width: 430px;
-  text-align: left;
-  margin-left: 20px;
-  margin-right: 0;
 }

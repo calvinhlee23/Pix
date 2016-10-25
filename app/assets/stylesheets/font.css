@@ -5,6 +5,7 @@ h1, h2, body, .stream-menu, .frame-userName {
 
 .frame-userName {
   font-size: 30px;
+  margin-top: 0;
 }
 
 .menu-bar {
@@ -28,29 +29,10 @@ a.comment-author:hover {
 a.comment-author {
   font-size: 15px;
 }
-a {
-   float: left;
-   text-align: left;
-   color: black;
-   width: 450px;
-	 text-decoration: none;
-   margin-left: 5px;
-   margin-bottom: 0;
-   padding-bottom: 0;
-}
 
 /*frame author name*/
 h2 a:hover {
   text-decoration: none;
-}
-h2 a {
-  float: left;
-  text-align: left;
-  width: 225px;
-  text-decoration: none;
-  margin-left: 5px;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .comment-author{
@@ -63,6 +45,6 @@ h2 a {
 }
 
 #info {
-  font-family: 'Indie Flower', cursive;
-  font-size: 15px;
+font-family: 'Kalam', cursive;
+font-size: 15px;
 }

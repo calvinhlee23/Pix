@@ -67,11 +67,13 @@ class Frame extends React.Component {
           <CommentSection comments = {this.props.image.comments}
                           deleteThis = {this.props.deleteThis}
                           currentUser = {this.props.currentUser}/>
-          <input type = "text" className = "commentSubmit"
-            onChange = {this.write.bind(this)}
-            onKeyDown = {this.submitComment.bind(this)}
-            value = {this.state.commentBody}/>
         </section>
+        <div className = "input-wrapper">
+          <input type = "text" className = "commentSubmit"
+          onChange = {this.write.bind(this)}
+          onKeyDown = {this.submitComment.bind(this)}
+          value = {this.state.commentBody}/>
+        </div>
       </li>
     );
   }

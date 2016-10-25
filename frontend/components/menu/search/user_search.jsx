@@ -21,7 +21,7 @@ class UserSearch extends React.Component{
       if (this.state.query.length > 0) {
           this.requestUsers(this.state.query);
       }
-    }, );
+    } );
   }
 
   requestUsers(query) {
