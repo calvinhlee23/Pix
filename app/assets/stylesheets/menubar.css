@@ -32,6 +32,7 @@
 .stream-menu ul {
   margin-bottom: 0;
 }
+
 .stream-menu li {
   display: block;
   border: 1px solid #ccc;
@@ -40,6 +41,7 @@
   margin-right: 10px;
   margin-bottom: 0;
 }
+
 .stream-menu li:last-child{
   border-top: none;
   border: 1px solid #ccc;

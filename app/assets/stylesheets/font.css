@@ -26,8 +26,9 @@ body {
 a.comment-author:hover {
   text-decoration: none;
 }
+
 a.comment-author {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /*frame author name*/

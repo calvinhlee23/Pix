@@ -40,12 +40,11 @@ class UserSearch extends React.Component{
     if (this.state.isSearchDone) {
       return(
         <div className = "search">
-        <label>Search User:
           <input type = "text"
           className = "search-field"
           value = {this.state.query}
-          onChange = {this.handleInputChange.bind(this)}/>
-        </label>
+          onChange = {this.handleInputChange.bind(this)}
+          placeholder = "            search user"/>
         <ul className = "search-result">
         {this.state.foundUsers.map((user, indx) => {
           return (<UserSearchItem key = {indx} user = {user}/>);
@@ -56,11 +55,11 @@ class UserSearch extends React.Component{
     } else {
       return (
         <div className = "search">
-          <label className = "search-field">Search User:
             <input type = "text"
             value = {this.state.query}
-            onChange = {this.handleInputChange.bind(this)}/>
-          </label>
+            onChange = {this.handleInputChange.bind(this)}
+            placeholder = "           search user"/>
+
         </div>
       );
     }

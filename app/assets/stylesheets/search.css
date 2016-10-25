@@ -3,26 +3,18 @@
   width: 260px;
   margin-left: 10px;
 }
+
 .search input {
   width: 260px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfgChgXBgBKvsSAAAAA/0lEQVQoz6XQPS+DcRSG8d//aVGkEzZhLgsfwAeoxcew0LQWMdo6MPRJxGwifIAOYvWSeElYJGwmi9RLhXh4DNXQRGJwTScnV+7c5/BfQnuIyRiQc9d86lXuFGoCBfPGRR5t2/JS+hIybHilYN2NFdtuzRpM96fTOsjSIArzTtLFkHyIrlxbC7uOWwkRQRgyZjMkJWWp5NSFqXaHCHSLPLRLZWnIdwp3Hk1Qa+3yCi5/CClNO+ZMpiGmX9mIw44zY3osmHGuoWDUsFi1dWoG6orvDpzpE9lT9aaiy2ExqX9/8puYnCUVy2H1o5XQSV0xceTZfc9p8lvCV0pAWvInn1+ISclhBjO6AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTEwLTI0VDIzOjA2OjAwLTA0OjAwZWNOJwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0xMC0yNFQyMzowNjowMC0wNDowMBQ+9psAAAAASUVORK5CYII=);
   background-position: 10px;
   background-repeat: no-repeat;
-  padding-left: 30px;
-}
-
-.search label {
-  border-top: none;
-  border-bottom: none;
-  border: 1px solid #ccc;
-  display: block;
-  clear: both;
-  margin-bottom: 0;
+  padding-left: 34px;
 }
 
 .search-result {

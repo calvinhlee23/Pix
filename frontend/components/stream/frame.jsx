@@ -72,7 +72,8 @@ class Frame extends React.Component {
           <input type = "text" className = "commentSubmit"
           onChange = {this.write.bind(this)}
           onKeyDown = {this.submitComment.bind(this)}
-          value = {this.state.commentBody}/>
+          value = {this.state.commentBody}
+          placeholder = "leave a comment"/>
         </div>
       </li>
     );
