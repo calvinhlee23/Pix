@@ -25,7 +25,7 @@ class DeleteButton extends React.Component{
       this.setState({renderable: true});
     }
   }
-  
+
   deleteThis() {
     event.preventDefault();
     return () => {
@@ -38,10 +38,15 @@ class DeleteButton extends React.Component{
 
   render() {
     if (this.state.renderable) {
-      return(
-        <button className = "delete" id = {this.state.type}
-        onClick = {this.deleteThis(this.state.toDelete).bind(this)}>
-        Delete</button>);
+      if (this.state.type === "DELETE_IMAGE") {
+        return(
+          <span className = "glyphicon glyphicon-trash" id = {this.state.type}
+          onClick = {this.deleteThis(this.state.toDelete).bind(this)}/>);
+      } else if( this.state.type === "DELETE_COMMENT") {
+        return(
+          <span className = "glyphicon glyphicon-remove-circle" id = {this.state.type}
+          onClick = {this.deleteThis(this.state.toDelete).bind(this)}/>);
+      }
       } else {
         return <div/>;
       }

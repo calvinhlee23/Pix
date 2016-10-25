@@ -33,12 +33,13 @@
 }
 
 .img-create-descript, .delete-wrapper {
-  display: flex;
-  justify-content: flex-end;
+  float: right;
+  text-align: right;
   align-items: baseline;
   height: 15px;
-  width: 220px;
-  margin-right: 10px;
+  width: 210px;
+  margin-right: 5px;
+  margin-left: 225px:
 }
 
 .like {
@@ -55,6 +56,24 @@
   margin-top: 20px;
   margin-left: 20%;
 }
+
+.comment-author-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.comment-author {
+  margin-left: 0;
+}
+
+#DELETE_COMMENT{
+  float: left;
+  margin-left: 5px;
+  width: 10px;
+  margin-right: 5px;
+}
+
 .comment main {
   display: flex;
   word-wrap: break-word;
@@ -62,12 +81,4 @@
   text-align: left;
   margin-left: 20px;
   margin-right: 0;
-}
-
-.comment main button {
-  justify-content: flex-end;
-}
-
-.comment {
-  float: left;
 }
