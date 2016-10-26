@@ -19,7 +19,7 @@ const ImageReducer = (state = {}, action) =>  {
     case CommentConstants.RECEIVE_A_COMMENT:
       newState = merge({}, state);
       targetImage = newState[action.comment.image_id];
-      targetImage.comments.push(action.comment);
+      targetImage.comments.unshift(action.comment);
       return newState;
     case DeleteConstants.REMOVE_IMAGE:
       newState = merge({}, state);

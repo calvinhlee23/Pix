@@ -16,9 +16,12 @@ class Image < ActiveRecord::Base
   )
 
   has_many(
-    :comments, dependent: :destroy,
+    :comments,-> {order "created_at DESC"},
+    dependent: :destroy,
     class_name: "Comment",
-    foreign_key: :image_id
+    foreign_key: :image_id,
   )
+
+
 
 end

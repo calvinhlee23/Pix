@@ -1,3 +1,9 @@
 body {
   background-image: url(http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443118/mednpqfwqiuwui7rk3g5.jpg);
 }
+
+body::-webkit-scrollbar {
+      width: 5px;
+      height: auto;
+      background-color: rgba(0,0,0,.2)
+}

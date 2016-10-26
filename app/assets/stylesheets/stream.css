@@ -8,6 +8,7 @@
 
 #DELETE_IMAGE:hover {
   font-weight: bold;
+  color: orange;
   cursor: pointer;
 }
 
@@ -30,11 +31,9 @@
   color: red;
 }
 
-
-
 .frame {
   width: 452px;
-  min-height: 630px;
+  height: 635px;
   float: left;
   background:rgba(0,0,0,0.1);
   vertical-align: baseline;

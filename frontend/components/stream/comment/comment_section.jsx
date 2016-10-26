@@ -1,7 +1,6 @@
 import React from 'react';
 import Comment from './comment';
 
-
 class CommentSection extends React.Component{
   constructor(props) {
     super(props);
@@ -9,7 +8,7 @@ class CommentSection extends React.Component{
 
   render() {
     return(
-        <ul className = "commentList">
+        <ul className = "comment-list">
           {this.props.comments.map((cm) => {
             return <Comment comment = {cm}
                             key = {cm.id}

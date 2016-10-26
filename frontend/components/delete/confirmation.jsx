@@ -32,6 +32,8 @@ class Confirmation extends React.Component {
       return (
         <DeleteButton {...this.props}/>
       );
+    } else {
+      return null;
     }
   }
 }

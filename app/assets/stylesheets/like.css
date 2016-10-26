@@ -26,6 +26,7 @@
 .like-button:hover {
   cursor: pointer;
   font-weight: bold;
+  color: orange;
 }
 .user-bio {
   margin-top: 20px;
