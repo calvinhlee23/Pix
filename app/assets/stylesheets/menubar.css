@@ -35,11 +35,18 @@
 
 .stream-menu li {
   display: block;
-  border: 1px solid #ccc;
-  border-bottom: none;
+  border-top: 1px solid #ccc;
+  border-right: 1.4px solid #ccc;
+  border-left: 1.4px solid #ccc;
+  border-bottom: .2px solid #ccc;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 0;
+  border-radius: 4px;
+
+}
+.stream-menu li:first-child {
+  border-top: 1.4px solid #ccc;
 }
 
 .stream-menu li:last-child{

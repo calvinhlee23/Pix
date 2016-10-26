@@ -1,5 +1,6 @@
 .frame-commentSection {
   min-height: 100px;
+  background:rgba(0,0,0,0.4);
 }
 
 .comment-author-wrapper {
@@ -7,7 +8,7 @@
   height: 15px;
   justify-content: space-between;
   align-items: center;
-  border-left: 2px solid #337ab7;
+  border-left: 3px solid #9ACD32;
 }
 
 .comment-author {
@@ -19,6 +20,7 @@
 #DELETE_COMMENT{
   width: 10px;
   margin-right: 10px;
+  color: white;
 }
 
 #DELETE_COMMENT:hover {
@@ -33,6 +35,7 @@
   text-align: left;
   margin-left: 20px;
   margin-right: 0;
+  color: white;
 }
 
 .commentSubmit {
