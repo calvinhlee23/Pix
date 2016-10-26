@@ -1,6 +1,6 @@
 import React from 'react';
 import {DeleteConstants} from '../../actions/delete_actions';
-
+import Confirmation from './confirmation';
 class DeleteButton extends React.Component{
   constructor(props) {
     super(props);
@@ -8,7 +8,8 @@ class DeleteButton extends React.Component{
     this.state = {
       type: null,
       toDelete: null,
-      renderable: false
+      renderable: false,
+      confirmation: false
     };
   }
 
@@ -27,16 +28,18 @@ class DeleteButton extends React.Component{
   }
 
   deleteThis() {
-    event.preventDefault();
     return () => {
-      var confirm = window.confirm("You are about to DELETE this item");
-      if (confirm === true) {
-        this.props.deleteThis(this.state.type, this.state.toDelete);
-      }
+      this.setState({confirmation: true});
     };
   }
 
   render() {
+    if (this.state.confirmation) {
+      return <Confirmation {...this.props}
+              type = {this.state.type}
+              toDelete = {this.state.toDelete}/>;
+
+    }
     if (this.state.renderable) {
       if (this.state.type === "DELETE_IMAGE") {
         return(
