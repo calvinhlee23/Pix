@@ -7,13 +7,19 @@ class Stream extends React.Component {
     this.state = {
       // initially adds 3 frames when loaded
       frames: [],
-      imagesKeysArray: null,
+      imagesKeysArray: [],
       loading: false
     };
   }
 
-  componentWillMount() {
-    var path = this.props.location.pathname.split("/");
+  prepareStream(nextProps) {
+    var path;
+    if (nextProps) {
+      this.setState({frames:[]});
+      path = nextProps.location.pathname.split("/");
+    } else {
+      path = this.props.location.pathname.split("/");
+    }
     if (path[1] === "user") {
       this.setState({path: path});
       var userName = path[2];
@@ -28,6 +34,16 @@ class Stream extends React.Component {
                      Object.keys(this.props.images).reverse()});
       this.addFrames(6);
     }, 200);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      this.prepareStream(nextProps);
+    }
+  }
+
+  componentWillMount() {
+    this.prepareStream();
   }
 
   generateStream() {
@@ -57,7 +73,6 @@ class Stream extends React.Component {
   }
 
   handleInfiniteLoad() {
-    console.log("handling!");
     this.setState({loading: true});
     setTimeout(() => {
       this.addFrames(6);

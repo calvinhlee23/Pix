@@ -18,6 +18,14 @@ class UserProfile extends React.Component{
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      var path = nextProps.location.pathname.split("/");
+      var userName = path[2];
+      this.props.requestTargetUser(userName);
+    }
+  }
+
   render() {
     return (
       // browswer: /?user=abc
