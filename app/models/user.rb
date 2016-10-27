@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   validates :password_digest, :session_token, presence: true
   after_initialize :ensure_session_token
   has_many(
-    :images, dependent: :destroy,
+    :images,-> {order "created_at DESC"},
+    dependent: :destroy,
     class_name: "Image",
     foreign_key: :user_id
   )

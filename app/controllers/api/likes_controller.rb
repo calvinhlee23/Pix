@@ -1,8 +1,5 @@
 class Api::LikesController < ApplicationController
-
   def create
-    p '$$$$$$$$$$$$$$$$$$$$$$$$$$$'
-    p params
     like = Like.new(like_params)
     like.author_id = get_current_user.id
     if like.save
@@ -15,11 +12,8 @@ class Api::LikesController < ApplicationController
   def destroy
     imgId = params[:id]
     like = Like.where(image_id: imgId).where(author_id: get_current_user.id)[0]
-    p '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
-    p like
     if like
       like.destroy
-      p JSON.parse(like.to_json)
       render json: JSON.parse(like.to_json)
     else
       raise "COULD NOT FIND SUCH A LIKE"

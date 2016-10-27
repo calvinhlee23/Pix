@@ -22,6 +22,14 @@ class Image < ActiveRecord::Base
     foreign_key: :image_id,
   )
 
-
+  def self.publicImages
+    Image.find_by_sql("
+          SELECT DISTINCT images.*
+          FROM images INNER JOIN users
+          ON images.user_id = users.id
+          WHERE users.public = true
+          ORDER BY images.created_at ASC
+        ")
+  end
 
 end
