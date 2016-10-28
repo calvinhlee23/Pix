@@ -7,6 +7,9 @@ import MenuBar from '../menu/menubar';
 class UserProfile extends React.Component{
   constructor(props) {
     super(props);
+    this.state = {
+      loading: false
+    };
   }
 
   componentDidMount() {
@@ -20,24 +23,37 @@ class UserProfile extends React.Component{
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.setState({loading: true});
       var path = nextProps.location.pathname.split("/");
       var userName = path[2];
       this.props.requestTargetUser(userName);
+      setTimeout(() => {
+        this.setState({loading: false});
+      }, 300);
     }
   }
 
   render() {
-    return (
-      // browswer: /?user=abc
-      // query: {"user":"abc"} when rendered
-      <div>
+    if (this.state.loading) {
+      return (
         <section className = "user-profile">
-          <MenuBar {...this.props}/>
-          <UserBio {...this.props}/>
-          <Stream {...this.props}/>
+        <MenuBar {...this.props}/>
+        <Loader/>
         </section>
-        </div>
-    );
+      );
+    } else {
+      return (
+        // browswer: /?user=abc
+        // query: {"user":"abc"} when rendered
+        <div>
+          <section className = "user-profile">
+            <MenuBar {...this.props}/>
+            <UserBio {...this.props}/>
+            <Stream {...this.props}/>
+          </section>
+          </div>
+      );
+    }
   }
 }
 
