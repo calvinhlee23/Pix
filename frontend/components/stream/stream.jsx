@@ -28,6 +28,7 @@ class Stream extends React.Component {
                         currentUser = {this.props.currentUser}
                         postComment = {this.props.postComment}
                         deleteThis = {this.props.deleteThis.bind(this)}
+                        processLike = {this.props.processLike}
                         key = {imgId}/>;
         })}
         </ul>
