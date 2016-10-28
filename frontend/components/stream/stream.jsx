@@ -1,5 +1,4 @@
 import React from 'react';
-import Infinite from 'react-infinite';
 import Frame from './frame';
 import {hashHistory} from 'react-router';
 class Stream extends React.Component {
