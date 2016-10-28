@@ -19,13 +19,15 @@ class Loader extends React.Component {
   render() {
     if (this.state.time < 3 && this.state.time >=.5) {
       return(
+        <div className = "loader-wrapper">
         <div className = "loading"/>
+        </div>
       );
     } else if (this.state.time >= 3) {
       if (this.props.search) {
         return(<div/>);
       } else {
-        return (<div>Page Not Found</div>);
+        return (<div className = "not-found">Page Not Found</div>);
       }
     } else {
       return (<div/>);

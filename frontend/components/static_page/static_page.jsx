@@ -8,14 +8,6 @@ class StaticPage extends React.Component {
     super(props);
   }
 
-  toLogIn () {
-    hashHistory.push("/login");
-  }
-
-  toSignUp () {
-    hashHistory.push("/signup");
-  }
-
   toLogOut() {
     this.props.logout();
     window.location.reload();
@@ -26,29 +18,13 @@ class StaticPage extends React.Component {
     this.props.postImage(cloud_url);
   }
 
-  redirectToTarget(userName) {
-    return () => {
-      this.props.requestTargetUser(userName);
-    };
-  }
   render() {
-    if (this.props.currentUser) {
-      var userName = this.props.currentUser.user_name;
       return (
         <span id = "logged-in-greetings">
           <MenuBar {...this.props}/>
           <Stream {...this.props}/>
         </span>
       );
-    } else {
-      return  (
-        <span id = "not-logged-in-greetings">
-          <h1>Welcome to Pix!</h1>
-          <button onClick = {this.toLogIn.bind(this)}>Log In</button>
-          <button onClick = {this.toSignUp.bind(this)}>Sign Up</button>
-        </span>
-      );
-    }
   }
 }
 

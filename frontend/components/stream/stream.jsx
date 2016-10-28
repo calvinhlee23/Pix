@@ -39,7 +39,30 @@ class Stream extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.location.pathname !== nextProps.location.pathname) {
       this.prepareStream(nextProps);
+    } else if (this.didAddImg(nextProps.images)) {
+
+    } else if (this.didRemoveImg(nextProps.images)) {
+
+    } else {
+      // most likely added/removed comment;
     }
+  }
+  didAddImg(newImages) {
+    var oldLng = this.state.imagesKeysArray.length;
+    var newLng = Object.keys(this.props.images).length;
+    if (newLng > oldLng ) {
+      return true;
+    }
+    return false;
+  }
+
+  didRemoveImg(newImages) {
+    var oldLng = this.state.imagesKeysArray.length;
+    var newLng = Object.keys(this.props.images);
+    if(newLng < oldLng) {
+      return true;
+    }
+    return false;
   }
 
   componentWillMount() {

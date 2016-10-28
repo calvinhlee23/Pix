@@ -12,6 +12,14 @@
   margin-right: 10px;
   border: 1px solid #ccc;
 }
+.menu-bar #home {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.menu-bar #home:hover {
+  cursor: pointer;
+  color: orange;
+}
 
 .menu-bar h2 {
   display: flex;

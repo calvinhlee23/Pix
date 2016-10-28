@@ -20,11 +20,19 @@ class MenuBar extends React.Component {
     hashHistory.push('/logout');
   }
 
+  toHome() {
+    event.preventDefault();
+    hashHistory.push('/');
+  }
+
   render() {
     return(
       <div>
         <div className = "menu-bar">
           <div id = "user">
+          <div className = "glyphicon glyphicon-home"
+                onClick = {this.toHome.bind(this)}
+                id = "home"/>
           <h2>Hello {this.props.currentUser.user_name}</h2>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button></div>
         </div>

@@ -52,7 +52,6 @@ class Frame extends React.Component {
       deleteThis = {this.props.deleteThis}
       currentUser = {this.props.currentUser}/>
       </div>
-
       <div className = "img-create-descript" id = "info">
       {this.props.image.created_at} ago
       </div>

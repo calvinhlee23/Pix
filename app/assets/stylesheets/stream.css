@@ -1,11 +1,12 @@
 .stream {
-  display: flex;
+  display: flex;;
   justify-content: flex-start;
   align-items: baseline;
   text-align: center;
   margin-left: 300px;
   max-width: 1900px;
 }
+
 
 #DELETE_IMAGE:hover {
   font-weight: bold;
