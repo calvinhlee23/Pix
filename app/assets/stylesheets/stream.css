@@ -1,5 +1,5 @@
 .stream {
-  display: flex;;
+  display: flex;
   justify-content: flex-start;
   align-items: baseline;
   text-align: center;
@@ -35,7 +35,7 @@
 
 .frame {
   width: 452px;
-  height: 635px;
+  height: 632px;
   float: left;
   background:rgba(0,0,0,0.1);
   vertical-align: baseline;

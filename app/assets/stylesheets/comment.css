@@ -1,9 +1,11 @@
 .frame-commentSection {
-  height: 95px;
+  height: 100px;
   background:rgba(0,0,0,0.2);
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .frame-commentSection::-webkit-scrollbar {
       width: 4px;
       height: 4px;
@@ -49,9 +51,10 @@
 .input-wrapper{
   display: flex;
 }
+
 .commentSubmit {
   width: 100%;
-  height: 28px;
+  height: 22px;
   border: none;
   border-left: 3px solid #9ACD32;
   border-top: 1px solid #ccc;

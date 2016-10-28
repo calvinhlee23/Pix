@@ -28,27 +28,26 @@ class DeleteButton extends React.Component{
   }
 
   deleteThis() {
-    return () => {
-      this.setState({confirmation: true});
-    };
+    this.setState({confirmation: true});
   }
 
   render() {
     if (this.state.confirmation) {
       return <Confirmation {...this.props}
               type = {this.state.type}
-              toDelete = {this.state.toDelete}/>;
+              toDelete = {this.state.toDelete}
+              deleteThis = {this.props.deleteThis.bind(this)}/>;
 
     }
     if (this.state.renderable) {
       if (this.state.type === "DELETE_IMAGE") {
         return(
           <span className = "glyphicon glyphicon-trash" id = {this.state.type}
-          onClick = {this.deleteThis(this.state.toDelete).bind(this)}/>);
+          onClick = {this.deleteThis.bind(this)}/>);
       } else if( this.state.type === "DELETE_COMMENT") {
         return(
           <span className = "glyphicon glyphicon-remove-circle" id = {this.state.type}
-          onClick = {this.deleteThis(this.state.toDelete).bind(this)}/>);
+          onClick = {this.deleteThis.bind(this)}/>);
       }
       } else {
         return <div/>;

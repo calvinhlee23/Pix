@@ -34,12 +34,6 @@ class Frame extends React.Component {
     event.preventDefault();
   }
 
-  generateCommentSection() {
-    if (this.props.location.split("/")) {
-
-    }
-  }
-
   render() {
     var userName = this.props.image.user.user_name;
     return(
@@ -49,7 +43,7 @@ class Frame extends React.Component {
       </h2>
       <div className = "delete-wrapper">
       <DeleteButton image = {this.props.image}
-      deleteThis = {this.props.deleteThis}
+      deleteThis = {this.props.deleteThis.bind(this)}
       currentUser = {this.props.currentUser}/>
       </div>
       <div className = "img-create-descript" id = "info">
