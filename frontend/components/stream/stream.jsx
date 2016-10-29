@@ -6,7 +6,21 @@ class Stream extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      var path = nextProps.location.pathname.split("/");
+      if (path[1] === "user") {
+        var userName = path[2];
+        this.props.requestImages("userImages", userName);
+      } else if (path[1] === "followingImages" ||
+                 path[1] === "myImages" ||
+                 path[1] === "publicImages") {
+        this.props.requestImages(path[1]);
+      }
+    }
+  }
+
+  componentDidMount() {
     var path = this.props.location.pathname.split("/");
     if (path[1] === "user") {
       var userName = path[2];

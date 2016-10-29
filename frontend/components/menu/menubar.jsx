@@ -49,7 +49,7 @@ class MenuBar extends React.Component {
             <UserSearch className = "user-search"/>
           </ul>
         </aside>
-        <Gagets/>
+        <Gagets {...this.props}/>
       </div>
     );
   }

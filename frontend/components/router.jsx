@@ -20,8 +20,8 @@ const AppRouter = () => (
       <Route path = "followingImages" component = {StaticPageContainer}/>
       <Route path = "publicImages" component = {StaticPageContainer}/>
       <Route path = "myImages" component = {StaticPageContainer}/>
+      <Route path = "/user/:userName" component = {StaticPageContainer}/>
 
-      <Route path = "/user/:userName" component = {UserProfileContainer}/>
 
       <Route path = "*" component = {Loader}/>
     </Route>

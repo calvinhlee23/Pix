@@ -12,32 +12,10 @@ class UserProfile extends React.Component{
     };
   }
 
-  componentDidMount() {
-      var path = this.props.location.pathname.split("/");
-      if (path[1] === "user") {
-        var userName = path[2];
-        this.props.requestTargetUser(userName);
-        this.props.requestImages("userImages", userName);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.location.pathname !== this.props.location.pathname) {
-      this.setState({loading: true});
-      var path = nextProps.location.pathname.split("/");
-      var userName = path[2];
-      this.props.requestTargetUser(userName);
-      setTimeout(() => {
-        this.setState({loading: false});
-      }, 300);
-    }
-  }
-
   render() {
     if (this.state.loading) {
       return (
         <section className = "user-profile">
-        <MenuBar {...this.props}/>
         <Loader/>
         </section>
       );
@@ -47,9 +25,7 @@ class UserProfile extends React.Component{
         // query: {"user":"abc"} when rendered
         <div>
           <section className = "user-profile">
-            <MenuBar {...this.props}/>
             <UserBio {...this.props}/>
-            <Stream {...this.props}/>
           </section>
           </div>
       );
