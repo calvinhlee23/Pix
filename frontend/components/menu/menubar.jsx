@@ -2,7 +2,7 @@ import React from 'react';
 import UploadButton from './upload_button';
 import UserSearch from './search/user_search';
 import {hashHistory } from 'react-router';
-
+import Gagets from '../gagets/gagets';
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
@@ -49,6 +49,7 @@ class MenuBar extends React.Component {
             <UserSearch className = "user-search"/>
           </ul>
         </aside>
+        <Gagets/>
       </div>
     );
   }

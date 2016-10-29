@@ -40,7 +40,7 @@ class StaticPage extends React.Component {
           <button onClick = {this.toLogIn.bind(this)}>Log In</button>
           <button onClick = {this.toSignUp.bind(this)}>Sign Up</button>
         </span>
-      );
+      )
     }
   }
 }
