@@ -1,5 +1,4 @@
 var React = require('react');
-var Loading = require('react-loading');
 
 class Loader extends React.Component {
   constructor(props) {
