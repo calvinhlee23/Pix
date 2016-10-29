@@ -30,12 +30,16 @@
 
 .stream-menu-wrapper {
   text-align: center;
-  position: fixed;
+  float: left;
   width: 280px;
+
+  height: 100%;
   display: block;
   margin-bottom: 0;
 }
 
+.stream-menu {
+}
 
 .stream-menu ul {
   margin-bottom: 0;

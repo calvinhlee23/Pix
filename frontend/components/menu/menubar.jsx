@@ -3,11 +3,34 @@ import UploadButton from './upload_button';
 import UserSearch from './search/user_search';
 import {hashHistory } from 'react-router';
 import Gagets from '../gagets/gagets';
+import UserProfile from '../user_profile/user_profile';
+
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentDidMount() {
+      var path = this.props.location.pathname.split("/");
+      if (path[1] === "user") {
+        var userName = path[2];
+        this.props.requestTargetUser(userName);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      if (nextProps.location.pathname.split("/")[1] === "user") {
+        this.setState({loading: true});
+        var path = nextProps.location.pathname.split("/");
+        var userName = path[2];
+        this.props.requestTargetUser(userName);
+        setTimeout(() => {
+          this.setState({loading: false});
+        }, 300);
+      }
+    }
+  }
   ownRequestImages(imageType) {
     return () => {
       hashHistory.push(`/${imageType}`);
@@ -34,8 +57,11 @@ class MenuBar extends React.Component {
                 id = "home"/>
           <h2>Hello {this.props.currentUser.user_name}</h2>
           <button onClick = {this.toLogOut.bind(this)}>Logout</button></div>
+          <UserProfile {...this.props}/>
         </div>
+
         <aside className = "stream-menu-wrapper">
+        <Gagets/>
           <ul className = "stream-menu">
             <li id = "following-stream-menu"
             onClick = {this.ownRequestImages("followingImages")}>
@@ -49,7 +75,6 @@ class MenuBar extends React.Component {
             <UserSearch className = "user-search"/>
           </ul>
         </aside>
-        <Gagets {...this.props}/>
       </div>
     );
   }

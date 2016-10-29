@@ -5,7 +5,6 @@ import App from  './app';
 
 import SessionFormContainer from './session/session_form_container';
 import StaticPageContainer from './static_page/static_page_container';
-import UserProfileContainer from './user_profile/user_profile_container';
 import GreetingPageContainer from './greetings/greetings_container';
 import Loader from '../util/loader';
 
