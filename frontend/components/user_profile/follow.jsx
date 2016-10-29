@@ -11,22 +11,44 @@ class Follow extends React.Component{
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({followers: this.props.targetUser.followers.length});
     this.setState({following: this.props.targetUser.following_users.length});
     this.checkButton();
   }
 
-  checkButton() {
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.targetUser !== this.props.targetUser) {
+      this.setState({button: null});
+      setTimeout(() => {
+        this.checkButton(nextProps);
+      }, 500);
+    }
+  }
+  checkButton(nextProps) {
     var myFollowingUsers = this.props.currentUser.following;
-    var targetUserName = this.props.targetUser.user_name;
-    if (targetUserName !== this.props.currentUser.user_name) {
-      if (myFollowingUsers.indexOf(targetUserName) >= 0) {
-        this.setState({button: FollowConstants.UNFOLLOW});
-        return;
-      }
-      if (this.props.targetUser.public) {
-        this.setState({button: FollowConstants.FOLLOW});
+    var targetUserName;
+    if (nextProps) {
+        targetUserName = nextProps.targetUser.user_name;
+        if (targetUserName !== this.props.currentUser.user_name) {
+          if (myFollowingUsers.indexOf(targetUserName) >= 0) {
+            this.setState({button: FollowConstants.UNFOLLOW});
+            return;
+          }
+          if (this.props.targetUser.public) {
+            this.setState({button: FollowConstants.FOLLOW});
+          }
+        }
+    } else {
+      targetUserName = this.props.targetUser.user_name;
+      if (targetUserName !== this.props.currentUser.user_name) {
+        if (myFollowingUsers.indexOf(targetUserName) >= 0) {
+          this.setState({button: FollowConstants.UNFOLLOW});
+          return;
+        }
+        if (this.props.targetUser.public) {
+          this.setState({button: FollowConstants.FOLLOW});
+        }
       }
     }
   }
