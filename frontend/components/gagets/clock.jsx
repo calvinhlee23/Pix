@@ -37,8 +37,8 @@ class Clock extends React.Component {
     return (
       <div className = "clock">
         <ul >
+        <li className = "clock-date">{date}</li>
           <li className = "clock-time">{time}</li>
-          <li className = "clock-date">{date}</li>
         </ul>
       </div>
     );

@@ -8,37 +8,39 @@
 }
 .clock {
   display: block;
-  width: 225px;
   font-weight: bold;
+  height: 120px;
 }
 .clock ul {
-  display: block
+  display: block;
+  margin-bottom: 0;
 }
 .clock-time{
   font-size: 65px;
+  margin-bottom: 0;
 }
 
 .clock-date {
-  font-size: 30px;
+  font-size: 29px;
+  height: 33px;
 }
 
 .weather {
-  max-width: 1200px;
   display: block;
   font-weight: bold;
 }
 
 .weather ul {
   margin-top: 4px;
+  font-size: 23px;
 }
 
 .weather-temp {
-  font-size: 23px;
+  float: left;
 }
 .weather-city {
-  font-size: 36px;
+  white-space: nowrap;
 }
-
 .weather-gathering:hover {
   text-decoration: none;
 }

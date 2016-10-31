@@ -59,7 +59,7 @@ class Weather extends React.Component {
         <div className = 'weather'>
         <ul>
           <li className = "weather-temp">
-          {Math.floor((this.state.temp- 273.15) * 1.8 + 32)} Fahrenheit
+          {Math.floor((this.state.temp- 273.15) * 1.8 + 32)}°F &nbsp;
           </li>
           <li className = "weather-city">
           {this.state.location}</li>

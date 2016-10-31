@@ -22,7 +22,8 @@ class UploadButton extends React.Component {
 
   render() {
     return (
-      <div onClick = {this.upload.bind(this)}>Add to Stream</div>
+      <div className  = "glyphicon glyphicon-camera"
+          onClick = {this.upload.bind(this)}></div>
     );
   }
 }
