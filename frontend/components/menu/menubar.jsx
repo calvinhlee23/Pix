@@ -4,13 +4,12 @@ import UserSearch from './search/user_search';
 import {hashHistory, Link} from 'react-router';
 import Gagets from '../gagets/gagets';
 import UserProfile from '../user_profile/user_profile';
-
+import LogoutButton from './logout_button';
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loadProfile: false,
-      logoutConfirm: false
+      loadProfile: false
     };
   }
 
@@ -66,6 +65,7 @@ class MenuBar extends React.Component {
       </ul>
     );
   }
+
   generateUserMenu() {
     return(
       <div id = "user">
@@ -75,13 +75,13 @@ class MenuBar extends React.Component {
           id = "home"></div>
           <h2><Link
               to = {{pathname: `/user/${this.props.currentUser.user_name}`}}>
-              {this.props.currentUser.user_name}</Link></h2>
+              {this.props.currentUser.user_name} &nbsp; </Link></h2>
+              <LogoutButton toLogOut = {this.toLogOut.bind(this)}/>
         </div>
-        <span className = "glyphicon glyphicon-cog"
-              onClick = {this.toLogOut.bind(this)} id = "logout-button"></span>
         </div>
     );
   }
+
   generateTopMenu() {
     return (
       <div className = "top-menu">
@@ -90,6 +90,7 @@ class MenuBar extends React.Component {
       </div>
     );
   }
+
   generateSideMenu() {
     return (
       <aside className = "side-menu-wrapper">
@@ -98,6 +99,7 @@ class MenuBar extends React.Component {
       </aside>
     );
   }
+
   render() {
     if (this.state.loadProfile) {
       return(

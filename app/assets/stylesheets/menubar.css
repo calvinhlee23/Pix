@@ -9,25 +9,65 @@
   background: rgba(0,0,0,0.1);
   justify-content: space-between;
   align-items: center;
+  height: 40px;
 }
 
 .name-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .name-wrapper h2 {
   margin:0;
+  float: left;
 }
 
 .name-wrapper a {
   color: inherit;
   text-decoration: none;
 }
+
 .name-wrapper a:hover {
   color: inherit;
 }
+#logout-button {
+  font-size: 15px;
+}
+#logout-button:hover {
+  cursor: pointer;
+}
+
+.confirmation-wrapper-logout {
+  width: 200px;
+  margin-top: 5px;
+}
+
+.logout {
+  font-size: 25px;
+  float: left;
+}
+.logout:hover {
+  color: red;
+  cursor:pointer;
+}
+
+.logout-no{
+  font-size: 25px;
+  float: left;
+}
+.logout-no:hover {
+  color: red;
+  cursor:pointer;
+}
+.confirmation-no {
+  height: 40px;
+  font-size: 25px;
+  height: 40px;
+  float: left;
+}
+
+
 .menu-bar #user {
   display: flex;
   align-items: center;
@@ -36,7 +76,6 @@
   margin-left: 10px;
   margin-right: 10px;
   float:left;
-  width: 15%;
 }
 
 .menu-bar #home {
@@ -52,9 +91,6 @@
   margin-right: 10px;
 }
 
-#logout-button:hover {
-  cursor: pointer;
-}
 
 .stream-menu li {
   float:left;
