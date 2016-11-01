@@ -23,9 +23,6 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
       success = (data) => {
         dispatch(receiveImages(data));
       };
-      error = () => {
-        window.alert("Oops, something went wrong!");
-      };
       var url = `/api/images/${action.imageType}`;
       // for targetUser when looking at someone's bio
       if (action.imageType === "userImages") {

@@ -64,11 +64,14 @@
   margin-top: 40px;
 }
 
+.session-to-other-session a {
+  text-decoration: none;
+}
+
 .session-to-other-session a:hover {
   text-decoration: none;
   color: inherit;
   background:rgba(0,0,0,0.2);
-
 }
 
 .guest-login{
