@@ -21,8 +21,12 @@
 
 .confirmation-wrapper {
   display: flex;
+  height: 20px;
   width: 150px;
   justify-content: space-around;
+}
+.confirmation-no, .confirmation-yes {
+  font-size: 14px;
 }
 .confirmation-yes:hover {
   font-weight: bold;
