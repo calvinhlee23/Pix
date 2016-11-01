@@ -11,3 +11,16 @@ body::-webkit-scrollbar {
       height: auto;
       background-color: rgba(0,0,0,.2)
 }
+
+.master-h1 {
+  background-color: rgba(0,0,0,.8);
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.master-h1-text {
+  margin-top: 14px;
+}

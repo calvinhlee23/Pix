@@ -34,13 +34,8 @@ class StaticPage extends React.Component {
         </span>
       );
     } else {
-      return(
-        <span id = "not-logged-in-greetings">
-          <h1>Welcome to Pix!</h1>
-          <button onClick = {this.toLogIn.bind(this)}>Log In</button>
-          <button onClick = {this.toSignUp.bind(this)}>Sign Up</button>
-        </span>
-      )
+      hashHistory.push("/");
+      window.location.reload();
     }
   }
 }

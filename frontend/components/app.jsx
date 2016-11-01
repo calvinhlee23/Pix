@@ -2,7 +2,9 @@ import React from 'react';
 
 const App = ({children}) => (
   <div>
-  <h1 className = "page-head-h1">Pix</h1>
+  <h1 className = "master-h1" id = "master">
+  <div className  = "glyphicon glyphicon-camera"/>&nbsp;
+  <div className = "master-h1-text">Pix</div></h1>
   {children}
   </div>
 );

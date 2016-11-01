@@ -84,13 +84,13 @@
 
 .menu-bar #home:hover {
   cursor: pointer;
+  color: orange;
 }
 
 .stream-menu {
   margin-bottom: 0;
   margin-right: 10px;
 }
-
 
 .stream-menu li {
   float:left;
@@ -106,7 +106,9 @@
   cursor: pointer;
   text-decoration: underline;
 }
-
+.stream-menu li:last-child:hover {
+  color: orange;
+}
 
 .side-menu-wrapper {
   text-align: center;
