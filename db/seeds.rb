@@ -17,7 +17,7 @@ img1 = Image.create(user_id: 1, cloud_url: "http://res.cloudinary.com/dxgn2rpkt/
 img2 = Image.create(user_id: 1, cloud_url: "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443126/vtumrqdn4nlxeizn8nir.jpg")
 img3 = Image.create(user_id: 1, cloud_url: "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443108/iltv10zk9xhwwq2t3sn0.jpg")
 
-
+guest = User.create(email: "guest@guest.com", user_name: "Guest", password: "guest_password")
 comment1 = Comment.create(
   author_name: User.first.user_name,
   author_id: 1, image_id: img1.id,
