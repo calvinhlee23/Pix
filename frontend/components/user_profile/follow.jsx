@@ -73,21 +73,21 @@ class Follow extends React.Component{
       return (
         <div className = "follow">
         <label className = "followers">
-        Followers: {this.state.followers}</label>
+        Followers: {this.state.followers}&nbsp;</label>
         <label className = "following">
-        Following: {this.state.following}</label>
-        <button className = "follow-button"
+        Following: {this.state.following}&nbsp;</label>
+        <div className = "follow-button"
           onClick = {this.followRequest(this.state.button, targetUserName)}>
-          {this.state.button}</button>
+          {this.state.button}</div>
         </div>
       );
     } else {
       return(
         <div className = "follow">
         <label className = "followers">
-        Followers: {this.state.followers}</label>
+        Followers: {this.state.followers}&nbsp;</label>
         <label className = "following">
-        Following: {this.state.following}</label>
+        Following: {this.state.following}&nbsp;</label>
         </div>
       );
     }

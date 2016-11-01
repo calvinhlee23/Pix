@@ -28,7 +28,7 @@ class UserBio extends React.Component {
     if (this.state.userName) {
       return (
         <div className = "user-bio">
-        <h2>{`About ${this.state.userName}:`}</h2>
+        <h2>{`${this.state.userName}:`}&nbsp;</h2>
         <Follow {...this.props}/>
         </div>
       );
