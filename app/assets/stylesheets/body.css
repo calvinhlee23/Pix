@@ -24,3 +24,14 @@ body::-webkit-scrollbar {
 .master-h1-text {
   margin-top: 14px;
 }
+
+.master-h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.master-h1 a:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
