@@ -11,10 +11,11 @@ import Loader from '../util/loader';
 const AppRouter = () => (
   <Router history = {hashHistory}>
     <Route path ="/" component = {App}>
-    <IndexRedirect to = "publicImages"/>
+    <IndexRedirect to = "login"/>
       <Route path = "signup" component = {SessionFormContainer}/>
       <Route path = "login" component = {SessionFormContainer}/>
       <Route path = "logout" component = {SessionFormContainer}/>
+      <Route path = "guestLogin" component = {SessionFormContainer}/>
 
       <Route path = "followingImages" component = {StaticPageContainer}/>
       <Route path = "publicImages" component = {StaticPageContainer}/>

@@ -2,7 +2,6 @@
   text-align: left;
   margin-left: 10px;
   margin-top:0;
-  max-width: 300px;
   max-height: 300px;
   border: none;
 }
@@ -39,7 +38,7 @@
   float: left;
 }
 .weather-city {
-word-wrap: break-word;
+  word-wrap: break-word;
 }
 .weather-gathering:hover {
   text-decoration: none;

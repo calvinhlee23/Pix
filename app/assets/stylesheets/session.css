@@ -1,0 +1,89 @@
+.session-form-wrapper {
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 260px;
+  background:rgba(0,0,0,0.1);
+}
+#login-email {
+  margin-top: 20px;
+}
+.session-form-wrapper h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.session-form {
+  width: 500px;
+  border-right: 1px dashed white;
+  height: 260px;
+}
+
+.session-form-wrapper input {
+  margin-top: 10px;
+  border-radius: 4px;
+  padding-left: 10px;
+  border: 1px solid white;
+  width: 200px;
+}
+
+.session-submit {
+  border: 2px solid white;
+  border-radius: 4px;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.session-submit:hover {
+  cursor: pointer;
+  background:rgba(0,0,0,0.2);
+}
+
+.session-to-other-session {
+  width: 500px;
+  height: 260px;
+}
+
+.session-to-other-session a{
+  display: flex;
+  color: inherit;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  border: 2px solid white;
+  margin-top: 40px;
+}
+
+.session-to-other-session a:hover {
+  text-decoration: none;
+  color: inherit;
+  background:rgba(0,0,0,0.2);
+
+}
+
+.guest-login{
+  display: flex;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  border: 2px solid white;
+  margin-top: 10px;
+}
+.guest-login:hover{
+  cursor: pointer;
+  background:rgba(0,0,0,0.2);
+
+}

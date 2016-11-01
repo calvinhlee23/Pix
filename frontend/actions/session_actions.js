@@ -20,6 +20,10 @@ export const logout = () => ({
   type: SessionConstants.LOG_OUT,
 });
 
+export const guestLogin = () => ({
+  type: SessionConstants.LOG_IN,
+  user: {email: "guest@guest.com", password: "guest_password"}
+});
 export const receiveCurrentUser = (user) => ({
   type: SessionConstants.RECEIVE_CURRENT_USER,
   user,

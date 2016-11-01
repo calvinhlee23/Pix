@@ -1,5 +1,5 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
+import {hashHistory, Link} from 'react-router';
 
 
 class SessionForm extends React.Component {
@@ -18,16 +18,18 @@ class SessionForm extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.formType === "logout") {
+    if (this.props.formType === "logout" ||
+        this.props.formType === "guestLogin") {
       this.props.processForm();
-      hashHistory.push("/")
+      hashHistory.push("/");
     } else {
       this.redirectIfLoggedIn();
     }
   }
 
   componentWillMount() {
-    if (this.props.formType === "logout") {
+    if (this.props.formType === "logout" ||
+        this.props.formType === "guestLogin") {
       this.props.processForm();
       hashHistory.push("/");
       window.location.reload();
@@ -38,14 +40,14 @@ class SessionForm extends React.Component {
 
   redirectIfLoggedIn() {
     if (this.props.isLoggedIn) {
-      hashHistory.push("/");
+      hashHistory.push("/publicImages");
     }
   }
 
   submit(event) {
     event.preventDefault();
     if (this.props.formType === "signup") {
-      if (this.passwordCheck()) {
+      if (this.emailCheck() && this.userNameCheck() && this.passwordCheck()) {
         this.props.processForm(this.state);
       }
     } else {
@@ -53,6 +55,22 @@ class SessionForm extends React.Component {
     }
   }
 
+  userNameCheck() {
+    if(this.state.user_name.length >= 3) {
+      return true;
+    } else {
+      alert("user_name must be at least 3 characters long");
+      return false;
+    }
+  }
+  emailCheck() {
+    if ((/(@)\w+/).test(this.state.email) && (/([.])/).test(this.state.email)) {
+      return true;
+    } else {
+      alert("please provide valid email");
+      return false;
+    }
+  }
   passwordCheck() {
     if (this.state.password.length < 7) {
       this.clearPassword();
@@ -73,41 +91,72 @@ class SessionForm extends React.Component {
     this.setState({password_conf: ""});
   }
 
+  guestLogin() {
+    event.preventDefault();
+    hashHistory.push("/guestLogin");
+  }
+
   render () {
     if (this.props.formType === "login") {
       return (
-        <form id = "session-form">
-          Email: <input type = "text"
-                  onChange= {this.handleChange("email")}
-                  value = {this.state.email}/><br/>
-          Password: <input type = "password"
-                    onChange = {this.handleChange("password")}
-                    value = {this.state.password}/><br/>
-          <input type = "submit"
+        <div className = "session-form-wrapper">
+        <form className = "session-form">
+        <h2> Log In </h2>
+          <input type = "text"
+            onChange= {this.handleChange("email")}
+            value = {this.state.email}
+            placeholder = "email" id = "login-email"/><br/>
+          <input type = "password"
+            onChange = {this.handleChange("password")}
+            value = {this.state.password}
+            placeholder = "password"/><br/>
+          <div className = "session-submit"
           value = "Submit"
-          onClick = {this.submit.bind(this)}/>
+          onClick = {this.submit.bind(this)}>Submit</div>
         </form>
+        <div className = "session-to-other-session">
+        <h2> Other </h2>
+            <Link to = {{pathname: `/signup`}}>SIGN UP!</Link>
+              <span onClick = {this.guestLogin.bind(this)}
+                    className = "guest-login">LOGIN AS GUEST</span>
+        </div>
+        </div>
       );
     } else {
       return (
-        <form id = "session-form">
-        Email: <input type = "text"
+        <div className = "session-form-wrapper">
+        <form className= "session-form">
+        <h2> Sign Up </h2>
+        <input type = "text"
           onChange= {this.handleChange("email")}
-          value = {this.state.email}/><br/>
-        Username: <input type = "text"
+          value = {this.state.email}
+          placeholder = "email"/><br/>
+        <input type = "text"
           onChange = {this.handleChange("user_name")}
-          value = {this.state.user_name}/><br/>
-        Password: <input type = "password"
+          value = {this.state.user_name}
+          placeholder = "user name"/><br/>
+
+        <input type = "password"
           onChange = {this.handleChange("password")}
-          value = {this.state.password}/><br/>
-        Password Confirmation:
-          <input type = "password"
+          value = {this.state.password}
+          placeholder = "password"/><br/>
+
+        <input type = "password"
           onChange = {this.handleChange("password_conf")}
-          value = {this.state.password_conf}/><br/>
-        <input type = "submit"
-        value = "Submit"
-        onClick = {this.submit.bind(this)}/>
+          value = {this.state.password_conf}
+          placeholder = "password confirmation"/><br/>
+
+          <div className = "session-submit"
+          value = "Submit"
+          onClick = {this.submit.bind(this)}>Submit</div>
         </form>
+        <div className = "session-to-other-session">
+        <h2> Other </h2>
+            <Link to = {{pathname: `/login`}}>LOG IN</Link>
+              <span onClick = {this.guestLogin.bind(this)}
+                    className = "guest-login">LOGIN AS GUEST</span>
+        </div>
+        </div>
       );
     }
   }
