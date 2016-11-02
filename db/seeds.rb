@@ -23,20 +23,20 @@ like1 = Like.create(author_id: 2, image_id: img1.id)
 like2 = Like.create(author_id: 1, image_id: img1.id)
 
 # create users
-100.times do
+50.times do
   User.create(email: Faker::Internet.email, user_name:
               Faker::Name.name, password: "password")
 end
 
 # create follows
-1500.times do
-  follower = User.find(Random.rand(102)+1)
-  toFollow = User.find(Random.rand(102)+1)
+1000.times do
+  follower = User.find(Random.rand(51)+1)
+  toFollow = User.find(Random.rand(51)+1)
   Follow.create(user_id: follower.id, following_user_id: toFollow.id)
 end
 
 #create images
-400.times do
+300.times do
   imgLinks = ["http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443118/mednpqfwqiuwui7rk3g5.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443126/vtumrqdn4nlxeizn8nir.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443108/iltv10zk9xhwwq2t3sn0.jpg",
@@ -46,13 +46,11 @@ end
   Image.create!(user_id: poster.id, cloud_url: imgLink)
 end
 #create comments
-1500.times do
-  userId = Random.rand(102)+1
+1000.times do
+  userId = Random.rand(52)+1
   author = User.find(userId)
-
-  imageId = Random.rand(399) +1
-
-  sentenceLength = Random.rand(15)
+  imageId = Random.rand(299) +1
+  sentenceLength = Random.rand(10)
   comment = Comment.create(author_name: author.user_name,
                             author_id: author.id, image_id: imageId,
                             body: Faker::Hipster.sentence(sentenceLength, true, sentenceLength))
