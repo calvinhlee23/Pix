@@ -7,13 +7,11 @@ import Infinite from 'react-infinite';
 class Stream extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      loading: false
-    };
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.setState({loading: true});
       var path = nextProps.location.pathname.split("/");
       if (path[1] === "user") {
         var userName = path[2];

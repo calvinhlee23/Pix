@@ -36,7 +36,7 @@ end
 end
 
 #create images
-300.times do
+200.times do
   imgLinks = ["http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443118/cioax7bqmtdualwqowfr.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1477443126/yks7te7sw1dm6xulux7k.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/ayzf3isfatw7dyhh2ide.jpg",
@@ -51,7 +51,7 @@ end
   userId = Random.rand(User.all.length)+1
   author = User.find(userId)
   imageId = Random.rand(299) +1
-  sentenceLength = Random.rand(10)
+  sentenceLength = Random.rand(6)+ 5
   comment = Comment.create(author_name: author.user_name,
                             author_id: author.id, image_id: imageId,
                             body: Faker::Hipster.sentence(sentenceLength, true, sentenceLength))
