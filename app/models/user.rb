@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
     source: :following
   )
 
+  has_many(
+    :following_users_images,
+    through: :following_users,
+    source: :images
+  )
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
@@ -58,15 +64,8 @@ class User < ActiveRecord::Base
     followers = follows.map{|f| f.user}
   end
 
-  def following_users_images
-    following_users = self.following_users
-    following_users_images = []
-
-    following_users.each do |fo|
-      following_users_images.push(fo.images)
-    end
-
-    following_users_images.flatten!
+  def following_users_img(lim)
+    self.following_users_images.limit(lim);
   end
 
   def password=(pw)

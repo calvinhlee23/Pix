@@ -6,26 +6,27 @@ export const ImageConstants = {
   REQUEST_USER_IMAGES: "REQUEST_USER_IMAGES"
 };
 
-// for store
+// for reducer
 export const receiveAnImage = (image) => ({
   type: ImageConstants.RECEIVE_AN_IMAGE,
   image
 });
 
-// for API
+export const receiveImages = (images) => ({
+  type: ImageConstants.RECEIVE_IMAGES,
+  images
+});
+
+// for middle
 export const postImage = (cloud_url) => ({
   type: ImageConstants.POST_IMAGE,
   cloud_url
 });
 
-// for API
-export const requestImages = (imageType, userName) => ({
+// for middle
+export const requestImages = (imageType, userName, limit) => ({
   type: ImageConstants.REQUEST_IMAGES,
   imageType,
-  userName
-});
-
-export const receiveImages = (images) => ({
-  type: ImageConstants.RECEIVE_IMAGES,
-  images
+  userName,
+  limit
 });

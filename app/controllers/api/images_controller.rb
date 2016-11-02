@@ -14,16 +14,18 @@ class Api::ImagesController < ApplicationController
   def show
     id = params[:id]
     if id == "myImages"
-      @images = get_current_user.images
+      @images = get_current_user.images.order("created_at DESC").limit(params[:limit])
     elsif id == "followingImages"
-      @images = get_current_user.following_users_images
+      @images = get_current_user.following_users_images.order("created_at DESC").limit(params[:limit])
     elsif id == "publicImages"
-      @images = Image.publicImages
+      @images = Image.publicImages(params[:limit])
       p @images;
     elsif id == "userImages"
       targetUser = User.find_by_user_name(params[:userName])
       if targetUser
-        @images = targetUser.images if (targetUser.is_public? ||
+        @images =
+          targetUser.images.order("created_at DESC").
+                                        limit(params[:limit]) if (targetUser.is_public? ||
                                         targetUser.is_friends_with?(get_current_user))
       else
         raise "targetUser not found - Images Controller"

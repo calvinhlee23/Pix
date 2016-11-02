@@ -18,7 +18,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   postImage: (cloud_url) => dispatch(postImage(cloud_url)),
-  requestImages: (imageType, userName) => dispatch(requestImages(imageType, userName)),
+  requestImages: (imageType, userName, limit) =>
+                  dispatch(requestImages(imageType, userName, limit)),
   postComment: (imageId, comment) => dispatch(postComment(imageId, comment)),
   requestTargetUser: (userName) => dispatch(requestTargetUser(userName)),
   requestFollow: (type, userName) => dispatch(requestFollow(type, userName)),

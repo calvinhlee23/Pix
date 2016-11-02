@@ -30,10 +30,12 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
           dispatch(receiveImages({}));
         };
         url = `/api/images/${action.imageType}`;
-        IMAGE_API.requestUserImages(url, action.userName, success, error);
+        IMAGE_API.requestUserImages(url, action.userName,
+                                    action.limit, success, error);
 
       } else {
-        IMAGE_API.requestImages(url, success, error);
+        console.log(action.limit);
+        IMAGE_API.requestImages(url, action.limit, success, error);
       }
       return next(action);
 
