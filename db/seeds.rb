@@ -46,14 +46,14 @@ end
   Image.create!(user_id: poster.id, cloud_url: imgLink)
 end
 #create comments
-# 400.times do
-#   userId = Random.rand(103)
-#   author = User.find(userId)
-#
-#   imageId = Random.rand(200)
-#
-#   sentenceLength = Random.rand(15)
-#   comment = Comment.create!(author_name: author.user_name,
-#                             author_id: author.id, image_id: imageId,
-#                             body: Faker::Hipster.sentence(sentenceLength, true, sentenceLength))
-# end
+1500.times do
+  userId = Random.rand(102)+1
+  author = User.find(userId)
+
+  imageId = Random.rand(399) +1
+
+  sentenceLength = Random.rand(15)
+  comment = Comment.create(author_name: author.user_name,
+                            author_id: author.id, image_id: imageId,
+                            body: Faker::Hipster.sentence(sentenceLength, true, sentenceLength))
+end
