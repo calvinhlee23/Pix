@@ -34,7 +34,6 @@ const ImageMiddleware = ({getState, dispatch}) => (next) => (action) => {
                                     action.limit, success, error);
 
       } else {
-        console.log(action.limit);
         IMAGE_API.requestImages(url, action.limit, success, error);
       }
       return next(action);

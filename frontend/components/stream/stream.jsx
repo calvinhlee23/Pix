@@ -42,7 +42,6 @@ class Stream extends React.Component {
   }
 
   addSixMore() {
-    console.log('called');
     this.setState({numFrames: this.state.numFrames += 6});
     this.setState({loading: true});
     var path = this.props.location.pathname.split("/");
@@ -70,7 +69,8 @@ class Stream extends React.Component {
                 elementHeight = {200}
                 infiniteLoadBeginEdgeOffset={100}
                 onInfiniteLoad = {this.addSixMore.bind(this)}
-                isInfiniteLoading={this.state.loading}>
+                isInfiniteLoading={this.state.loading}
+                timeScrollStateLastsForAfterUserScrolls = {0}>
         {Object.keys(this.props.images).reverse().map((imgId)=> {
           return <Frame image = {this.props.images[imgId]}
           currentUser = {this.props.currentUser}
