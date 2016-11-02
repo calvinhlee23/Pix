@@ -7,83 +7,72 @@
 .top-menu {
   display: flex;
   background: rgba(0,0,0,0.1);
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 40px;
 }
 
-.name-wrapper {
+.gear-wrapper {
   display: flex;
-  justify-content: space-between;
+  height: inherit;
   align-items: center;
+  padding-bottom: 2px;
+  border-right: 2px solid white;
+  padding-right: 20px;
 }
 
-.name-wrapper h2 {
+.gear-wrapper h2 {
   margin:0;
   float: left;
 }
 
-.name-wrapper a {
+.gear-wrapper a {
   color: inherit;
   text-decoration: none;
 }
 
-.name-wrapper a:hover {
+.gear-wrapper a:hover {
   color: inherit;
-}
-#logout-button {
-  font-size: 15px;
-}
-#logout-button:hover {
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .confirmation-wrapper-logout {
-  width: 200px;
-  margin-top: 5px;
+  display: flex;
+  height: inherit;
+  justify-content: space-between;
+  align-items: center;
 }
 
+#home {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#home:hover {
+  color: orange;
+}
+.to-profile {
+  text-decoration: none;
+  margin-right: 5px;
+  margin-left: 5px;
+}
 .logout {
-  font-size: 25px;
-  float: left;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.logout-no {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.to-profile:hover{
+  text-decoration: none;
+  color: orange;
 }
 .logout:hover {
-  color: red;
-  cursor:pointer;
+  color:orange;
 }
 
-.logout-no{
-  font-size: 25px;
-  float: left;
-}
 .logout-no:hover {
-  color: red;
-  cursor:pointer;
-}
-.confirmation-no {
-  height: 40px;
-  font-size: 25px;
-  height: 40px;
-  float: left;
-}
-
-
-.menu-bar #user {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;;
-  align-items: baseline;
-  margin-left: 10px;
-  margin-right: 10px;
-  float:left;
-}
-
-.menu-bar #home {
-  margin-right: 10px;
-}
-
-.menu-bar #home:hover {
-  cursor: pointer;
   color: orange;
 }
 

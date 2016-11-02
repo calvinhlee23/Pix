@@ -4,7 +4,8 @@ import UserSearch from './search/user_search';
 import {hashHistory, Link} from 'react-router';
 import Gagets from '../gagets/gagets';
 import UserProfile from '../user_profile/user_profile';
-import LogoutButton from './logout_button';
+import GearButton from './gear_button';
+
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
@@ -45,11 +46,6 @@ class MenuBar extends React.Component {
     hashHistory.push('/logout');
   }
 
-  toHome() {
-    event.preventDefault();
-    hashHistory.push('/');
-  }
-
   generateStreamMenu() {
     return (
       <ul className = "stream-menu">
@@ -68,16 +64,10 @@ class MenuBar extends React.Component {
 
   generateUserMenu() {
     return(
-      <div id = "user">
-        <div className = "name-wrapper">
-          <div className = "glyphicon glyphicon-home"
-          onClick = {this.toHome.bind(this)}
-          id = "home"></div>
-          <h2><Link
-              to = {{pathname: `/user/${this.props.currentUser.user_name}`}}>
-              {this.props.currentUser.user_name} &nbsp; </Link></h2>
-              <LogoutButton toLogOut = {this.toLogOut.bind(this)}/>
-        </div>
+        <div className = "gear-wrapper">
+        <GearButton
+          {...this.props}
+          toLogOut = {this.toLogOut.bind(this)}/>
         </div>
     );
   }

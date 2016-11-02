@@ -1,7 +1,7 @@
 import React from 'react';
-import hashHistory from 'react-router';
+import {hashHistory, Link} from 'react-router';
 
-class LogoutButton extends React.Component {
+class GearButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +11,6 @@ class LogoutButton extends React.Component {
   }
 
   toConfirm() {
-    console.log('hihi');
     this.setState({renderConfirm: true});
   }
 
@@ -23,12 +22,23 @@ class LogoutButton extends React.Component {
     this.setState({renderConfirm: false});
   }
 
+  toHome() {
+    event.preventDefault();
+    hashHistory.push('/');
+  }
+
   render ()  {
     if (this.state.renderConfirm) {
       return(
-        <span id = "info" className = "confirmation-wrapper-logout">
+        <span className = "confirmation-wrapper-logout">
+        <div className = "glyphicon glyphicon-home"
+        onClick = {this.toHome.bind(this)}
+        id = "home"/>
+        <div className = "to-profile">
+        <Link to = {{pathname: `/user/${this.props.currentUser.user_name}`}}>
+            Profile </Link></div>
         <div className = "logout"
-        onClick = {this.handleYes.bind(this)}>Log out &nbsp;</div>
+        onClick = {this.handleYes.bind(this)}>Logout</div>
         <div className = "logout-no"
         onClick = {this.handleNo.bind(this)}> cancel</div>
         </span>
@@ -41,4 +51,4 @@ class LogoutButton extends React.Component {
     }
   }
 }
-export default LogoutButton
+export default GearButton;

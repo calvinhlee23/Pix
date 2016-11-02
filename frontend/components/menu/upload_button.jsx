@@ -22,7 +22,7 @@ class UploadButton extends React.Component {
 
   render() {
     return (
-      <div className  = "glyphicon glyphicon-camera"
+      <div className  = "glyphicon glyphicon-plus"
           onClick = {this.upload.bind(this)}></div>
     );
   }
