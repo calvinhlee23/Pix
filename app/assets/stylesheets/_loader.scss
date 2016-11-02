@@ -44,10 +44,12 @@ html, body {
   -webkit-animation: spin 1s infinite linear;
           animation: spin 1s infinite linear;
 }
+
 .loading--double {
   border-style: double;
   border-width: .5rem;
 }
+
 .loader-wrapper {
   display: flex;
   justify-content: center;
