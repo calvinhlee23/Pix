@@ -63,7 +63,8 @@ class Stream extends React.Component {
     return (
       <div className = "stream">
       <ul className = "stream-frame">
-      <Infinite useWindowAsScrollContainer
+      <Infinite className = "infinite-scroll"
+                useWindowAsScrollContainer
                 // 1 frame is 600. elementHeight 200 gives us 3 frames
                 // loading per 100 gives us another row
                 elementHeight = {200}

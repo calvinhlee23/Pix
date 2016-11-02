@@ -27,7 +27,7 @@ class Image < ActiveRecord::Base
           FROM images INNER JOIN users
           ON images.user_id = users.id
           WHERE users.public = true
-          ORDER BY images.created_at ASC
+          ORDER BY images.created_at DESC
           LIMIT #{limit}
         ")
   end
