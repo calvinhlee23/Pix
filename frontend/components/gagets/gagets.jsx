@@ -12,7 +12,6 @@ class Gagets extends React.Component {
       return (
         // <div className = "stream" >
         <div className = "gagets-wrapper">
-        <Weather className = "gaget-weather"/>
         <Clock className = "gaget-clock"/>
         </div>
 

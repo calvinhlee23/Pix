@@ -11,20 +11,21 @@ class Follow extends React.Component{
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({followers: this.props.targetUser.followers.length});
     this.setState({following: this.props.targetUser.following_users.length});
     this.checkButton();
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.targetUser !== this.props.targetUser) {
+    if(nextProps.targetUser.user_name !== this.props.targetUser.user_name) {
       this.setState({button: null});
       setTimeout(() => {
         this.checkButton(nextProps);
       }, 500);
     }
   }
+
   checkButton(nextProps) {
     var myFollowingUsers = this.props.currentUser.following;
     var targetUserName;
