@@ -50,16 +50,25 @@
   margin-top: 0;
 }
 
-.frame-userName {
-  float: left;
+.frame-userName-wrapper {
+  display: flex;
+  justify-content: space-between;
   text-align: left;
-  width: 220px;
+  width: inherit;
   text-decoration: none;
   margin-left: 5px;
   margin-bottom: 0;
   margin-top: 0;
 }
 
+.description-wrapper {
+  font-size: 15px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.trash-icon {
+  text-align: right;
+}
 .img-wrapper {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;

@@ -6,11 +6,6 @@ body {
         background-size: cover;
 }
 
-body::-webkit-scrollbar {
-      width: 5px;
-      height: auto;
-      background-color: rgba(0,0,0,.2)
-}
 
 .master-h1 {
   background-color: rgba(0,0,0,.8);

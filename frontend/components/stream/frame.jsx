@@ -38,17 +38,19 @@ class Frame extends React.Component {
     var userName = this.props.image.user.user_name;
     return(
       <li key = {this.props.image.id} className = "frame">
-      <h2 className = "frame-userName">
+      <h2 className = "frame-userName-wrapper">
       <Link to = {{pathname: `/user/${userName}`}}>{userName}</Link>
+      <div className = "description-wrapper">
+        <div className = "trash-icon">
+        <DeleteButton image = {this.props.image}
+        deleteThis = {this.props.deleteThis.bind(this)}
+        currentUser = {this.props.currentUser}/>
+        </div>
+        <div id = "info">
+        {this.props.image.created_at} ago
+        </div>
+      </div>
       </h2>
-      <div className = "delete-wrapper">
-      <DeleteButton image = {this.props.image}
-      deleteThis = {this.props.deleteThis.bind(this)}
-      currentUser = {this.props.currentUser}/>
-      </div>
-      <div className = "img-create-descript" id = "info">
-      {this.props.image.created_at} ago
-      </div>
         <div className = "img-wrapper">
         <img src = {this.props.image.cloud_url}
               className = "frame-Image"

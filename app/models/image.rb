@@ -1,6 +1,5 @@
 class Image < ActiveRecord::Base
   validates :user_id, :cloud_url, presence: true
-  validates :cloud_url, uniqueness: true
 
   belongs_to(
     :user,
