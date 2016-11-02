@@ -34,13 +34,11 @@ class GearButton extends React.Component {
         <div className = "glyphicon glyphicon-home"
         onClick = {this.toHome.bind(this)}
         id = "home"/>
-        <div className = "to-profile">
-        <Link to = {{pathname: `/user/${this.props.currentUser.user_name}`}}>
-            Profile </Link></div>
-        <div className = "logout"
-        onClick = {this.handleYes.bind(this)}>Logout</div>
-        <div className = "logout-no"
-        onClick = {this.handleNo.bind(this)}> cancel</div>
+        <Link to = {{pathname: `/user/${this.props.currentUser.user_name}`}}
+              className = "to-profile">Profile </Link>
+        <Link to = {{pathname: '/logout'}} className = "logout">Logout</Link>
+        <Link className = "logout-no"
+              onClick = {this.handleNo.bind(this)}> cancel</Link>
         </span>
       );
     } else {
