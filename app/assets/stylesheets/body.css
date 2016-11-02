@@ -11,6 +11,9 @@ body::-webkit-scrollbar {
       height: auto;
       background-color: rgba(0,0,0,1)
 }
+.master-h1-text:hover {
+  cursor: pointer;
+}
 
 .master-h1 {
   background-color: rgba(0,0,0,.8);

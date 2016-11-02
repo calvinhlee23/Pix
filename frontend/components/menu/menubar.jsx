@@ -81,11 +81,15 @@ class MenuBar extends React.Component {
     );
   }
 
+  toTop () {
+    window.scrollTo(0, 0);
+  }
   generateSideMenu() {
     return (
       <aside className = "side-menu-wrapper">
       <Gagets/>
       <UserSearch className = "user-search"/>
+      <div className = "glyphicon glyphicon-arrow-up" onClick = {this.toTop}/>
       </aside>
     );
   }

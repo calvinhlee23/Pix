@@ -2,17 +2,17 @@ import React from 'react';
 import Frame from './frame';
 import {hashHistory} from 'react-router';
 import Loader from '../../util/loader';
+import Infinite from 'react-infinite';
 
 class Stream extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      needLoader: true
+      loading: false
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({needLoader: true});
     if (nextProps.location.pathname !== this.props.location.pathname) {
       var path = nextProps.location.pathname.split("/");
       if (path[1] === "user") {
@@ -24,13 +24,9 @@ class Stream extends React.Component {
         this.props.requestImages(path[1]);
       }
     }
-    setTimeout(() => {
-      this.setState({needLoader:false});
-    }, 1500);
   }
 
   componentDidMount() {
-    this.setState({needLoader: true});
     var path = this.props.location.pathname.split("/");
     if (path[1] === "user") {
       var userName = path[2];
@@ -40,33 +36,30 @@ class Stream extends React.Component {
                path[1] === "publicImages") {
       this.props.requestImages(path[1]);
     }
-    setTimeout(() => {
-      this.setState({needLoader:false});
-    }, 1500);
   }
 
   render() {
     // infinite loades 3 rows of frames per.
-    if (this.state.needLoader) {
-      return (
-        <Loader className = "stream-loader"/>
-      );
-    } else {
-      return (
-        <div className = "stream">
-          <ul className = "stream-frame">
-          {Object.keys(this.props.images).reverse().map((imgId)=> {
-            return <Frame image = {this.props.images[imgId]}
-            currentUser = {this.props.currentUser}
-            postComment = {this.props.postComment}
-            deleteThis = {this.props.deleteThis.bind(this)}
-            processLike = {this.props.processLike}
-            key = {imgId}/>;
-          })}
-          </ul>
-        </div>
-      );
-    }
+    return (
+      <div className = "stream">
+      <ul className = "stream-frame">
+      <Infinite useWindowAsScrollContainer
+                // 1 frame is 600 elementHeight200 gives us 3 frames
+                // loading per 100 gives us another row
+                elementHeight = {200}
+                infiniteLoadBeginEdgeOffset={100}>
+        {Object.keys(this.props.images).reverse().map((imgId)=> {
+          return <Frame image = {this.props.images[imgId]}
+          currentUser = {this.props.currentUser}
+          postComment = {this.props.postComment}
+          deleteThis = {this.props.deleteThis.bind(this)}
+          processLike = {this.props.processLike}
+          key = {imgId}/>;
+        })}
+      </Infinite>
+      </ul>
+      </div>
+    );
   }
 }
 
