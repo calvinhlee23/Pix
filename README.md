@@ -121,10 +121,10 @@ Similar to `Like`, Follow/Unfollow buttons dispatch `requestFollow` when they ar
 
 ## Infinite Scroll
 
-Last notable feature of Pix is Stream's Infinite Scroll. React's Infinite Scroll allows store to
+Last notable feature of Pix is Stream's `Infinite Scroll`. React's Infinite Scroll allows `Stream` to
 request images in increments based on the user's scrolling behaviors.
 
 ![infinite]
 [infinite]: ./docs/images/infinite.png
 
-This allows web page to load quickly even when the Stream is supposed to be filled with thousands of photos.  
+This allows the components to load quickly even when the Stream is supposed to be filled with thousands of photos.  
