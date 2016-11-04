@@ -65,8 +65,6 @@ class Stream extends React.Component {
       <ul className = "stream-frame">
       <Infinite className = "infinite-scroll"
                 useWindowAsScrollContainer
-                // 1 frame is 600. elementHeight 200 gives us 3 frames
-                // loading per 100 gives us another row
                 elementHeight = {200}
                 infiniteLoadBeginEdgeOffset={100}
                 onInfiniteLoad = {this.addSixMore.bind(this)}
