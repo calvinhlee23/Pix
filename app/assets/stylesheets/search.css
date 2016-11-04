@@ -25,6 +25,7 @@
 }
 .search-result {
   display: block;
+  width: 260px;
   justify-content: flex-end;
   margin-left: 10px;
   margin-right: 10px;
