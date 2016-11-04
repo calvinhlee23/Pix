@@ -9,8 +9,6 @@ class Frame extends React.Component {
     super(props);
     this.state = {
       commentBody: "",
-      likeNum: 0,
-      likeAbility: "Like"
     };
   }
 

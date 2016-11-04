@@ -18,21 +18,6 @@ A web application inspired by Instagram built using Ruby on Rails and React/Redu
 - [ ] Infinite Scroll/Pagination
 - [ ] Production README [sample](docs/production_readme.md)
 
-## Design Docs
-* [View Wireframes][wireframes] use [draw.io]: http://draw.io
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Redux Structure][redux-structure]
-* [Sample State][sample-state]
-
-[wireframes]: docs/wireframes
-[components]: docs/component-heirarchy.md
-[redux-structure]: docs/redux-structure.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-
 ## Implementation Timeline
 
 ### Phase 1: Backend setup and Front End User Authentication (2 days) (BACK END)
@@ -93,7 +78,6 @@ A web application inspired by Instagram built using Ruby on Rails and React/Redu
 
 **objective:** Allow rich text editing of notes.
 
-- [ ] Integrate `react-quill` (based on Quill.js).
 - [ ] Rails helpers to sanitize HTML before rendering.
 - [ ] Style Quill components.
 - [ ] Add Quill styling to seeded notes
@@ -102,8 +86,7 @@ A web application inspired by Instagram built using Ruby on Rails and React/Redu
 
 **objective:** Add infinite scroll to Notes Index
 
-- [ ] Paginate `Images` API to send 10 results at a time
-- [ ] Append next set of results when user scrolls `Streams` and is near bottom
+- [ ] InfiniteScroll
 - [ ] Style scroll components and transitions
 - [ ] Ensure seed data demonstrates infinite scroll
 
