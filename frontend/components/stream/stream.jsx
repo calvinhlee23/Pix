@@ -14,35 +14,24 @@ class Stream extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({numFrame: 6});
     if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.setState({loading: true});
+      this.setState({numFrame: 0});
       var path = nextProps.location.pathname.split("/");
       if (path[1] === "user") {
         var userName = path[2];
-        this.props.requestImages("userImages", userName, 6);
+        this.props.requestImages("userImages", userName, 3);
       } else if (path[1] === "followingImages" ||
                  path[1] === "myImages" ||
                  path[1] === "publicImages") {
-        this.props.requestImages(path[1], null,  6);
+        this.props.requestImages(path[1], null,  3);
       }
     }
   }
 
-  componentDidMount() {
-    this.setState({numFrame: 6});
-    var path = this.props.location.pathname.split("/");
-    if (path[1] === "user") {
-      var userName = path[2];
-      this.props.requestImages("userImages", userName, 6);
-    } else if (path[1] === "followingImages" ||
-               path[1] === "myImages" ||
-               path[1] === "publicImages") {
-      this.props.requestImages(path[1], null, 6);
-    }
-  }
-
   addSixMore() {
-    this.setState({numFrames: this.state.numFrames += 6});
+    console.log('hi');
+    this.setState({numFrames: this.state.numFrames += 3});
     this.setState({loading: true});
     var path = this.props.location.pathname.split("/");
     if (path[1] === "user") {
@@ -60,24 +49,25 @@ class Stream extends React.Component {
 
   render() {
     // infinite loades 3 rows of frames per.
+    var frames = Object.keys(this.props.images).reverse().map((imgId)=> {
+      console.log(this.props.images);
+      return <Frame image = {this.props.images[imgId]}
+      currentUser = {this.props.currentUser}
+      postComment = {this.props.postComment}
+      deleteThis = {this.props.deleteThis.bind(this)}
+      processLike = {this.props.processLike}
+      key = {imgId}/>;
+    });
     return (
       <div className = "stream">
       <ul className = "stream-frame">
       <Infinite className = "infinite-scroll"
                 useWindowAsScrollContainer
-                elementHeight = {200}
-                infiniteLoadBeginEdgeOffset={100}
+                elementHeight = {500}
+                infiniteLoadBeginEdgeOffset={50}
                 onInfiniteLoad = {this.addSixMore.bind(this)}
-                isInfiniteLoading={this.state.loading}
-                timeScrollStateLastsForAfterUserScrolls = {0}>
-        {Object.keys(this.props.images).reverse().map((imgId)=> {
-          return <Frame image = {this.props.images[imgId]}
-          currentUser = {this.props.currentUser}
-          postComment = {this.props.postComment}
-          deleteThis = {this.props.deleteThis.bind(this)}
-          processLike = {this.props.processLike}
-          key = {imgId}/>;
-        })}
+                isInfiniteLoading={this.state.loading}>
+        <div>{frames}</div>
       </Infinite>
       </ul>
       </div>

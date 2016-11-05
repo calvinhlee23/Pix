@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   validates :email, :user_name, presence: true, uniqueness: true
   validates :password_digest, :session_token, presence: true
   validates :user_name, length: {maximum: 15}
+  validate :check_user_name
   after_initialize :ensure_session_token
+
   has_many(
     :images,-> {order "created_at DESC"},
     dependent: :destroy,

@@ -11,19 +11,19 @@ class Api::UsersController < ApplicationController
 
   def show
     id = params[:id]
-    if id.to_i == 0 && id.is_a?(String)
-      @user = User.find_by_user_name(id)
-      if @user
-        render partial: "target_user_show"
-      else
-        raise "User Does Not Exist - Users Controller"
-      end
-    else
-      @user = User.find_by_id(id)
-      render :show
-    end
+    @user = User.find_by_id(id)
+    render :show
   end
 
+  def targetUser
+    userName = target_user_param
+    @user = User.find_by_user_name(userName)
+    if @user
+      render  partial: "target_user_show"
+    else
+      raise "User not found"
+    end
+  end
   def search
     userNameQuery = user_search_params
     searchResults = User.find_users_search(userNameQuery);
@@ -34,7 +34,9 @@ class Api::UsersController < ApplicationController
   def user_param
     params.permit(:email,:user_name, :password)
   end
-
+  def target_user_param
+    params.require(:userName)
+  end
   def user_search_params
     params.require(:user_query)
   end

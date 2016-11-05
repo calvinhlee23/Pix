@@ -43,7 +43,7 @@ end
              ]
   imgLink = imgLinks[Random.rand(imgLinks.length)]
   poster = User.find(Random.rand(User.all.length)+1)
-  Image.create!(user_id: poster.id, cloud_url: imgLink)
+  Image.create(user_id: poster.id, cloud_url: imgLink)
 end
 
 #create comments
