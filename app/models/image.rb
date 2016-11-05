@@ -22,14 +22,16 @@ class Image < ActiveRecord::Base
   )
 
   def self.publicImages(limit)
-    Image.find_by_sql("
-          SELECT DISTINCT images.*
-          FROM images INNER JOIN users
-          ON images.user_id = users.id
-          WHERE users.public = true
-          ORDER BY images.created_at DESC
-          LIMIT #{limit}
-        ")
+    if limit
+      Image.find_by_sql("
+      SELECT DISTINCT images.*
+      FROM images INNER JOIN users
+      ON images.user_id = users.id
+      WHERE users.public = true
+      ORDER BY images.created_at DESC
+      LIMIT #{limit}
+      ")
+    end
   end
 
 end
