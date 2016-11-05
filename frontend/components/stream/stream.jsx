@@ -8,53 +8,58 @@ class Stream extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      loading: false,
-      numFrames: 6
+      numFrames: 6,
+      scrollableHeight: 0,
+      previousScrollHeight: 0
     };
+  }
+  componentDidMount() {
+    var path = this.props.location.pathname.split("/");
+    setTimeout(() => {
+      if (path[1] === "user") {
+        var userName = path[2];
+        this.props.requestImages("userImages", userName, 6);
+      } else if (path[1] === "followingImages" ||
+      path[1] === "myImages" ||
+      path[1] === "publicImages") {
+        this.props.requestImages(path[1], null,  6);
+      }
+    }, 100);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('receiveprops');
     if (nextProps.location.pathname !== this.props.location.pathname) {
-      console.log('did something');
-      var path = nextProps.location.pathname.split("/");
-      if (path[1] === "user") {
-        var userName = path[2];
-        this.props.requestImages("userImages", userName, 6);
-      } else if (path[1] === "followingImages" ||
-                 path[1] === "myImages" ||
-                 path[1] === "publicImages") {
-        this.props.requestImages(path[1], null,  6);
-      }
+      this.setState({scrollableHeight: 0});
+      this.setState({previousScrollHeight: 0});
+      setTimeout(() => {
+        var path = nextProps.location.pathname.split("/");
+        if (path[1] === "user") {
+          var userName = path[2];
+          this.props.requestImages("userImages", userName, 6);
+        } else if (path[1] === "followingImages" ||
+        path[1] === "myImages" ||
+        path[1] === "publicImages") {
+          this.props.requestImages(path[1], null,  6);
+        }
+      }, 100);
     }
   }
-  componentDidMount() {
+
+  addSixMore() {
+    this.setState({scrollableHeight: window.document.body.scrollHeight});
+    if (this.state.previousScrollHeight < this.state.scrollableHeight) {
+      this.setState({previousScrollHeight: this.state.scrollableHeight});
+      this.setState({numFrames: this.state.numFrames += 6});
+      this.setState({scrollableHeight: (window.document.body.scrollHeight)});
       var path = this.props.location.pathname.split("/");
-      console.log('mount');
-      this.setState({numFrame: 12});
       if (path[1] === "user") {
         var userName = path[2];
-        this.props.requestImages("userImages", userName, 6);
+        this.props.requestImages("userImages", userName, this.state.numFrames);
       } else if (path[1] === "followingImages" ||
-                 path[1] === "myImages" ||
-                 path[1] === "publicImages") {
-        this.props.requestImages(path[1], null,  6);
+      path[1] === "myImages" ||
+      path[1] === "publicImages") {
+        this.props.requestImages(path[1], null, this.state.numFrames);
       }
-  }
-  addSixMore() {
-    console.log('sixmore');
-    this.setState({numFrames: this.state.numFrames += 6});
-    this.setState({loading: true});
-    var path = this.props.location.pathname.split("/");
-    if (path[1] === "user") {
-      var userName = path[2];
-      this.props.requestImages("userImages", userName, this.state.numFrames);
-      setTimeout(() => {this.setState({loading:false});}, 100);
-    } else if (path[1] === "followingImages" ||
-    path[1] === "myImages" ||
-    path[1] === "publicImages") {
-      this.props.requestImages(path[1], null, this.state.numFrames);
-      setTimeout(() => {this.setState({loading:false});}, 100);
     }
   }
 
@@ -69,24 +74,38 @@ class Stream extends React.Component {
     });
     return frames;
   }
+
   render() {
-    // infinite loades 3 rows of frames per.
-    return (
-      <div className = "stream">
-      <ul className = "stream-frame">
-      <Infinite className = "infinite-scroll"
-                // containerHeight = {1000}
-                useWindowAsScrollContainer
-                infiniteLoadBeginEdgeOffset={1200}
-                elementHeight = {1200}
-                timeScrollStateLastsForAfterUserScrolls = {0}
-                onInfiniteLoad = {this.addSixMore.bind(this)}
-                isInfiniteLoading={this.state.loading}>
+    if (this.state.scrollableHeight) {
+      return (
+        <div className = "stream">
+        <ul className = "stream-frame">
+        <Infinite className = "infinite-scroll"
+        useWindowAsScrollContainer
+        infiniteLoadBeginEdgeOffset= {200}
+        elementHeight = {this.state.scrollableHeight}
+        onInfiniteLoad = {this.addSixMore.bind(this)}>
         <div>{this.generateFrames()}</div>
-      </Infinite>
-      </ul>
-      </div>
-    );
+        </Infinite>
+        </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div className = "stream">
+        <ul className = "stream-frame">
+        <Infinite className = "infinite-scroll"
+        useWindowAsScrollContainer
+        infiniteLoadBeginEdgeOffset= {200}
+        elementHeight = {1400}
+        timeScrollStateLastsForAfterUserScrolls = {0}
+        onInfiniteLoad = {this.addSixMore.bind(this)}>
+        <div>{this.generateFrames()}</div>
+        </Infinite>
+        </ul>
+        </div>
+      );
+    }
   }
 }
 
