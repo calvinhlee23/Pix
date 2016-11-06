@@ -47,7 +47,6 @@ end
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/mlggdl74y5v2egxcj4pg.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/entobfvtputnk0rc0awn.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/amytmlkazbbvshufl92u.jpg",
-              "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/ugzgsry5yh1ggbav2a68.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/zpbiylsdtvlao4ywonwi.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/ff9s2o6oaqsahqqwb8yo.jpg",
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/vvwlu4bolhxdgpgujuks.jpg",
