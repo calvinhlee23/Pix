@@ -34,7 +34,7 @@ end
 end
 
 #create images
-150.times do
+100.times do
   imgLinks = [
               # actualphotos
               "http://res.cloudinary.com/dxgn2rpkt/image/upload/v1478113884/u201ywuumn53c4h6xczu.jpg",

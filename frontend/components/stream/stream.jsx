@@ -10,7 +10,8 @@ class Stream extends React.Component {
     this.state = {
       numFrames: 6,
       scrollableHeight: 0,
-      previousScrollHeight: 0
+      previousScrollHeight: 0,
+      loading: false
     };
   }
   componentDidMount() {
@@ -29,6 +30,7 @@ class Stream extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.setState({loading: true});
       this.setState({scrollableHeight: 0});
       this.setState({previousScrollHeight: 0});
       setTimeout(() => {
@@ -41,7 +43,10 @@ class Stream extends React.Component {
         path[1] === "publicImages") {
           this.props.requestImages(path[1], null,  6);
         }
-      }, 100);
+      }, 150);
+      setTimeout(()=> {
+        this.setState({loading:false});
+      }, 1500);
     }
   }
 
@@ -76,35 +81,39 @@ class Stream extends React.Component {
   }
 
   render() {
-    if (this.state.scrollableHeight) {
-      return (
-        <div className = "stream">
-        <ul className = "stream-frame">
-        <Infinite className = "infinite-scroll"
-        useWindowAsScrollContainer
-        infiniteLoadBeginEdgeOffset= {200}
-        elementHeight = {this.state.scrollableHeight}
-        onInfiniteLoad = {this.addSixMore.bind(this)}>
-        <div>{this.generateFrames()}</div>
-        </Infinite>
-        </ul>
-        </div>
-      );
+    if (this.state.loading) {
+      return <Loader/>;
     } else {
-      return (
-        <div className = "stream">
-        <ul className = "stream-frame">
-        <Infinite className = "infinite-scroll"
-        useWindowAsScrollContainer
-        infiniteLoadBeginEdgeOffset= {200}
-        elementHeight = {1400}
-        timeScrollStateLastsForAfterUserScrolls = {0}
-        onInfiniteLoad = {this.addSixMore.bind(this)}>
-        <div>{this.generateFrames()}</div>
-        </Infinite>
-        </ul>
-        </div>
-      );
+      if (this.state.scrollableHeight) {
+        return (
+          <div className = "stream">
+          <ul className = "stream-frame">
+          <Infinite className = "infinite-scroll"
+          useWindowAsScrollContainer
+          infiniteLoadBeginEdgeOffset= {200}
+          elementHeight = {this.state.scrollableHeight}
+          onInfiniteLoad = {this.addSixMore.bind(this)}>
+          <div>{this.generateFrames()}</div>
+          </Infinite>
+          </ul>
+          </div>
+        );
+      } else {
+        return (
+          <div className = "stream">
+          <ul className = "stream-frame">
+          <Infinite className = "infinite-scroll"
+          useWindowAsScrollContainer
+          infiniteLoadBeginEdgeOffset= {200}
+          elementHeight = {1400}
+          timeScrollStateLastsForAfterUserScrolls = {0}
+          onInfiniteLoad = {this.addSixMore.bind(this)}>
+          <div>{this.generateFrames()}</div>
+          </Infinite>
+          </ul>
+          </div>
+        );
+      }
     }
   }
 }
