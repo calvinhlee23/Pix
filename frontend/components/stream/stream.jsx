@@ -90,7 +90,7 @@ class Stream extends React.Component {
           <ul className = "stream-frame">
           <Infinite className = "infinite-scroll"
           useWindowAsScrollContainer
-          infiniteLoadBeginEdgeOffset= {200}
+          infiniteLoadBeginEdgeOffset= {400}
           elementHeight = {this.state.scrollableHeight}
           onInfiniteLoad = {this.addSixMore.bind(this)}>
           <div>{this.generateFrames()}</div>
