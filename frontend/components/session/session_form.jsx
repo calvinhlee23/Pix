@@ -92,7 +92,6 @@ class SessionForm extends React.Component {
   }
 
   guestLogin() {
-    event.preventDefault();
     hashHistory.push("/guestLogin");
   }
 
