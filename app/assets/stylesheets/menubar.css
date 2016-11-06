@@ -36,6 +36,11 @@
 
 .gear-wrapper a:hover {
   color: inherit;
+  cursor: pointer;
+}
+.gear-wrapper span:hover {
+  cursor: pointer;
+  color: inherit;
 }
 
 .confirmation-wrapper-logout {
