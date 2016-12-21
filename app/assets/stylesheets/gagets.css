@@ -17,9 +17,13 @@
   margin-bottom: 0;
 }
 
+.clock-time-wrapper {
+  height: 49px;
+}
+
 .clock-time{
   float:left;
-  margin-left: 35px;
+  margin-left: 48px;
   position: absolute;
   margin-bottom: 0;
 }
