@@ -7,7 +7,8 @@ class Clock extends React.Component {
     this.state = {
       dateObj: new Date(),
       clockTime: '',
-      date: ''
+      date: '',
+      amPM: ''
     };
     this.tick = this.tick.bind(this);
   }
@@ -21,22 +22,26 @@ class Clock extends React.Component {
 
   tick() {
     let newDateOb = new Date();
-    let newdateObStr = newDateOb.toString();
-    var newdateObStr1 = newdateObStr.split(" ");
-    var newdateObStr2 = newdateObStr.split(" ");
-    let date = newdateObStr1.splice(0, newdateObStr1.length/2 +1).join(' ');
-    let time = newdateObStr2.splice(newdateObStr2.length/2 +1).join(' ');
-    time = time.split("GMT")[0];
+    let date = newDateOb.toLocaleDateString();
+    let time = newDateOb.toLocaleTimeString().split(" ");
+    let timeTime = time[0].split(":")[0] + ":" + time[0].split(":")[1];
+    let amPM = time[1];
     this.setState({dateObj: newDateOb});
-    this.setState({clockTime: time});
+    this.setState({clockTime: timeTime});
+    this.setState({amPM: amPM});
     this.setState({date: date});
   }
 
   render (){
     var time = this.state.clockTime;
     var date = this.state.date;
+    var amPM = this.state.amPM;
     return (
       <div className = "clock">
+        <div className = "clock-time-wrapper">
+          <div className = "clock-time">{time}</div>
+          <div className = "clock-am-pm">{amPM}</div>
+        </div>
         <div className = "clock-date">{date}</div>
       </div>
     );

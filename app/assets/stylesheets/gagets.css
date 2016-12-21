@@ -1,27 +1,32 @@
 .gagets-wrapper {
   text-align: left;
-  margin-left: 10px;
+  margin-left: 22px;
   margin-top:0;
   max-height: 300px;
   border: none;
 }
 .clock {
+
   display: block;
   font-weight: bold;
+  font-size: 45px;
 }
+
 .clock ul {
   display: block;
   margin-bottom: 0;
 }
+
 .clock-time{
-  font-size: 71px;
+  float:left;
+  margin-left: 35px;
+  position: absolute;
   margin-bottom: 0;
 }
 
-.clock-date {
-  font-size: 28px;
+.clock-am-pm {
+  margin-left: 165px;
 }
-
 .weather {
   display: block;
   font-weight: bold;
