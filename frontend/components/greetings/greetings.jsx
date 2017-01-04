@@ -1,5 +1,4 @@
 import React from 'react';
-import Clock from './clock';
 import Weather from './weather';
 import MenuBar from '../menu/menubar';
 import {hashHistory} from 'react-router';

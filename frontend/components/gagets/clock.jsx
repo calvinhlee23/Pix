@@ -39,8 +39,8 @@ class Clock extends React.Component {
     return (
       <div className = "clock">
         <div className = "clock-time-wrapper">
+        <div className = "clock-am-pm">{amPM}</div>
           <div className = "clock-time">{time}</div>
-          <div className = "clock-am-pm">{amPM}</div>
         </div>
         <div className = "clock-date">{date}</div>
       </div>

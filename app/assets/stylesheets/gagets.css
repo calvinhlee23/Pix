@@ -9,7 +9,7 @@
 
   display: block;
   font-weight: bold;
-  font-size: 45px;
+  font-size: 55px;
 }
 
 .clock ul {
@@ -19,17 +19,11 @@
 
 .clock-time-wrapper {
   height: 49px;
-}
-
-.clock-time{
-  float:left;
-  margin-left: 48px;
-  position: absolute;
-  margin-bottom: 0;
+  display: flex;
 }
 
 .clock-am-pm {
-  margin-left: 165px;
+  margin-right: 20px;
 }
 .weather {
   display: block;
