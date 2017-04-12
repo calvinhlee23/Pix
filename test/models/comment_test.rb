@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id          :integer          not null, primary key
+#  body        :text             not null
+#  author_id   :integer          not null
+#  image_id    :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  author_name :string           not null
+#
+
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
